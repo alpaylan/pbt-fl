@@ -5,3 +5,7 @@ store = "/Users/akeles/.etna/store.json"
 [[workloads]]
 name = "RBT"
 language = "Rust"
+
+[[workloads]]
+name = "STLC"
+language = "Rust"
