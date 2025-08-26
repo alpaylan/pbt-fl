@@ -1,4 +1,7 @@
 name = "faultloc"
 description = "A description of the experiment"
-workloads = []
 store = "/Users/akeles/.etna/store.json"
+
+[[workloads]]
+name = "RBT"
+language = "Rust"
