@@ -9,3 +9,7 @@ language = "Rust"
 [[workloads]]
 name = "STLC"
 language = "Rust"
+
+[[workloads]]
+name = "BST"
+language = "Rust"
