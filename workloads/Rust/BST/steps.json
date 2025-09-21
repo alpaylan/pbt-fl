@@ -41,7 +41,9 @@
             "Command": {
                 "command": "crabcheck-profiling-analysis",
                 "args": [
-                    "coverage"
+                    "coverage",
+                    "bst",
+                    "--print-json"
                 ],
                 "run_at": "${workload_path}"
             }
