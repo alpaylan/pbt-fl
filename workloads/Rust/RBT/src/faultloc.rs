@@ -1,9 +1,8 @@
 use {
-    bst::spec,
     crabcheck::profiling::quickcheck,
+    rbt::spec,
     tracing_subscriber::EnvFilter,
 };
-
 
 fn main() {
     let args = std::env::args().collect::<Vec<_>>();
@@ -12,53 +11,35 @@ fn main() {
         eprintln!("Usage: {} <tool> <property>", args[0]);
         eprintln!("Available tools: quickcheck");
         eprintln!(
-            "For available properties, check https://github.com/alpaylan/etna-cli/blob/main/docs/workloads/bst.md"
+            "For available properties, check https://github.com/alpaylan/etna-cli/blob/main/docs/workloads/rbt.md"
         );
         return;
     }
     let tool = args[1].as_str();
     let property = args[2].as_str();
 
-    let num_tests = 200;
+    let num_tests = 200_000_000;
 
     let result = match (tool, property) {
-        ("crabcheck", "insert_valid") => quickcheck(|(t, k, v)| spec::prop_insert_valid(t, k, v)),
+        ("crabcheck", "InsertValid") => quickcheck(|(t, k, v)| spec::prop_insert_valid(t, k, v)),
         ("crabcheck", "DeleteValid") => quickcheck(|(t, k)| spec::prop_delete_valid(t, k)),
-        ("crabcheck", "UnionValid") => quickcheck(|(t1, t2)| spec::prop_union_valid(t1, t2)),
         ("crabcheck", "InsertPost") => {
             quickcheck(|(t, k1, k2, v)| spec::prop_insert_post(t, k1, k2, v))
         },
         ("crabcheck", "DeletePost") => quickcheck(|(t, k1, k2)| spec::prop_delete_post(t, k1, k2)),
-        ("crabcheck", "UnionPost") => quickcheck(|(t1, t2, k)| spec::prop_union_post(t1, t2, k)),
         ("crabcheck", "InsertModel") => quickcheck(|(t, k, v)| spec::prop_insert_model(t, k, v)),
         ("crabcheck", "DeleteModel") => quickcheck(|(t, k)| spec::prop_delete_model(t, k)),
-        ("crabcheck", "UnionModel") => quickcheck(|(t1, t2)| spec::prop_union_model(t1, t2)),
         ("crabcheck", "InsertInsert") => {
             quickcheck(|(t, k1, k2, v1, v2)| spec::prop_insert_insert(t, k1, k2, v1, v2))
         },
         ("crabcheck", "InsertDelete") => {
             quickcheck(|(t, k1, k2, v)| spec::prop_insert_delete(t, k1, k2, v))
         },
-        ("crabcheck", "InsertUnion") => {
-            quickcheck(|(t1, t2, k1, k2)| spec::prop_insert_union(t1, t2, k1, k2))
-        },
         ("crabcheck", "DeleteInsert") => {
             quickcheck(|(t, k1, k2, v)| spec::prop_delete_insert(t, k1, k2, v))
         },
         ("crabcheck", "DeleteDelete") => {
             quickcheck(|(t, k1, k2)| spec::prop_delete_delete(t, k1, k2))
-        },
-        ("crabcheck", "DeleteUnion") => {
-            quickcheck(|(t1, t2, k)| spec::prop_delete_union(t1, t2, k))
-        },
-        ("crabcheck", "UnionDeleteInsert") => {
-            quickcheck(|(t1, t2, k1, k2)| spec::prop_union_delete_insert(t1, t2, k1, k2))
-        },
-        ("crabcheck", "UnionUnionIdempotent") => {
-            quickcheck(|t| spec::prop_union_union_idempotent(t))
-        },
-        ("crabcheck", "UnionUnionAssoc") => {
-            quickcheck(|(t1, t2, t3)| spec::prop_union_union_assoc(t1, t2, t3))
         },
         _ => {
             panic!("Unknown tool or property: {} {}", tool, property)

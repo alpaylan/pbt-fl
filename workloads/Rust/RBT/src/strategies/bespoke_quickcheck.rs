@@ -1,9 +1,19 @@
-use quickcheck::{Arbitrary, Gen};
+use quickcheck::{
+    Arbitrary,
+    Gen,
+};
 
 use crate::implementation::{
-    Color::{self, *},
-    Tree::{self, *},
-    blacken, elems,
+    Color::{
+        self,
+        *,
+    },
+    Tree::{
+        self,
+        *,
+    },
+    blacken,
+    elems,
 };
 
 fn choose(min: usize, max: usize, g: &mut Gen) -> usize {
@@ -22,35 +32,19 @@ pub(crate) fn gen_kvs(size: usize, g: &mut Gen) -> Vec<(i32, i32)> {
 
 fn balance(col: Color, tl: Tree, key: i32, val: i32, tr: Tree) -> Tree {
     match (col, tl, key, val, tr) {
-        (B, T(R, box T(R, a, x, vx, b), y, vy, c), z, vz, d) => T(
-            R,
-            Box::new(T(B, a, x, vx, b)),
-            y,
-            vy,
-            Box::new(T(B, c, z, vz, Box::new(d))),
-        ),
+        (B, T(R, box T(R, a, x, vx, b), y, vy, c), z, vz, d) => {
+            T(R, Box::new(T(B, a, x, vx, b)), y, vy, Box::new(T(B, c, z, vz, Box::new(d))))
+        },
 
-        (B, T(R, a, x, vx, box T(R, b, y, vy, c)), z, vz, d) => T(
-            R,
-            Box::new(T(B, a, x, vx, b)),
-            y,
-            vy,
-            Box::new(T(B, c, z, vz, Box::new(d))),
-        ),
-        (B, a, x, vx, T(R, box T(R, b, y, vy, c), z, vz, d)) => T(
-            R,
-            Box::new(T(B, Box::new(a), x, vx, b)),
-            y,
-            vy,
-            Box::new(T(B, c, z, vz, d)),
-        ),
-        (B, a, x, vx, T(R, b, y, vy, box T(R, c, z, vz, d))) => T(
-            R,
-            Box::new(T(B, Box::new(a), x, vx, b)),
-            y,
-            vy,
-            Box::new(T(B, c, z, vz, d)),
-        ),
+        (B, T(R, a, x, vx, box T(R, b, y, vy, c)), z, vz, d) => {
+            T(R, Box::new(T(B, a, x, vx, b)), y, vy, Box::new(T(B, c, z, vz, Box::new(d))))
+        },
+        (B, a, x, vx, T(R, box T(R, b, y, vy, c), z, vz, d)) => {
+            T(R, Box::new(T(B, Box::new(a), x, vx, b)), y, vy, Box::new(T(B, c, z, vz, d)))
+        },
+        (B, a, x, vx, T(R, b, y, vy, box T(R, c, z, vz, d))) => {
+            T(R, Box::new(T(B, Box::new(a), x, vx, b)), y, vy, Box::new(T(B, c, z, vz, d)))
+        },
         (rb, a, x, vx, b) => T(rb, Box::new(a), x, vx, Box::new(b)),
     }
 }
@@ -67,14 +61,14 @@ pub(crate) fn insert(key: i32, val: i32, t: Tree) -> Tree {
                 } else {
                     T(rb, Box::new(a), y, vx, Box::new(b))
                 }
-            }
+            },
         }
     }
     blacken(ins(key, val, t))
 }
 
 pub(crate) fn bespoke(g: &mut Gen) -> Tree {
-    let s= g.size() + 1;
+    let s = g.size() + 1;
     let sz = choose(1, s, g);
     let kvs = gen_kvs(sz, g);
     kvs.iter().fold(E, |t, (k, v)| insert(*k, *v, t))
@@ -92,9 +86,7 @@ impl Arbitrary for Tree {
         }
 
         let t1 = elems[1..].iter().fold(E, |t, (k, v)| insert(*k, *v, t));
-        let t2 = elems[..elems.len() - 1]
-            .iter()
-            .fold(E, |t, (k, v)| insert(*k, *v, t));
+        let t2 = elems[..elems.len() - 1].iter().fold(E, |t, (k, v)| insert(*k, *v, t));
 
         Box::new(std::iter::once(t1).chain(std::iter::once(t2)))
     }

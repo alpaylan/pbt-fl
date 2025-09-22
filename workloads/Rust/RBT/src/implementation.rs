@@ -149,6 +149,7 @@ pub(crate) fn insert(key: i32, val: i32, t: Tree) -> Tree {
             }
             (x, vx, T(rb, box a, y, vy, box b)) => {
                 /*| */
+                                                /*|
                                                 if x < y {
                                                     balance(rb, ins(x, vx, a), y, vy, b)
                                                 } else if y < x {
@@ -156,10 +157,9 @@ pub(crate) fn insert(key: i32, val: i32, t: Tree) -> Tree {
                                                 } else {
                                                     T(rb, Box::new(a), y, vx, Box::new(b))
                                                 }
+                                                */
                 /*|| insert_1 */
-                /*|
                 T(R, Box::new(E), x, vx, Box::new(E))
-                */
                 /*|| insert_2 */
                 /*|
                 if x < y {

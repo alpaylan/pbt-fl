@@ -9,27 +9,27 @@
         "timeout": 180,
         "tasks": [
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "InsertPost"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "InsertModel"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "DeleteInsert"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "InsertInsert"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "InsertUnion"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "UnionDeleteInsert"
             }
         ]
@@ -44,31 +44,31 @@
         "timeout": 180,
         "tasks": [
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "InsertPost"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "InsertModel"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "InsertDelete"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "DeleteInsert"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "InsertInsert"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "InsertUnion"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "UnionDeleteInsert"
             }
         ]
@@ -83,27 +83,27 @@
         "timeout": 180,
         "tasks": [
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "InsertPost"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "InsertModel"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "InsertDelete"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "InsertInsert"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "InsertUnion"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "UnionDeleteInsert"
             }
         ]
@@ -118,31 +118,31 @@
         "timeout": 180,
         "tasks": [
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "DeleteModel"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "DeletePost"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "DeleteDelete"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "DeleteInsert"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "DeleteUnion"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "InsertDelete"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "UnionDeleteInsert"
             }
         ]
@@ -157,27 +157,27 @@
         "timeout": 180,
         "tasks": [
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "DeleteModel"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "DeletePost"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "DeleteDelete"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "DeleteInsert"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "DeleteUnion"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "UnionDeleteInsert"
             }
         ]
@@ -192,31 +192,31 @@
         "timeout": 180,
         "tasks": [
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "UnionValid"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "UnionPost"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "UnionModel"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "DeleteUnion"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "InsertUnion"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "UnionDeleteInsert"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "UnionUnionAssoc"
             }
         ]
@@ -231,31 +231,31 @@
         "timeout": 180,
         "tasks": [
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "UnionValid"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "UnionPost"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "UnionModel"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "DeleteUnion"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "InsertUnion"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "UnionDeleteInsert"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "UnionUnionAssoc"
             }
         ]
@@ -270,27 +270,27 @@
         "timeout": 180,
         "tasks": [
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "UnionPost"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "UnionModel"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "DeleteUnion"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "InsertUnion"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "UnionDeleteInsert"
             },
             {
-                "strategy": "quickcheck",
+                "strategy": "crabcheck",
                 "property": "UnionUnionAssoc"
             }
         ]
