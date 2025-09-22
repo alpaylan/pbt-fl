@@ -47,6 +47,47 @@
                 ],
                 "run_at": "${workload_path}"
             }
+        },
+        {
+            "Command": {
+                "command": "rm",
+                "args": [
+                    "-r",
+                    "coverage"
+                ],
+                "run_at": "${workload_path}"
+            }
+        },
+        {
+            "Command": {
+                "command": "rm",
+                "args": [
+                    "-r",
+                    "jsondata"
+                ],
+                "run_at": "${workload_path}"
+            }
+        },
+        {
+            "Command": {
+                "command": "rm",
+                "args": [
+                    "-r",
+                    "profdata"
+                ],
+                "run_at": "${workload_path}"
+            }
+        },
+        {
+            "Command": {
+                "command": "rm",
+                "args": [
+                    "-f",
+                    "--",
+                    "default*.profraw(.N)"
+                ],
+                "run_at": "${workload_path}"
+            }
         }
     ]
 }
