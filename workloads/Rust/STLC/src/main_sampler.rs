@@ -1,4 +1,7 @@
-use stlc::{spec, strategies::bespoke::ExprOpt};
+use stlc::{
+    spec,
+    spec::ExprOpt,
+};
 
 fn main() {
     let args = std::env::args().collect::<Vec<_>>();
@@ -25,13 +28,13 @@ fn main() {
     let result = match (tool, property) {
         ("quickcheck", "SinglePreserve") => {
             qc.quicksample(spec::prop_single_preserve as fn(ExprOpt) -> Option<bool>)
-        }
+        },
         ("quickcheck", "MultiPreserve") => {
             qc.quicksample(spec::prop_multi_preserve as fn(ExprOpt) -> Option<bool>)
-        }
+        },
         _ => {
             panic!("Unknown tool or property: {} {}", tool, property)
-        }
+        },
     };
 
     let mut results = Vec::<serde_json::Value>::new();
@@ -42,10 +45,7 @@ fn main() {
             "time".to_string(),
             serde_json::Value::String(format!("{}ns", duration.as_nanos())),
         );
-        object.insert(
-            "value".to_string(),
-            serde_json::Value::String(element.to_string()),
-        );
+        object.insert("value".to_string(), serde_json::Value::String(element.to_string()));
         results.push(serde_json::Value::Object(object));
     }
 

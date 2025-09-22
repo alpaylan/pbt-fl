@@ -1,8 +1,16 @@
-use std::fmt::Display;
+use quickcheck::{
+    Arbitrary,
+    Gen,
+};
 
-use quickcheck::{Arbitrary, Gen};
-
-use crate::implementation::{Ctx, Expr, Typ};
+use crate::{
+    implementation::{
+        Ctx,
+        Expr,
+        Typ,
+    },
+    spec::ExprOpt,
+};
 
 impl Arbitrary for Expr {
     fn arbitrary(g: &mut Gen) -> Self {
@@ -25,14 +33,10 @@ fn gen_exact_expr(ctx: Ctx, t: Typ, g: &mut Gen, size: usize) -> Expr {
         }
         g.choose(&gens).unwrap()(g)
     } else {
-        let mut gens: Vec<Box<dyn Fn(&mut Gen) -> Expr>> = vec![
-            Box::new(|g| gen_one(&ctx, &t, g)),
-            Box::new(|g| gen_app(&ctx, &t, g, size)),
-        ];
+        let mut gens: Vec<Box<dyn Fn(&mut Gen) -> Expr>> =
+            vec![Box::new(|g| gen_one(&ctx, &t, g)), Box::new(|g| gen_app(&ctx, &t, g, size))];
         if let Typ::TFun(box t1, box t2) = &t {
-            gens.push(Box::new(|g| {
-                gen_abs(&ctx, t1.clone(), t2.clone(), g, size - 1)
-            }));
+            gens.push(Box::new(|g| gen_abs(&ctx, t1.clone(), t2.clone(), g, size - 1)));
         }
         if let Some(var_gen) = gen_var(&ctx, &t, g) {
             gens.push(Box::new(move |_| var_gen.clone()));
@@ -49,7 +53,7 @@ fn gen_one(ctx: &Ctx, t: &Typ, g: &mut Gen) -> Expr {
             ctx1.insert(0, *t1.clone());
             let e = gen_one(&ctx1, t2, g);
             Expr::Abs(*t1.clone(), Box::new(e))
-        }
+        },
     }
 }
 
@@ -73,11 +77,8 @@ fn gen_app(ctx: &Ctx, t: &Typ, g: &mut Gen, size: usize) -> Expr {
 }
 
 fn gen_var(ctx: &Ctx, t: &Typ, g: &mut Gen) -> Option<Expr> {
-    let candidates: Vec<usize> = ctx
-        .iter()
-        .enumerate()
-        .filter_map(|(i, t2)| if t2 == t { Some(i) } else { None })
-        .collect();
+    let candidates: Vec<usize> =
+        ctx.iter().enumerate().filter_map(|(i, t2)| if t2 == t { Some(i) } else { None }).collect();
 
     g.choose(&candidates).map(|&i| Expr::Var(i as i32))
 }
@@ -91,10 +92,7 @@ fn gen_typ(g: &mut Gen, size: usize) -> Typ {
             (
                 size,
                 Box::new(move |g| {
-                    Typ::TFun(
-                        Box::new(gen_typ(g, size / 2)),
-                        Box::new(gen_typ(g, size / 2)),
-                    )
+                    Typ::TFun(Box::new(gen_typ(g, size / 2)), Box::new(gen_typ(g, size / 2)))
                 }),
             ),
         ])
@@ -105,18 +103,6 @@ impl Arbitrary for Typ {
     fn arbitrary(g: &mut Gen) -> Self {
         let size = g.size().min(5);
         gen_typ(g, size)
-    }
-}
-
-#[derive(Debug, Clone)]
-pub struct ExprOpt(pub Option<Expr>);
-
-impl Display for ExprOpt {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match &self.0 {
-            Some(expr) => write!(f, "{}", expr),
-            None => write!(f, "None"),
-        }
     }
 }
 

@@ -90,11 +90,11 @@ pub fn shift(d: i32, expr: &Expr) -> Expr {
         match e {
             Var(i) => {
                 /*| */
-                if *i < c { Var(*i) } else { Var(*i + d) }
-                /*|| shift_var_none */
                 /*|
-                Var(*i)
+                if *i < c { Var(*i) } else { Var(*i + d) }
                 */
+                /*|| shift_var_none */
+                Var(*i)
                 /*|| shift_var_all */
                 /*|
                 Var(*i + d)

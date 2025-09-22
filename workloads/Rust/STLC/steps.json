@@ -42,7 +42,7 @@
                 "command": "crabcheck-profiling-analysis",
                 "args": [
                     "coverage",
-                    "bst",
+                    "stlc",
                     "--print-json"
                 ],
                 "run_at": "${workload_path}"

@@ -1,7 +1,21 @@
-use std::{path::Path, process::ExitCode};
+use std::{
+    path::Path,
+    process::ExitCode,
+};
 
-use etna_rs_utils::{SamplingResult, Status};
-use stlc::{parser, spec, strategies::bespoke::ExprOpt};
+use {
+    etna_rs_utils::{
+        SamplingResult,
+        Status,
+    },
+    stlc::{
+        parser,
+        spec::{
+            self,
+            ExprOpt,
+        },
+    },
+};
 
 fn sample(property: String, tests: &str) -> SamplingResult {
     let mut discarded = 0;
@@ -22,10 +36,10 @@ fn sample(property: String, tests: &str) -> SamplingResult {
                 match spec::prop_single_preserve(ExprOpt(Some(e.clone()))) {
                     None => {
                         discarded += 1;
-                    }
+                    },
                     Some(true) => {
                         passed += 1;
-                    }
+                    },
                     Some(false) => {
                         return SamplingResult {
                             property,
@@ -34,10 +48,10 @@ fn sample(property: String, tests: &str) -> SamplingResult {
                             passed,
                             discarded,
                         };
-                    }
+                    },
                 }
             }
-        }
+        },
         "MultiPreserve" => {
             let Ok(tests) = parser::parse(&tests) else {
                 return SamplingResult {
@@ -53,10 +67,10 @@ fn sample(property: String, tests: &str) -> SamplingResult {
                 match spec::prop_multi_preserve(ExprOpt(Some(e.clone()))) {
                     None => {
                         discarded += 1;
-                    }
+                    },
                     Some(true) => {
                         passed += 1;
-                    }
+                    },
                     Some(false) => {
                         return SamplingResult {
                             property,
@@ -65,10 +79,10 @@ fn sample(property: String, tests: &str) -> SamplingResult {
                             passed,
                             discarded,
                         };
-                    }
+                    },
                 }
             }
-        }
+        },
         _ => {
             return SamplingResult {
                 status: Status::Aborted(format!("Unknown property: {}", property)),
@@ -77,7 +91,7 @@ fn sample(property: String, tests: &str) -> SamplingResult {
                 passed,
                 discarded,
             };
-        }
+        },
     }
     return SamplingResult {
         property,
