@@ -158,15 +158,15 @@ pub fn subst(n: i32, s: &Expr, e: &Expr) -> Expr {
 
 pub fn subst_top(s: &Expr, e: &Expr) -> Expr {
     /*| */
-/*|
     shift(-1, &subst(0, &shift(1, s), e))
-*/
     /*|| substTop_no_shift */
     /*|
     subst(0, s, e)
     */
     /*|| substTop_no_shift_back */
+    /*|
     subst(0, &shift(1, s), e)
+    */
     /* |*/
 }
 
