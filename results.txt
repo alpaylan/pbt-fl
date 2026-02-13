@@ -1,0 +1,51 @@
+=== Data Coverage ===
+ Workload   |  Total Entries |  With Suspiciousness |  Without |  No Regions
+ ---------------------------------------------------------------------------
+ BST        |            102 |                   17 |       60 |          25
+ RBT        |             29 |                    0 |       29 |           0
+ STLC       |             20 |                    0 |       20 |           0
+ ---------------------------------------------------------------------------
+ TOTAL      |            151 |                   17 |      109 |          25
+
+Mutations with suspiciousness data: delete_4, insert_2, insert_3
+Mutations without: delete_5, insert_1, miscolor_delete, miscolor_insert, no_balance_insert_1, no_balance_insert_2, shift_abs_no_incr, shift_var_all, shift_var_leq, shift_var_none, substTop_no_shift, substTop_no_shift_back, subst_abs_no_incr, subst_abs_no_shift, subst_var_all, subst_var_none, union_6, union_7, union_8
+
+Note: Entries without suspiciousness lack coverage analysis data
+(crabcheck-profiling-analysis likely failed for those runs).
+
+=== Pipeline Time Budget (per task, ~180s timeout) ===
+ 1. Test execution (PBT with coverage instrumentation): ~120-180s  [dominant]
+ 2. Coverage data processing (instrumentation.sh):      ~5-15s
+ 3. Suspiciousness computation (profiling-analysis):    ~2-5s
+
+=== Per-Entry Fault Localization Rankings ===
+ Mutation                       Property             |  tarantula |     ochiai |      dstar |    jaccard |        op2
+ --------------------------------------------------------------------------------------------------------------------
+ insert_2                       InsertDelete         |       1/66 |       5/66 |      19/66 |       5/66 |       4/66
+ insert_2                       DeleteInsert         |      11/66 |       1/66 |       1/66 |       9/66 |       1/66
+ insert_2                       InsertInsert         |       1/66 |       1/66 |       1/66 |       1/66 |       1/66
+ insert_2                       InsertUnion          |       1/66 |       1/66 |       1/66 |       1/66 |       1/66
+ insert_2                       UnionDeleteInsert    |       1/66 |       3/66 |       3/66 |       3/66 |       1/66
+ insert_3                       InsertPost           |       1/67 |       1/67 |       1/67 |       1/67 |       1/67
+ insert_3                       InsertModel          |       1/67 |       1/67 |       1/67 |       1/67 |       1/67
+ insert_3                       InsertDelete         |       1/57 |       1/57 |       1/57 |       1/57 |       1/57
+ insert_3                       InsertInsert         |       1/57 |       1/57 |       1/57 |       1/57 |       1/57
+ insert_3                       InsertUnion          |       1/57 |       1/57 |       1/57 |       1/57 |       1/57
+ insert_3                       UnionDeleteInsert    |       5/57 |       5/57 |       5/57 |       5/57 |       1/57
+ delete_4                       DeleteModel          |       1/67 |       1/67 |       1/67 |       1/67 |       1/67
+ delete_4                       DeletePost           |       3/67 |       4/67 |       4/67 |       4/67 |       4/67
+ delete_4                       DeleteDelete         |       4/67 |       3/67 |       3/67 |       4/67 |       1/67
+ delete_4                       DeleteInsert         |       1/67 |       1/67 |       1/67 |       1/67 |       1/67
+ delete_4                       DeleteUnion          |       4/67 |       2/67 |       2/67 |       2/67 |       1/67
+ delete_4                       InsertDelete         |       1/67 |       1/67 |       1/67 |       1/67 |       1/67
+
+=== Summary Statistics ===
+ Metric       |   Avg Rank |   Med Rank |   EXAM % |  Top-1 |  Top-3 |  Top-5 | Top-10
+ -------------------------------------------------------------------------------------
+ tarantula    |       2.29 |        1.0 |    2.01% |  70.6% |  76.5% |  94.1% |  94.1%
+ ochiai       |       1.94 |        1.0 |    1.47% |  64.7% |  82.4% | 100.0% | 100.0%
+ dstar        |       2.76 |        1.0 |    2.72% |  64.7% |  82.4% |  94.1% |  94.1%
+ jaccard      |       2.47 |        1.0 |    2.28% |  58.8% |  70.6% |  94.1% | 100.0%
+ op2          |       1.35 |        1.0 |    0.53% |  88.2% |  88.2% | 100.0% | 100.0%
+
+Total entries evaluated: 17

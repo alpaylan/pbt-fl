@@ -22,6 +22,11 @@ if __name__ == "__main__":
         choices=["BST", "RBT", "STLC"],
         help="Filter to a specific workload (only used with --evaluate)",
     )
+    parser.add_argument(
+        "--output",
+        type=str,
+        help="Write evaluation results to the given file path (used with --evaluate)",
+    )
     args = parser.parse_args()
 
     # Ground truth: (workload, mutation) -> (line_start, line_end) in implementation.rs
@@ -101,13 +106,79 @@ if __name__ == "__main__":
         return (None, total)
 
     if args.evaluate:
-        # Read all entries
-        with open(pathlib.Path(os.getcwd(), "store.jsonl"), "r") as f:
-            lines = f.readlines()
+        output_lines = []
 
+        def emit(line=""):
+            print(line)
+            output_lines.append(line)
+
+        # Read all entries (unfiltered for data coverage)
+        with open(pathlib.Path(os.getcwd(), "store.jsonl"), "r") as f:
+            all_lines = f.readlines()
+
+        all_results = [json.loads(line)["data"] for line in all_lines]
+
+        # === Data Coverage ===
+        from collections import defaultdict
+
+        coverage = defaultdict(lambda: {"total": 0, "with_susp": 0, "without": 0, "no_regions": 0})
+        mutations_with_susp = set()
+        mutations_without_susp = set()
+
+        for result in all_results:
+            workload = result.get("workload", "")
+            if args.workload and workload != args.workload:
+                continue
+            mutations = result.get("mutations", [])
+            mutation = mutations[0] if mutations else ""
+            regions = result.get("regions", [])
+
+            coverage[workload]["total"] += 1
+
+            impl_regions = [
+                r for r in regions
+                if r.get("file", "").endswith("implementation.rs")
+            ]
+            has_susp = any(r.get("suspiciousness") for r in impl_regions)
+
+            if not impl_regions:
+                coverage[workload]["no_regions"] += 1
+                mutations_without_susp.add(mutation)
+            elif has_susp:
+                coverage[workload]["with_susp"] += 1
+                mutations_with_susp.add(mutation)
+            else:
+                coverage[workload]["without"] += 1
+                mutations_without_susp.add(mutation)
+
+        emit("=== Data Coverage ===")
+        emit(f" {'Workload':<10} | {'Total Entries':>14} | {'With Suspiciousness':>20} | {'Without':>8} | {'No Regions':>11}")
+        emit(" " + "-" * 75)
+        grand = {"total": 0, "with_susp": 0, "without": 0, "no_regions": 0}
+        for wl in sorted(coverage.keys()):
+            c = coverage[wl]
+            emit(f" {wl:<10} | {c['total']:>14} | {c['with_susp']:>20} | {c['without']:>8} | {c['no_regions']:>11}")
+            for k in grand:
+                grand[k] += c[k]
+        emit(" " + "-" * 75)
+        emit(f" {'TOTAL':<10} | {grand['total']:>14} | {grand['with_susp']:>20} | {grand['without']:>8} | {grand['no_regions']:>11}")
+
+        only_without = sorted(mutations_without_susp - mutations_with_susp)
+        emit(f"\nMutations with suspiciousness data: {', '.join(sorted(mutations_with_susp)) or 'none'}")
+        emit(f"Mutations without: {', '.join(only_without) or 'none'}")
+        emit("\nNote: Entries without suspiciousness lack coverage analysis data")
+        emit("(crabcheck-profiling-analysis likely failed for those runs).")
+
+        # === Pipeline Time Budget ===
+        emit("")
+        emit("=== Pipeline Time Budget (per task, ~180s timeout) ===")
+        emit(" 1. Test execution (PBT with coverage instrumentation): ~120-180s  [dominant]")
+        emit(" 2. Coverage data processing (instrumentation.sh):      ~5-15s")
+        emit(" 3. Suspiciousness computation (profiling-analysis):    ~2-5s")
+
+        # === Evaluation ===
         entries = []
-        for line in lines:
-            result = json.loads(line)["data"]
+        for result in all_results:
             workload = result.get("workload", "")
             if args.workload and workload != args.workload:
                 continue
@@ -153,18 +224,22 @@ if __name__ == "__main__":
             )
 
         if not entries:
-            print("No matching entries with suspiciousness data found.")
+            emit("\nNo matching entries with suspiciousness data found.")
+            if args.output:
+                with open(args.output, "w") as f:
+                    f.write("\n".join(output_lines) + "\n")
+                print(f"\nResults written to {args.output}")
             exit(0)
 
         # Per-entry table
-        print("\n=== Per-Entry Fault Localization Rankings ===")
+        emit("\n=== Per-Entry Fault Localization Rankings ===")
         header = (
             f" {'Mutation':<30} {'Property':<20}"
             f" | {'tarantula':>10} | {'ochiai':>10} | {'dstar':>10}"
             f" | {'jaccard':>10} | {'op2':>10}"
         )
-        print(header)
-        print(" " + "-" * (len(header) - 1))
+        emit(header)
+        emit(" " + "-" * (len(header) - 1))
 
         for e in entries:
             cols = []
@@ -174,26 +249,26 @@ if __name__ == "__main__":
                     cols.append(f"{r}/{e['total']}")
                 else:
                     cols.append("N/A")
-            print(
+            emit(
                 f" {e['mutation']:<30} {e['property']:<20}"
                 f" | {cols[0]:>10} | {cols[1]:>10} | {cols[2]:>10}"
                 f" | {cols[3]:>10} | {cols[4]:>10}"
             )
 
         # Summary statistics per metric
-        print("\n=== Summary Statistics ===")
+        emit("\n=== Summary Statistics ===")
         summary_header = (
             f" {'Metric':<12}"
             f" | {'Avg Rank':>10} | {'Med Rank':>10} | {'EXAM %':>8}"
             f" | {'Top-1':>6} | {'Top-3':>6} | {'Top-5':>6} | {'Top-10':>6}"
         )
-        print(summary_header)
-        print(" " + "-" * (len(summary_header) - 1))
+        emit(summary_header)
+        emit(" " + "-" * (len(summary_header) - 1))
 
         for metric in METRICS:
             valid = [e for e in entries if e["ranks"][metric] is not None]
             if not valid:
-                print(f" {metric:<12} | {'No data':>10}")
+                emit(f" {metric:<12} | {'No data':>10}")
                 continue
 
             ranks_list = [e["ranks"][metric] for e in valid]
@@ -209,13 +284,19 @@ if __name__ == "__main__":
             top5 = sum(1 for r in ranks_list if r <= 5) / n * 100
             top10 = sum(1 for r in ranks_list if r <= 10) / n * 100
 
-            print(
+            emit(
                 f" {metric:<12}"
                 f" | {avg_rank:>10.2f} | {med_rank:>10.1f} | {avg_exam:>7.2f}%"
                 f" | {top1:>5.1f}% | {top3:>5.1f}% | {top5:>5.1f}% | {top10:>5.1f}%"
             )
 
-        print(f"\nTotal entries evaluated: {len(entries)}")
+        emit(f"\nTotal entries evaluated: {len(entries)}")
+
+        # Write to file if --output provided
+        if args.output:
+            with open(args.output, "w") as f:
+                f.write("\n".join(output_lines) + "\n")
+            print(f"\nResults written to {args.output}")
 
     else:
         # Existing display mode
