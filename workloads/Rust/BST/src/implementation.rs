@@ -29,6 +29,7 @@ pub(crate) fn insert(k: i32, v: i32, t: Tree) -> Tree {
         E => T(Box::new(E), k, v, Box::new(E)),
         T(l, k2, v2, r) => {
             /*| insert */
+            /*|
             if k < k2 {
                 T(Box::new(insert(k, v, *l)), k2, v2, r)
             } else if k2 < k {
@@ -36,10 +37,9 @@ pub(crate) fn insert(k: i32, v: i32, t: Tree) -> Tree {
             } else {
                 T(l, k2, v, r)
             }
-            /*|| insert_1 */
-            /*|
-            T(Box::new(E), k, v, Box::new(E))
             */
+            /*|| insert_1 */
+            T(Box::new(E), k, v, Box::new(E))
             /*|| insert_2 */
             /*|
             if k < k2 {
