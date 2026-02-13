@@ -1,14 +1,14 @@
 === Data Coverage ===
  Workload   |  Total Entries |  With Suspiciousness |  Without |  No Regions
  ---------------------------------------------------------------------------
- BST        |            102 |                   17 |       60 |          25
+ BST        |            156 |                   44 |       60 |          52
  RBT        |             29 |                    0 |       29 |           0
  STLC       |             20 |                    0 |       20 |           0
  ---------------------------------------------------------------------------
- TOTAL      |            151 |                   17 |      109 |          25
+ TOTAL      |            205 |                   44 |      109 |          52
 
-Mutations with suspiciousness data: delete_4, insert_2, insert_3
-Mutations without: delete_5, insert_1, miscolor_delete, miscolor_insert, no_balance_insert_1, no_balance_insert_2, shift_abs_no_incr, shift_var_all, shift_var_leq, shift_var_none, substTop_no_shift, substTop_no_shift_back, subst_abs_no_incr, subst_abs_no_shift, subst_var_all, subst_var_none, union_6, union_7, union_8
+Mutations with suspiciousness data: delete_4, delete_5, insert_2, insert_3, union_6, union_7, union_8
+Mutations without: insert_1, miscolor_delete, miscolor_insert, no_balance_insert_1, no_balance_insert_2, shift_abs_no_incr, shift_var_all, shift_var_leq, shift_var_none, substTop_no_shift, substTop_no_shift_back, subst_abs_no_incr, subst_abs_no_shift, subst_var_all, subst_var_none
 
 Note: Entries without suspiciousness lack coverage analysis data
 (crabcheck-profiling-analysis likely failed for those runs).
@@ -38,14 +38,41 @@ Note: Entries without suspiciousness lack coverage analysis data
  delete_4                       DeleteInsert         |       1/67 |       1/67 |       1/67 |       1/67 |       1/67
  delete_4                       DeleteUnion          |       4/67 |       2/67 |       2/67 |       2/67 |       1/67
  delete_4                       InsertDelete         |       1/67 |       1/67 |       1/67 |       1/67 |       1/67
+ delete_4                       UnionDeleteInsert    |       1/67 |       1/67 |       1/67 |       1/67 |       1/67
+ delete_5                       DeleteModel          |       2/72 |       2/72 |       1/72 |       2/72 |       1/72
+ delete_5                       DeletePost           |       2/72 |       2/72 |       2/72 |       2/72 |       2/72
+ delete_5                       DeleteDelete         |       2/72 |       3/72 |       3/72 |       2/72 |       1/72
+ delete_5                       DeleteInsert         |       1/72 |       1/72 |       1/72 |       1/72 |       1/72
+ delete_5                       DeleteUnion          |       2/72 |       2/72 |       2/72 |       2/72 |       2/72
+ delete_5                       UnionDeleteInsert    |       1/57 |       1/57 |       1/57 |       1/57 |       1/57
+ union_6                        UnionValid           |       1/57 |       1/57 |       1/57 |       1/57 |       1/57
+ union_6                        UnionPost            |       5/57 |       5/57 |       5/57 |       5/57 |       1/57
+ union_6                        UnionModel           |       1/57 |       1/57 |       1/57 |       1/57 |       1/57
+ union_6                        DeleteUnion          |       1/57 |       1/57 |       1/57 |       1/57 |       1/57
+ union_6                        InsertUnion          |       1/57 |       1/57 |       1/57 |       1/57 |       1/57
+ union_6                        UnionDeleteInsert    |       8/57 |       3/57 |       3/57 |       3/57 |       1/57
+ union_6                        UnionUnionAssoc      |       1/57 |       1/57 |       1/57 |       1/57 |       1/57
+ union_7                        UnionValid           |       1/62 |       1/62 |       1/62 |       1/62 |       1/62
+ union_7                        UnionPost            |       8/62 |       5/62 |       5/62 |       5/62 |       1/62
+ union_7                        UnionModel           |       1/62 |       1/62 |       1/62 |       1/62 |       1/62
+ union_7                        DeleteUnion          |       5/62 |       6/62 |       6/62 |       6/62 |       1/62
+ union_7                        InsertUnion          |       1/62 |       1/62 |       1/62 |       1/62 |       1/62
+ union_7                        UnionDeleteInsert    |      15/62 |       3/62 |       1/62 |       3/62 |       1/62
+ union_7                        UnionUnionAssoc      |       1/62 |       1/62 |       1/62 |       1/62 |       1/62
+ union_8                        UnionPost            |       1/67 |       2/67 |       2/67 |       2/67 |       2/67
+ union_8                        UnionModel           |       1/67 |       2/67 |       2/67 |       2/67 |       2/67
+ union_8                        DeleteUnion          |       7/67 |       7/67 |       7/67 |       9/67 |       1/67
+ union_8                        InsertUnion          |       4/67 |       3/67 |       3/67 |       9/67 |       1/67
+ union_8                        UnionDeleteInsert    |       5/67 |       5/67 |       5/67 |       5/67 |       1/67
+ union_8                        UnionUnionAssoc      |       1/67 |       5/67 |       5/67 |       5/67 |       1/67
 
 === Summary Statistics ===
  Metric       |   Avg Rank |   Med Rank |   EXAM % |  Top-1 |  Top-3 |  Top-5 | Top-10
  -------------------------------------------------------------------------------------
- tarantula    |       2.29 |        1.0 |    2.01% |  70.6% |  76.5% |  94.1% |  94.1%
- ochiai       |       1.94 |        1.0 |    1.47% |  64.7% |  82.4% | 100.0% | 100.0%
- dstar        |       2.76 |        1.0 |    2.72% |  64.7% |  82.4% |  94.1% |  94.1%
- jaccard      |       2.47 |        1.0 |    2.28% |  58.8% |  70.6% |  94.1% | 100.0%
- op2          |       1.35 |        1.0 |    0.53% |  88.2% |  88.2% | 100.0% | 100.0%
+ tarantula    |       2.70 |        1.0 |    2.70% |  61.4% |  72.7% |  88.6% |  95.5%
+ ochiai       |       2.27 |        1.0 |    1.98% |  52.3% |  79.5% |  95.5% | 100.0%
+ dstar        |       2.52 |        1.0 |    2.36% |  56.8% |  79.5% |  93.2% |  97.7%
+ jaccard      |       2.64 |        1.5 |    2.53% |  50.0% |  72.7% |  90.9% | 100.0%
+ op2          |       1.23 |        1.0 |    0.34% |  86.4% |  95.5% | 100.0% | 100.0%
 
-Total entries evaluated: 17
+Total entries evaluated: 44
