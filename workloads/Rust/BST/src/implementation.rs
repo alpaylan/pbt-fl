@@ -80,6 +80,7 @@ pub(crate) fn delete(k: i32, t: Tree) -> Tree {
         E => E,
         T(l, k2, v2, r) => {
             /*| delete */
+            /*|
             if k < k2 {
                 T(Box::new(delete(k, *l)), k2, v2, r)
             } else if k2 < k {
@@ -87,8 +88,8 @@ pub(crate) fn delete(k: i32, t: Tree) -> Tree {
             } else {
                 join(*l, *r)
             }
+            */
             /*|| delete_4 */
-            /*|
             let _ = v2;
             if k < k2 {
                 delete(k, *l)
@@ -97,7 +98,6 @@ pub(crate) fn delete(k: i32, t: Tree) -> Tree {
             } else {
                 join(*l, *r)
             }
-            */
             /*|| delete_5 */
             /*|
             if k2 < k {
