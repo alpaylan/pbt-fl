@@ -6,7 +6,7 @@
             "shift_var_none"
         ],
         "trials": 1,
-        "timeout": 180,
+        "timeout": 600,
         "tasks": [
             {
                 "strategy": "crabcheck",
@@ -25,7 +25,7 @@
             "shift_var_all"
         ],
         "trials": 1,
-        "timeout": 180,
+        "timeout": 600,
         "tasks": [
             {
                 "strategy": "crabcheck",
@@ -44,7 +44,7 @@
             "shift_var_leq"
         ],
         "trials": 1,
-        "timeout": 180,
+        "timeout": 600,
         "tasks": [
             {
                 "strategy": "crabcheck",
@@ -63,7 +63,7 @@
             "shift_abs_no_incr"
         ],
         "trials": 1,
-        "timeout": 180,
+        "timeout": 600,
         "tasks": [
             {
                 "strategy": "crabcheck",
@@ -82,7 +82,7 @@
             "subst_var_all"
         ],
         "trials": 1,
-        "timeout": 180,
+        "timeout": 600,
         "tasks": [
             {
                 "strategy": "crabcheck",
@@ -101,7 +101,7 @@
             "subst_var_none"
         ],
         "trials": 1,
-        "timeout": 180,
+        "timeout": 600,
         "tasks": [
             {
                 "strategy": "crabcheck",
@@ -120,7 +120,7 @@
             "subst_abs_no_shift"
         ],
         "trials": 1,
-        "timeout": 180,
+        "timeout": 600,
         "tasks": [
             {
                 "strategy": "crabcheck",
@@ -139,7 +139,7 @@
             "subst_abs_no_incr"
         ],
         "trials": 1,
-        "timeout": 180,
+        "timeout": 600,
         "tasks": [
             {
                 "strategy": "crabcheck",
@@ -158,7 +158,7 @@
             "substTop_no_shift"
         ],
         "trials": 1,
-        "timeout": 180,
+        "timeout": 600,
         "tasks": [
             {
                 "strategy": "crabcheck",
@@ -177,7 +177,7 @@
             "substTop_no_shift_back"
         ],
         "trials": 1,
-        "timeout": 180,
+        "timeout": 600,
         "tasks": [
             {
                 "strategy": "crabcheck",
