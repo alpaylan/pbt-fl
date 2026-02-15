@@ -1,0 +1,166 @@
+=== Data Coverage ===
+ Workload   |  Total Entries |  With Suspiciousness |  Without |  No Regions
+ ---------------------------------------------------------------------------
+ BST        |            145 |                   74 |        0 |          71
+ RBT        |             76 |                   38 |        0 |          38
+ STLC       |             20 |                   20 |        0 |           0
+ ---------------------------------------------------------------------------
+ TOTAL      |            241 |                  132 |        0 |         109
+
+Mutations with suspiciousness data: delete_4, delete_5, insert_1, insert_2, insert_3, miscolor_balLeft, miscolor_balRight, miscolor_delete, miscolor_insert, miscolor_join_1, miscolor_join_2, no_balance_insert_1, no_balance_insert_2, shift_abs_no_incr, shift_var_all, shift_var_leq, shift_var_none, substTop_no_shift, substTop_no_shift_back, subst_abs_no_incr, subst_abs_no_shift, subst_var_all, subst_var_none, union_6, union_7, union_8
+Mutations without: none
+
+Note: Entries without suspiciousness lack coverage analysis data
+(crabcheck-profiling-analysis likely failed for those runs).
+
+=== Pipeline Time Budget (per task, ~180s timeout) ===
+ 1. Test execution (PBT with coverage instrumentation): ~120-180s  [dominant]
+ 2. Coverage data processing (instrumentation.sh):      ~5-15s
+ 3. Suspiciousness computation (profiling-analysis):    ~2-5s
+
+=== Per-Entry Fault Localization Rankings ===
+ Workload   Mutation                       Property             |  tarantula |     ochiai |      dstar |    jaccard |        op2
+ -------------------------------------------------------------------------------------------------------------------------------
+BST        insert_1                       InsertPost           |       9/69 |       2/69 |       2/69 |       4/69 |       1/69
+BST        insert_1                       InsertModel          |       1/69 |       1/69 |       1/69 |       1/69 |       1/69
+BST        insert_1                       DeleteInsert         |       5/69 |       7/69 |       7/69 |      11/69 |       2/69
+BST        insert_1                       InsertInsert         |       1/69 |       1/69 |       1/69 |       1/69 |       1/69
+BST        insert_1                       InsertUnion          |       1/69 |       1/69 |       1/69 |       1/69 |       1/69
+BST        insert_1                       UnionDeleteInsert    |       1/69 |       7/69 |       7/69 |       7/69 |       7/69
+BST        insert_2                       InsertPost           |       7/72 |       3/72 |       3/72 |       3/72 |       1/72
+BST        insert_2                       InsertModel          |       1/72 |       1/72 |       1/72 |       1/72 |       1/72
+BST        insert_2                       InsertDelete         |      15/72 |      11/72 |       5/72 |      15/72 |       1/72
+BST        insert_2                       DeleteInsert         |       5/72 |       5/72 |       5/72 |       5/72 |       5/72
+BST        insert_2                       InsertInsert         |       1/72 |       1/72 |       1/72 |       1/72 |       1/72
+BST        insert_2                       InsertUnion          |       1/72 |       1/72 |       1/72 |       1/72 |       1/72
+BST        insert_2                       UnionDeleteInsert    |       1/72 |       3/72 |       3/72 |       3/72 |       1/72
+BST        insert_3                       InsertPost           |       1/77 |       1/77 |       1/77 |       1/77 |       1/77
+BST        insert_3                       InsertModel          |       1/77 |       1/77 |       1/77 |       1/77 |       1/77
+BST        insert_3                       InsertDelete         |       2/77 |       2/77 |       2/77 |       2/77 |       1/77
+BST        insert_3                       InsertInsert         |       1/77 |       1/77 |       1/77 |       1/77 |       1/77
+BST        insert_3                       InsertUnion          |       1/77 |       1/77 |       1/77 |       1/77 |       1/77
+BST        insert_3                       UnionDeleteInsert    |       5/77 |       5/77 |       5/77 |       5/77 |       1/77
+BST        delete_4                       DeleteModel          |       1/82 |       1/82 |       1/82 |       1/82 |       1/82
+BST        delete_4                       DeletePost           |      11/82 |       3/82 |       3/82 |       3/82 |       1/82
+BST        delete_4                       DeleteDelete         |       6/82 |       2/82 |       2/82 |       6/82 |       2/82
+BST        insert_1                       InsertPost           |       5/53 |       4/53 |       4/53 |       5/53 |       4/53
+BST        insert_1                       InsertModel          |       1/53 |       1/53 |       1/53 |       1/53 |       1/53
+BST        insert_1                       DeleteInsert         |       8/53 |       7/53 |       7/53 |       8/53 |       7/53
+BST        insert_1                       InsertInsert         |       1/53 |       1/53 |       1/53 |       1/53 |       1/53
+BST        insert_1                       InsertUnion          |       3/53 |       1/53 |       1/53 |       1/53 |       1/53
+BST        insert_1                       UnionDeleteInsert    |       6/53 |       2/53 |       2/53 |       2/53 |       2/53
+BST        insert_2                       InsertPost           |       2/55 |       2/55 |       1/55 |       2/55 |       1/55
+BST        insert_2                       InsertModel          |       1/55 |       1/55 |       1/55 |       1/55 |       1/55
+BST        insert_2                       InsertDelete         |       7/55 |       7/55 |       7/55 |       7/55 |       6/55
+BST        insert_2                       DeleteInsert         |       5/55 |       5/55 |       5/55 |       5/55 |       1/55
+BST        insert_2                       InsertInsert         |       1/55 |       1/55 |       1/55 |       1/55 |       1/55
+BST        insert_2                       InsertUnion          |       1/55 |       1/55 |       1/55 |       1/55 |       1/55
+BST        insert_2                       UnionDeleteInsert    |       4/55 |       3/55 |       3/55 |       3/55 |       2/55
+BST        insert_3                       InsertPost           |       1/57 |       1/57 |       1/57 |       1/57 |       1/57
+BST        insert_3                       InsertModel          |       1/57 |       1/57 |       1/57 |       1/57 |       1/57
+BST        insert_3                       InsertDelete         |       6/57 |       1/57 |       1/57 |       1/57 |       1/57
+BST        insert_3                       InsertInsert         |       1/57 |       1/57 |       1/57 |       1/57 |       1/57
+BST        insert_3                       InsertUnion          |       1/57 |       1/57 |       1/57 |       1/57 |       1/57
+BST        insert_3                       UnionDeleteInsert    |       6/57 |       5/57 |       5/57 |       5/57 |       4/57
+BST        delete_4                       DeleteModel          |       1/57 |       1/57 |       1/57 |       1/57 |       1/57
+BST        delete_4                       DeletePost           |       3/57 |       4/57 |       4/57 |       3/57 |       4/57
+BST        delete_4                       DeleteDelete         |       2/57 |       2/57 |       2/57 |       2/57 |       2/57
+BST        delete_4                       DeleteInsert         |       1/57 |       1/57 |       1/57 |       1/57 |       1/57
+BST        delete_4                       DeleteUnion          |       4/57 |       1/57 |       1/57 |       1/57 |       1/57
+BST        delete_4                       InsertDelete         |       1/57 |       1/57 |       1/57 |       1/57 |       1/57
+BST        delete_4                       UnionDeleteInsert    |       1/57 |       1/57 |       1/57 |       1/57 |       1/57
+BST        delete_5                       DeleteModel          |       1/57 |       1/57 |       1/57 |       1/57 |       1/57
+BST        delete_5                       DeletePost           |       3/57 |       3/57 |       3/57 |       3/57 |       3/57
+BST        delete_5                       DeleteDelete         |       2/57 |       2/57 |       2/57 |       2/57 |       2/57
+BST        delete_5                       DeleteInsert         |       1/57 |       1/57 |       1/57 |       1/57 |       1/57
+BST        delete_5                       DeleteUnion          |       2/57 |       2/57 |       2/57 |       2/57 |       2/57
+BST        delete_5                       UnionDeleteInsert    |       1/57 |       1/57 |       2/57 |       1/57 |       4/57
+BST        union_6                        UnionValid           |       1/57 |       1/57 |       1/57 |       1/57 |       1/57
+BST        union_6                        UnionPost            |       4/57 |       4/57 |       4/57 |       4/57 |       4/57
+BST        union_6                        UnionModel           |       1/57 |       1/57 |       1/57 |       1/57 |       1/57
+BST        union_6                        DeleteUnion          |       1/57 |       1/57 |       1/57 |       1/57 |       1/57
+BST        union_6                        InsertUnion          |       1/57 |       1/57 |       1/57 |       1/57 |       1/57
+BST        union_6                        UnionDeleteInsert    |       9/57 |       4/57 |       4/57 |       4/57 |       2/57
+BST        union_6                        UnionUnionAssoc      |       1/57 |       1/57 |       1/57 |       1/57 |       1/57
+BST        union_7                        UnionValid           |       1/61 |       1/61 |       1/61 |       1/61 |       1/61
+BST        union_7                        UnionPost            |       3/61 |       3/61 |       3/61 |       3/61 |       3/61
+BST        union_7                        UnionModel           |       1/61 |       1/61 |       1/61 |       1/61 |       1/61
+BST        union_7                        DeleteUnion          |       1/61 |       7/61 |       8/61 |       7/61 |       6/61
+BST        union_7                        InsertUnion          |       1/61 |       1/61 |       1/61 |       1/61 |       2/61
+BST        union_7                        UnionDeleteInsert    |       1/61 |       1/61 |       1/61 |       1/61 |       2/61
+BST        union_7                        UnionUnionAssoc      |       1/61 |       1/61 |       1/61 |       1/61 |       1/61
+BST        union_8                        UnionPost            |       2/61 |       2/61 |       2/61 |       2/61 |       2/61
+BST        union_8                        UnionModel           |       2/61 |       2/61 |       2/61 |       2/61 |       2/61
+BST        union_8                        DeleteUnion          |      11/61 |      11/61 |      11/61 |      11/61 |       8/61
+BST        union_8                        InsertUnion          |       7/61 |       5/61 |       5/61 |       6/61 |       4/61
+BST        union_8                        UnionDeleteInsert    |       7/61 |      12/61 |      12/61 |      10/61 |       6/61
+BST        union_8                        UnionUnionAssoc      |       7/61 |      10/61 |      10/61 |      10/61 |       1/61
+RBT        delete_4                       DeleteDelete         |     12/145 |      4/145 |      4/145 |     12/145 |      2/145
+RBT        delete_4                       DeleteModel          |      1/145 |      2/145 |      2/145 |      2/145 |      2/145
+RBT        delete_4                       DeletePost           |      3/145 |      4/145 |      4/145 |      3/145 |      4/145
+RBT        delete_4                       DeleteInsert         |      1/145 |      1/145 |      1/145 |      1/145 |      1/145
+RBT        delete_4                       InsertDelete         |      1/145 |      1/145 |      1/145 |      1/145 |      1/145
+RBT        insert_1                       InsertPost           |      4/150 |      4/150 |      4/150 |      4/150 |      4/150
+RBT        insert_1                       InsertModel          |      1/150 |      1/150 |      1/150 |      1/150 |      1/150
+RBT        insert_1                       DeleteInsert         |     12/150 |     12/150 |     12/150 |     12/150 |     12/150
+RBT        insert_1                       InsertInsert         |      1/150 |      1/150 |      1/150 |      1/150 |      1/150
+RBT        insert_2                       InsertPost           |      2/152 |      2/152 |      2/152 |      2/152 |      1/152
+RBT        insert_2                       InsertModel          |      1/152 |      1/152 |      1/152 |      1/152 |      1/152
+RBT        insert_2                       InsertDelete         |      1/152 |      1/152 |      1/152 |      1/152 |      1/152
+RBT        insert_2                       DeleteInsert         |     10/152 |     10/152 |     10/152 |     10/152 |      1/152
+RBT        insert_2                       InsertInsert         |      2/152 |      1/152 |      1/152 |      1/152 |      1/152
+RBT        insert_3                       InsertPost           |      1/154 |      1/154 |      1/154 |      1/154 |      1/154
+RBT        insert_3                       InsertModel          |      1/154 |      1/154 |      1/154 |      1/154 |      1/154
+RBT        insert_3                       InsertDelete         |      1/154 |      1/154 |      1/154 |      1/154 |      1/154
+RBT        insert_3                       InsertInsert         |      1/154 |      1/154 |      1/154 |      1/154 |      1/154
+RBT        delete_5                       DeleteModel          |      1/145 |      1/145 |      1/145 |      1/145 |      1/145
+RBT        delete_5                       DeletePost           |      2/145 |      2/145 |      2/145 |      2/145 |      2/145
+RBT        delete_5                       DeleteDelete         |      4/145 |      4/145 |      4/145 |      4/145 |      3/145
+RBT        delete_5                       DeleteInsert         |      5/145 |      1/145 |      1/145 |      1/145 |      4/145
+RBT        miscolor_insert                InsertValid          |      1/154 |      1/154 |      1/154 |      1/154 |      1/154
+RBT        miscolor_insert                DeleteInsert         |     31/154 |     25/154 |     24/154 |     31/154 |     11/154
+RBT        miscolor_delete                DeleteValid          |     22/149 |      2/149 |      2/149 |      2/149 |      2/149
+RBT        no_balance_insert_1            InsertValid          |      1/154 |      1/154 |      1/154 |      1/154 |      1/154
+RBT        no_balance_insert_1            InsertDelete         |      1/154 |      1/154 |      1/154 |      1/154 |      1/154
+RBT        no_balance_insert_2            InsertValid          |      1/154 |      1/154 |      1/154 |      1/154 |      1/154
+RBT        no_balance_insert_2            DeleteInsert         |     19/154 |     19/154 |     19/154 |     19/154 |     19/154
+STLC       shift_var_none                 SinglePreserve       |       9/98 |       9/98 |       9/98 |       9/98 |       4/98
+STLC       shift_var_none                 MultiPreserve        |       4/98 |       4/98 |       4/98 |       4/98 |       4/98
+STLC       shift_var_all                  SinglePreserve       |       8/98 |       5/98 |       5/98 |       5/98 |       4/98
+STLC       shift_var_all                  MultiPreserve        |       6/98 |       5/98 |       5/98 |       6/98 |       2/98
+STLC       shift_var_leq                  SinglePreserve       |      6/100 |      6/100 |      6/100 |      6/100 |      6/100
+STLC       shift_var_leq                  MultiPreserve        |      5/100 |      5/100 |      5/100 |      5/100 |      5/100
+STLC       shift_abs_no_incr              SinglePreserve       |      5/100 |      7/100 |      7/100 |      7/100 |      5/100
+STLC       shift_abs_no_incr              MultiPreserve        |      1/100 |      5/100 |      5/100 |      5/100 |      4/100
+STLC       subst_var_all                  SinglePreserve       |       1/98 |       1/98 |       1/98 |       1/98 |       1/98
+STLC       subst_var_all                  MultiPreserve        |       1/98 |       1/98 |       1/98 |       1/98 |       1/98
+STLC       subst_var_none                 SinglePreserve       |       5/98 |       3/98 |       3/98 |       3/98 |       3/98
+STLC       subst_var_none                 MultiPreserve        |       3/98 |       3/98 |       3/98 |       3/98 |       3/98
+STLC       subst_abs_no_shift             SinglePreserve       |      1/100 |      1/100 |      1/100 |      1/100 |      1/100
+STLC       subst_abs_no_shift             MultiPreserve        |      1/100 |      1/100 |      1/100 |      1/100 |      1/100
+STLC       subst_abs_no_incr              SinglePreserve       |      3/100 |      3/100 |      3/100 |      3/100 |      1/100
+STLC       subst_abs_no_incr              MultiPreserve        |      1/100 |      1/100 |      1/100 |      1/100 |      1/100
+STLC       substTop_no_shift              SinglePreserve       |     21/100 |     15/100 |     13/100 |     20/100 |     10/100
+STLC       substTop_no_shift              MultiPreserve        |     11/100 |     11/100 |     11/100 |     11/100 |      7/100
+STLC       substTop_no_shift_back         SinglePreserve       |     23/100 |     14/100 |     13/100 |     21/100 |      9/100
+STLC       substTop_no_shift_back         MultiPreserve        |     11/100 |     11/100 |     11/100 |     11/100 |      9/100
+RBT        miscolor_balLeft               DeleteValid          |      1/150 |      1/150 |      1/150 |      1/150 |      1/150
+RBT        miscolor_balLeft               DeleteDelete         |      7/150 |      7/150 |      7/150 |      7/150 |      7/150
+RBT        miscolor_balRight              DeleteValid          |      1/150 |      1/150 |      1/150 |      1/150 |      1/150
+RBT        miscolor_balRight              DeleteDelete         |      1/150 |      1/150 |      1/150 |      1/150 |      1/150
+RBT        miscolor_join_1                DeleteValid          |      1/154 |      1/154 |      1/154 |      1/154 |      1/154
+RBT        miscolor_join_2                DeleteValid          |      1/154 |      1/154 |      1/154 |      1/154 |      1/154
+RBT        miscolor_join_2                DeleteDelete         |      6/154 |      6/154 |      6/154 |      6/154 |      6/154
+RBT        no_balance_insert_2            InsertDelete         |      1/154 |      1/154 |      1/154 |      1/154 |      1/154
+RBT        no_balance_insert_1            DeleteInsert         |     16/154 |     16/154 |     16/154 |     16/154 |     16/154
+
+=== Summary Statistics ===
+ Metric       |   Avg Rank |   Med Rank |   EXAM % |  Top-1 |  Top-3 |  Top-5 | Top-10
+ -------------------------------------------------------------------------------------
+ tarantula    |       4.02 |        1.0 |    3.35% |  51.5% |  64.4% |  75.8% |  90.2%
+ ochiai       |       3.42 |        1.0 |    2.73% |  51.5% |  68.9% |  82.6% |  91.7%
+ dstar        |       3.35 |        1.0 |    2.65% |  51.5% |  68.9% |  83.3% |  92.4%
+ jaccard      |       3.72 |        1.0 |    3.04% |  51.5% |  68.9% |  79.5% |  90.9%
+ op2          |       2.61 |        1.0 |    1.78% |  58.3% |  75.0% |  87.1% |  97.0%
+
+Total entries evaluated: 132
