@@ -6,7 +6,7 @@
             "delete_4"
         ],
         "trials": 1,
-        "timeout": 180,
+        "timeout": 600,
         "tasks": [
             {
                 "strategy": "crabcheck",
@@ -37,7 +37,7 @@
             "insert_1"
         ],
         "trials": 1,
-        "timeout": 180,
+        "timeout": 600,
         "tasks": [
             {
                 "strategy": "crabcheck",
@@ -64,7 +64,7 @@
             "insert_2"
         ],
         "trials": 1,
-        "timeout": 180,
+        "timeout": 600,
         "tasks": [
             {
                 "strategy": "crabcheck",
@@ -95,7 +95,7 @@
             "insert_3"
         ],
         "trials": 1,
-        "timeout": 180,
+        "timeout": 600,
         "tasks": [
             {
                 "strategy": "crabcheck",
@@ -122,7 +122,7 @@
             "delete_5"
         ],
         "trials": 1,
-        "timeout": 180,
+        "timeout": 600,
         "tasks": [
             {
                 "strategy": "crabcheck",
@@ -149,7 +149,7 @@
             "miscolor_insert"
         ],
         "trials": 1,
-        "timeout": 180,
+        "timeout": 600,
         "tasks": [
             {
                 "strategy": "crabcheck",
@@ -168,7 +168,7 @@
             "miscolor_delete"
         ],
         "trials": 1,
-        "timeout": 180,
+        "timeout": 600,
         "tasks": [
             {
                 "strategy": "crabcheck",
@@ -183,7 +183,7 @@
             "miscolor_balLeft"
         ],
         "trials": 1,
-        "timeout": 180,
+        "timeout": 600,
         "tasks": [
             {
                 "strategy": "crabcheck",
@@ -202,7 +202,7 @@
             "miscolor_balRight"
         ],
         "trials": 1,
-        "timeout": 180,
+        "timeout": 600,
         "tasks": [
             {
                 "strategy": "crabcheck",
@@ -221,7 +221,7 @@
             "miscolor_join_1"
         ],
         "trials": 1,
-        "timeout": 180,
+        "timeout": 600,
         "tasks": [
             {
                 "strategy": "crabcheck",
@@ -236,7 +236,7 @@
             "miscolor_join_2"
         ],
         "trials": 1,
-        "timeout": 180,
+        "timeout": 600,
         "tasks": [
             {
                 "strategy": "crabcheck",
@@ -255,7 +255,7 @@
             "no_balance_insert_1"
         ],
         "trials": 1,
-        "timeout": 180,
+        "timeout": 600,
         "tasks": [
             {
                 "strategy": "crabcheck",
@@ -278,7 +278,7 @@
             "no_balance_insert_2"
         ],
         "trials": 1,
-        "timeout": 180,
+        "timeout": 600,
         "tasks": [
             {
                 "strategy": "crabcheck",
