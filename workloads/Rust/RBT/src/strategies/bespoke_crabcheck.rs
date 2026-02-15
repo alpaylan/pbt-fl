@@ -77,7 +77,7 @@ pub(crate) fn bespoke<R: Rng>(n: usize, g: &mut R) -> Tree {
 
 impl<R: Rng> Arbitrary<R> for Tree {
     fn generate(r: &mut R, n: usize) -> Self {
-        bespoke((n as f64).log10() as usize, r)
+        bespoke(n, r)
     }
 }
 
