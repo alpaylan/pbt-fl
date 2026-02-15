@@ -121,7 +121,9 @@ if __name__ == "__main__":
         # === Data Coverage ===
         from collections import defaultdict
 
-        coverage = defaultdict(lambda: {"total": 0, "with_susp": 0, "without": 0, "no_regions": 0})
+        coverage = defaultdict(
+            lambda: {"total": 0, "with_susp": 0, "without": 0, "no_regions": 0}
+        )
         mutations_with_susp = set()
         mutations_without_susp = set()
 
@@ -136,8 +138,7 @@ if __name__ == "__main__":
             coverage[workload]["total"] += 1
 
             impl_regions = [
-                r for r in regions
-                if r.get("file", "").endswith("implementation.rs")
+                r for r in regions if r.get("file", "").endswith("implementation.rs")
             ]
             has_susp = any(r.get("suspiciousness") for r in impl_regions)
 
@@ -152,19 +153,27 @@ if __name__ == "__main__":
                 mutations_without_susp.add(mutation)
 
         emit("=== Data Coverage ===")
-        emit(f" {'Workload':<10} | {'Total Entries':>14} | {'With Suspiciousness':>20} | {'Without':>8} | {'No Regions':>11}")
+        emit(
+            f" {'Workload':<10} | {'Total Entries':>14} | {'With Suspiciousness':>20} | {'Without':>8} | {'No Regions':>11}"
+        )
         emit(" " + "-" * 75)
         grand = {"total": 0, "with_susp": 0, "without": 0, "no_regions": 0}
         for wl in sorted(coverage.keys()):
             c = coverage[wl]
-            emit(f" {wl:<10} | {c['total']:>14} | {c['with_susp']:>20} | {c['without']:>8} | {c['no_regions']:>11}")
+            emit(
+                f" {wl:<10} | {c['total']:>14} | {c['with_susp']:>20} | {c['without']:>8} | {c['no_regions']:>11}"
+            )
             for k in grand:
                 grand[k] += c[k]
         emit(" " + "-" * 75)
-        emit(f" {'TOTAL':<10} | {grand['total']:>14} | {grand['with_susp']:>20} | {grand['without']:>8} | {grand['no_regions']:>11}")
+        emit(
+            f" {'TOTAL':<10} | {grand['total']:>14} | {grand['with_susp']:>20} | {grand['without']:>8} | {grand['no_regions']:>11}"
+        )
 
         only_without = sorted(mutations_without_susp - mutations_with_susp)
-        emit(f"\nMutations with suspiciousness data: {', '.join(sorted(mutations_with_susp)) or 'none'}")
+        emit(
+            f"\nMutations with suspiciousness data: {', '.join(sorted(mutations_with_susp)) or 'none'}"
+        )
         emit(f"Mutations without: {', '.join(only_without) or 'none'}")
         emit("\nNote: Entries without suspiciousness lack coverage analysis data")
         emit("(crabcheck-profiling-analysis likely failed for those runs).")
@@ -172,7 +181,9 @@ if __name__ == "__main__":
         # === Pipeline Time Budget ===
         emit("")
         emit("=== Pipeline Time Budget (per task, ~180s timeout) ===")
-        emit(" 1. Test execution (PBT with coverage instrumentation): ~120-180s  [dominant]")
+        emit(
+            " 1. Test execution (PBT with coverage instrumentation): ~120-180s  [dominant]"
+        )
         emit(" 2. Coverage data processing (instrumentation.sh):      ~5-15s")
         emit(" 3. Suspiciousness computation (profiling-analysis):    ~2-5s")
 
@@ -234,7 +245,7 @@ if __name__ == "__main__":
         # Per-entry table
         emit("\n=== Per-Entry Fault Localization Rankings ===")
         header = (
-            f" {'Mutation':<30} {'Property':<20}"
+            f" {'Workload':<10} {'Mutation':<30} {'Property':<20}"
             f" | {'tarantula':>10} | {'ochiai':>10} | {'dstar':>10}"
             f" | {'jaccard':>10} | {'op2':>10}"
         )
@@ -250,7 +261,7 @@ if __name__ == "__main__":
                 else:
                     cols.append("N/A")
             emit(
-                f" {e['mutation']:<30} {e['property']:<20}"
+                f"{e['workload']:<10} {e['mutation']:<30} {e['property']:<20}"
                 f" | {cols[0]:>10} | {cols[1]:>10} | {cols[2]:>10}"
                 f" | {cols[3]:>10} | {cols[4]:>10}"
             )
