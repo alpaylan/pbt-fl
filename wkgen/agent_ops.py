@@ -1,0 +1,287 @@
+import datetime as dt
+import json
+import os
+import shlex
+import subprocess
+import tempfile
+import uuid
+
+from . import output
+
+STAGES = [
+    "candidates",
+    "ranked",
+    "fixes",
+    "classified",
+    "tests",
+    "mutations",
+    "report",
+    "docs",
+    "validation",
+]
+
+STAGE_GUIDANCE = {
+    "candidates": (
+        "Identify likely bug-fix commits and issues from project history. "
+        "Return JSON with scan metadata and candidate list."
+    ),
+    "ranked": (
+        "Rank candidates by locality, semantic clarity, testability, and diversity. "
+        "Return ordered list with rationale."
+    ),
+    "fixes": (
+        "Extract precise buggy/fixed before-after code snippets for each selected candidate."
+    ),
+    "classified": (
+        "Classify each fix by mutation expressibility (expression/statement/structural) and difficulty."
+    ),
+    "tests": (
+        "Map each candidate to regression and property-based detector tests. "
+        "Include validation outcomes where available."
+    ),
+    "mutations": (
+        "Define injected marauders variants and retained/removed decisions with reasons."
+    ),
+    "report": (
+        "Build a consistent report summary and final mutation list derived from checkpoints."
+    ),
+    "docs": (
+        "Build canonical variant-to-failing-property-test mapping for human-facing docs."
+    ),
+    "validation": (
+        "Validate cross-checkpoint invariants and produce pass/fail mismatch report."
+    ),
+}
+
+
+def _now_iso():
+    return dt.datetime.now(dt.timezone.utc).isoformat()
+
+
+def _checkpoints_dir(project_dir):
+    return os.path.join(project_dir, "checkpoints")
+
+
+def _checkpoint_path(project_dir, stage):
+    return os.path.join(_checkpoints_dir(project_dir), f"{stage}.json")
+
+
+def _state_path(project_dir):
+    return os.path.join(_checkpoints_dir(project_dir), "agent_state.json")
+
+
+def _read_json(path):
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def _write_json_atomic(path, data):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    fd, tmp_path = tempfile.mkstemp(
+        dir=os.path.dirname(path), prefix=".wkgen_agent_", suffix=".tmp"
+    )
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2)
+            f.write("\n")
+        os.replace(tmp_path, path)
+    except BaseException:
+        try:
+            os.unlink(tmp_path)
+        except OSError:
+            pass
+        raise
+
+
+def _load_state(project_dir):
+    path = _state_path(project_dir)
+    if not os.path.exists(path):
+        return None
+    return _read_json(path)
+
+
+def _default_state(project_dir, backend):
+    return {
+        "project_dir": os.path.abspath(project_dir),
+        "run_id": str(uuid.uuid4()),
+        "backend": backend,
+        "stage_order": STAGES,
+        "completed_stages": [],
+        "current_stage": None,
+        "status": "running",
+        "started_at": _now_iso(),
+        "updated_at": _now_iso(),
+    }
+
+
+def _build_payload(project_dir, state, stage):
+    context = {}
+    for candidate_stage in STAGES:
+        path = _checkpoint_path(project_dir, candidate_stage)
+        if os.path.exists(path):
+            context[candidate_stage] = _read_json(path)
+
+    return {
+        "run_id": state["run_id"],
+        "project_dir": os.path.abspath(project_dir),
+        "stage": stage,
+        "stage_guidance": STAGE_GUIDANCE[stage],
+        "stage_order": STAGES,
+        "context": context,
+        "generated_at": _now_iso(),
+    }
+
+
+def _parse_backend_stdout(raw_stdout):
+    raw = raw_stdout.strip()
+    if not raw:
+        raise RuntimeError("backend returned empty stdout")
+
+    try:
+        parsed = json.loads(raw)
+    except json.JSONDecodeError as e:
+        raise RuntimeError(f"backend returned invalid JSON: {e}") from e
+
+    if isinstance(parsed, dict) and "ok" in parsed and "data" in parsed:
+        if not parsed.get("ok"):
+            raise RuntimeError(f"backend returned error envelope: {parsed.get('error')}")
+        return parsed["data"]
+
+    return parsed
+
+
+def _run_pi_backend(stage, payload, command_template):
+    command = command_template
+    command = command.replace("{stage}", stage)
+    command = command.replace("{project_dir}", payload["project_dir"])
+    args = shlex.split(command)
+    if not args:
+        raise RuntimeError("empty --pi-cmd command")
+
+    result = subprocess.run(
+        args,
+        input=json.dumps(payload),
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode != 0:
+        stderr = result.stderr.strip()
+        raise RuntimeError(f"pi backend failed ({result.returncode}): {stderr}")
+    return _parse_backend_stdout(result.stdout)
+
+
+def _run_dry_backend(stage, payload):
+    return {
+        "run_id": payload["run_id"],
+        "stage": stage,
+        "status": "placeholder",
+        "note": (
+            "Generated by wkgen dry backend. Replace by running with --backend pi "
+            "and a concrete --pi-cmd."
+        ),
+        "generated_at": payload["generated_at"],
+    }
+
+
+def _selected_stages(from_stage=None, to_stage=None):
+    if from_stage and from_stage not in STAGES:
+        raise RuntimeError(f"invalid --from-stage: {from_stage}")
+    if to_stage and to_stage not in STAGES:
+        raise RuntimeError(f"invalid --to-stage: {to_stage}")
+
+    start_idx = STAGES.index(from_stage) if from_stage else 0
+    end_idx = STAGES.index(to_stage) if to_stage else len(STAGES) - 1
+    if start_idx > end_idx:
+        raise RuntimeError("--from-stage must be <= --to-stage")
+    return STAGES[start_idx : end_idx + 1]
+
+
+def run(
+    project_dir,
+    backend="dry",
+    resume=True,
+    force=False,
+    from_stage=None,
+    to_stage=None,
+    pi_cmd="pi run --json --stage {stage}",
+):
+    if backend not in {"dry", "pi"}:
+        raise RuntimeError("backend must be 'dry' or 'pi'")
+
+    project_dir = os.path.abspath(project_dir)
+    os.makedirs(_checkpoints_dir(project_dir), exist_ok=True)
+
+    state = _load_state(project_dir)
+    if state is None or not resume:
+        state = _default_state(project_dir, backend)
+    else:
+        state["backend"] = backend
+        state["status"] = "running"
+        state["updated_at"] = _now_iso()
+
+    stages = _selected_stages(from_stage, to_stage)
+    written = []
+    skipped = []
+
+    for stage in stages:
+        checkpoint_file = _checkpoint_path(project_dir, stage)
+        if os.path.exists(checkpoint_file) and not force:
+            skipped.append(stage)
+            if stage not in state["completed_stages"]:
+                state["completed_stages"].append(stage)
+            continue
+
+        state["current_stage"] = stage
+        state["updated_at"] = _now_iso()
+        _write_json_atomic(_state_path(project_dir), state)
+
+        payload = _build_payload(project_dir, state, stage)
+        if backend == "pi":
+            data = _run_pi_backend(stage, payload, pi_cmd)
+        else:
+            data = _run_dry_backend(stage, payload)
+
+        _write_json_atomic(checkpoint_file, data)
+        written.append(stage)
+        if stage not in state["completed_stages"]:
+            state["completed_stages"].append(stage)
+
+    state["current_stage"] = None
+    state["status"] = "completed"
+    state["updated_at"] = _now_iso()
+    _write_json_atomic(_state_path(project_dir), state)
+
+    output.ok(
+        {
+            "project_dir": project_dir,
+            "run_id": state["run_id"],
+            "backend": backend,
+            "selected_stages": stages,
+            "written": written,
+            "skipped_existing": skipped,
+            "state_path": _state_path(project_dir),
+        }
+    )
+
+
+def status(project_dir):
+    project_dir = os.path.abspath(project_dir)
+    checkpoints = []
+    for stage in STAGES:
+        path = _checkpoint_path(project_dir, stage)
+        checkpoints.append(
+            {
+                "stage": stage,
+                "exists": os.path.exists(path),
+                "path": path,
+            }
+        )
+
+    state = _load_state(project_dir)
+    output.ok(
+        {
+            "project_dir": project_dir,
+            "state": state,
+            "checkpoints": checkpoints,
+        }
+    )

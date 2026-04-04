@@ -8,7 +8,6 @@ fn insert_(k: i32, v: i32, t: Tree) -> Tree {
     match t {
         E => T(Box::new(E), k, v, Box::new(E)),
         T(l, k2, v2, r) => {
-            /*| insert */
             if k < k2 {
                 T(Box::new(insert_(k, v, *l)), k2, v2, r)
             } else if k2 < k {
@@ -16,7 +15,7 @@ fn insert_(k: i32, v: i32, t: Tree) -> Tree {
             } else {
                 T(l, k2, v, r)
             }
-        }
+        },
     }
 }
 

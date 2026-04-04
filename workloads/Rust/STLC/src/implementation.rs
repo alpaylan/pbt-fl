@@ -89,32 +89,32 @@ pub fn shift(d: i32, expr: &Expr) -> Expr {
     fn go(c: i32, e: &Expr, d: i32) -> Expr {
         match e {
             Var(i) => {
-                /*| */
-                if *i < c { Var(*i) } else { Var(*i + d) }
-                /*|| shift_var_none */
-                /*|
-                Var(*i)
-                */
-                /*|| shift_var_all */
-                /*|
-                Var(*i + d)
-                */
-                /*|| shift_var_leq */
-                /*|
-                if *i <= c { Var(*i) }
-                else { Var(*i + d) }
-                */
-                /* |*/
+                match () {
+                    _ if matches!(std::env::var("M_shift_var_none").as_deref(), Ok("active")) => {
+                        Var(*i)
+                    },
+                    _ if matches!(std::env::var("M_shift_var_all").as_deref(), Ok("active")) => {
+                        Var(*i + d)
+                    },
+                    _ if matches!(std::env::var("M_shift_var_leq").as_deref(), Ok("active")) => {
+                        if *i <= c { Var(*i) }
+                        else { Var(*i + d) }
+                    },
+                    _ => {
+                        if *i < c { Var(*i) } else { Var(*i + d) }
+                    },
+                }
             }
             Bool(b) => Bool(*b),
             Abs(typ, body) => {
-                /*| */
-                                                Abs(typ.clone(), Box::new(go(c + 1, body, d)))
-                /*|| shift_abs_no_incr */
-                /*|
-                Abs(typ.clone(), Box::new(go(c, body, d)))
-                */
-                /* |*/
+                match () {
+                    _ if matches!(std::env::var("M_shift_abs_no_incr").as_deref(), Ok("active")) => {
+                        Abs(typ.clone(), Box::new(go(c, body, d)))
+                    },
+                    _ => {
+                        Abs(typ.clone(), Box::new(go(c + 1, body, d)))
+                    },
+                }
             }
             App(func, arg) => App(Box::new(go(c, func, d)), Box::new(go(c, arg, d))),
         }
@@ -126,48 +126,48 @@ pub fn shift(d: i32, expr: &Expr) -> Expr {
 pub fn subst(n: i32, s: &Expr, e: &Expr) -> Expr {
     match e {
         Var(i) => {
-            /*| */
-            if *i == n { s.clone() } else { Var(*i) }
-            /*|| subst_var_all */
-            /*|
-            s.clone()
-            */
-            /*|| subst_var_none */
-            /*|
-            Var(*i)
-            */
-            /* |*/
+            match () {
+                _ if matches!(std::env::var("M_subst_var_all").as_deref(), Ok("active")) => {
+                    s.clone()
+                },
+                _ if matches!(std::env::var("M_subst_var_none").as_deref(), Ok("active")) => {
+                    Var(*i)
+                },
+                _ => {
+                    if *i == n { s.clone() } else { Var(*i) }
+                },
+            }
         }
         Bool(b) => Bool(*b),
         Abs(typ, body) => {
-            /*| */
-            Abs(typ.clone(), Box::new(subst(n + 1, &shift(1, s), body)))
-            /*|| subst_abs_no_shift */
-            /*|
-            Abs(typ.clone(), Box::new(subst(n + 1, s, body)))
-            */
-            /*|| subst_abs_no_incr */
-            /*|
-            Abs(typ.clone(), Box::new(subst(n, &shift(1, s), body)))
-            */
-            /* |*/
+            match () {
+                _ if matches!(std::env::var("M_subst_abs_no_shift").as_deref(), Ok("active")) => {
+                    Abs(typ.clone(), Box::new(subst(n + 1, s, body)))
+                },
+                _ if matches!(std::env::var("M_subst_abs_no_incr").as_deref(), Ok("active")) => {
+                    Abs(typ.clone(), Box::new(subst(n, &shift(1, s), body)))
+                },
+                _ => {
+                    Abs(typ.clone(), Box::new(subst(n + 1, &shift(1, s), body)))
+                },
+            }
         }
         App(func, arg) => App(Box::new(subst(n, s, func)), Box::new(subst(n, s, arg))),
     }
 }
 
 pub fn subst_top(s: &Expr, e: &Expr) -> Expr {
-    /*| */
-    shift(-1, &subst(0, &shift(1, s), e))
-    /*|| substTop_no_shift */
-    /*|
-    subst(0, s, e)
-    */
-    /*|| substTop_no_shift_back */
-    /*|
-    subst(0, &shift(1, s), e)
-    */
-    /* |*/
+    match () {
+        _ if matches!(std::env::var("M_substTop_no_shift").as_deref(), Ok("active")) => {
+            subst(0, s, e)
+        },
+        _ if matches!(std::env::var("M_substTop_no_shift_back").as_deref(), Ok("active")) => {
+            subst(0, &shift(1, s), e)
+        },
+        _ => {
+            shift(-1, &subst(0, &shift(1, s), e))
+        },
+    }
 }
 
 pub fn pstep(expr: &Expr) -> Option<Expr> {

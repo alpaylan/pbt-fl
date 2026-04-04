@@ -79,7 +79,13 @@ pub(crate) fn redden(t: Tree) -> Option<Tree> {
 
 pub(crate) fn balance(col: Color, tl: Tree, key: i32, val: i32, tr: Tree) -> Tree {
     match (col, tl, key, val, tr) {
-        /*| */
+        (B, T(R, box T(R, a, x, vx, b), y, vy, c), z, vz, d) if matches!(std::env::var("M_swap_cd").as_deref(), Ok("active")) => T(
+            R,
+            Box::new(T(B, a, x, vx, b)),
+            y,
+            vy,
+            Box::new(T(B, Box::new(d), z, vz, c)),
+        ),
         (B, T(R, box T(R, a, x, vx, b), y, vy, c), z, vz, d) => T(
             R,
             Box::new(T(B, a, x, vx, b)),
@@ -87,17 +93,6 @@ pub(crate) fn balance(col: Color, tl: Tree, key: i32, val: i32, tr: Tree) -> Tre
             vy,
             Box::new(T(B, c, z, vz, Box::new(d))),
         ),
-        /*|| swap_cd */
-        /*|
-        (B, T(R, box T(R, a, x, vx, b), y, vy, c), z, vz, d) => T(
-            R,
-            Box::new(T(B, a, x, vx, b)),
-            y,
-            vy,
-            Box::new(T(B, Box::new(d), z, vz, c)),
-        ),
-        */
-        /* |*/
         (B, T(R, a, x, vx, box T(R, b, y, vy, c)), z, vz, d) => T(
             R,
             Box::new(T(B, a, x, vx, b)),
@@ -105,7 +100,13 @@ pub(crate) fn balance(col: Color, tl: Tree, key: i32, val: i32, tr: Tree) -> Tre
             vy,
             Box::new(T(B, c, z, vz, Box::new(d))),
         ),
-        /*| */
+        (B, a, x, vx, T(R, box T(R, b, y, vy, c), z, vz, d)) if matches!(std::env::var("M_swap_bc").as_deref(), Ok("active")) => T(
+            R,
+            Box::new(T(B, Box::new(a), x, vx, c)),
+            y,
+            vy,
+            Box::new(T(B, b, z, vz, d)),
+        ),
         (B, a, x, vx, T(R, box T(R, b, y, vy, c), z, vz, d)) => T(
             R,
             Box::new(T(B, Box::new(a), x, vx, b)),
@@ -113,17 +114,6 @@ pub(crate) fn balance(col: Color, tl: Tree, key: i32, val: i32, tr: Tree) -> Tre
             vy,
             Box::new(T(B, c, z, vz, d)),
         ),
-        /*|| swap_bc */
-        /*|
-        (B, a, x, vx, T(R, box T(R, b, y, vy, c), z, vz, d)) => T(
-            R,
-            Box::new(T(B, Box::new(a), x, vx, c)),
-            y,
-            vy,
-            Box::new(T(B, b, z, vz, d)),
-        ),
-        */
-        /* |*/
         (B, a, x, vx, T(R, b, y, vy, box T(R, c, z, vz, d))) => T(
             R,
             Box::new(T(B, Box::new(a), x, vx, b)),
@@ -139,66 +129,64 @@ pub(crate) fn insert(key: i32, val: i32, t: Tree) -> Tree {
     fn ins(x: i32, vx: i32, s: Tree) -> Tree {
         match (x, vx, s) {
             (x, vx, E) => {
-                /*| */
-                T(R, Box::new(E), x, vx, Box::new(E))
-                /*|| miscolor_insert */
-                /*|
-                T(B, Box::new(E), x, vx, Box::new(E))
-                */
-                /* |*/
+                match () {
+                    _ if matches!(std::env::var("M_miscolor_insert").as_deref(), Ok("active")) => {
+                        T(B, Box::new(E), x, vx, Box::new(E))
+                    },
+                    _ => {
+                        T(R, Box::new(E), x, vx, Box::new(E))
+                    },
+                }
             }
             (x, vx, T(rb, box a, y, vy, box b)) => {
-                /*| */
-                                                if x < y {
-                                                    balance(rb, ins(x, vx, a), y, vy, b)
-                                                } else if y < x {
-                                                    balance(rb, a, y, vy, ins(x, vx, b))
-                                                } else {
-                                                    T(rb, Box::new(a), y, vx, Box::new(b))
-                                                }
-                /*|| insert_1 */
-                /*|
-                T(R, Box::new(E), x, vx, Box::new(E))
-                */
-                /*|| insert_2 */
-                /*|
-                if x < y {
-                    balance(rb, ins(x, vx, a), y, vy, b)
-                } else {
-                    T(rb, Box::new(a), y, vx, Box::new(b))
+                match () {
+                    _ if matches!(std::env::var("M_insert_1").as_deref(), Ok("active")) => {
+                        T(R, Box::new(E), x, vx, Box::new(E))
+                    },
+                    _ if matches!(std::env::var("M_insert_2").as_deref(), Ok("active")) => {
+                        if x < y {
+                            balance(rb, ins(x, vx, a), y, vy, b)
+                        } else {
+                            T(rb, Box::new(a), y, vx, Box::new(b))
+                        }
+                    },
+                    _ if matches!(std::env::var("M_insert_3").as_deref(), Ok("active")) => {
+                        if x < y {
+                            balance(rb, ins(x, vx, a), y, vy, b)
+                        } else if y < x {
+                            balance(rb, a, y, vy, ins(x, vx, b))
+                        } else {
+                            T(rb, Box::new(a), y, vy, Box::new(b))
+                        }
+                    },
+                    _ if matches!(std::env::var("M_no_balance_insert_1").as_deref(), Ok("active")) => {
+                        if x < y {
+                            T(rb, Box::new(ins(x, vx, a)), y, vy, Box::new(b))
+                        } else if y < x {
+                            balance(rb, a, y, vy, ins(x, vx, b))
+                        } else {
+                            T(rb, Box::new(a), y, vx, Box::new(b))
+                        }
+                    },
+                    _ if matches!(std::env::var("M_no_balance_insert_2").as_deref(), Ok("active")) => {
+                        if x < y {
+                            balance(rb, ins(x, vx, a), y, vy, b)
+                        } else if y < x {
+                            T(rb, Box::new(a), y, vy, Box::new(insert(x, vx, b)))
+                        } else {
+                            T(rb, Box::new(a), y, vx, Box::new(b))
+                        }
+                    },
+                    _ => {
+                        if x < y {
+                            balance(rb, ins(x, vx, a), y, vy, b)
+                        } else if y < x {
+                            balance(rb, a, y, vy, ins(x, vx, b))
+                        } else {
+                            T(rb, Box::new(a), y, vx, Box::new(b))
+                        }
+                    },
                 }
-                */
-                /*|| insert_3 */
-                /*|
-                if x < y {
-                    balance(rb, ins(x, vx, a), y, vy, b)
-                } else if y < x {
-                    balance(rb, a, y, vy, ins(x, vx, b))
-                } else {
-                    T(rb, Box::new(a), y, vy, Box::new(b))
-                }
-                */
-                /*|| no_balance_insert_1 */
-                /*|
-                if x < y {
-                    T(rb, Box::new(ins(x, vx, a)), y, vy, Box::new(b))
-                } else if y < x {
-                    balance(rb, a, y, vy, ins(x, vx, b))
-                } else {
-                    T(rb, Box::new(a), y, vx, Box::new(b))
-                }
-                */
-                /*|| no_balance_insert_2 */
-                /*|
-                if x < y {
-                    balance(rb, ins(x, vx, a), y, vy, b)
-                } else if y < x {
-                    T(rb, Box::new(a), y, vy, Box::new(insert(x, vx, b)))
-                } else {
-                    T(rb, Box::new(a), y, vx, Box::new(b))
-                }
-                */
-                /* |*/
             }
         }
     }
@@ -212,26 +200,27 @@ pub(crate) fn bal_left(tl: Tree, k: i32, v: i32, tr: Tree) -> Option<Tree> {
         }
         (bl, x, vx, T(B, a, y, vy, b)) => Some(balance(B, bl, x, vx, T(R, a, y, vy, b))),
         (bl, x, vx, T(R, box T(B, a, y, vy, box b), z, vz, box c)) => {
-            /*| */
-            let cp = redden(c)?;
-            Some(T(
-                R,
-                Box::new(T(B, Box::new(bl), x, vx, a)),
-                y,
-                vy,
-                Box::new(balance(B, b, z, vz, cp)),
-            ))
-            /*|| miscolor_balLeft */
-            /*|
-            Some(T(
-                R,
-                Box::new(T(B, Box::new(bl), x, vx, a)),
-                y,
-                vy,
-                Box::new(balance(B, b, z, vz, c)),
-            ))
-            */
-            /* |*/
+            match () {
+                _ if matches!(std::env::var("M_miscolor_balLeft").as_deref(), Ok("active")) => {
+                    Some(T(
+                        R,
+                        Box::new(T(B, Box::new(bl), x, vx, a)),
+                        y,
+                        vy,
+                        Box::new(balance(B, b, z, vz, c)),
+                    ))
+                },
+                _ => {
+                    let cp = redden(c)?;
+                    Some(T(
+                        R,
+                        Box::new(T(B, Box::new(bl), x, vx, a)),
+                        y,
+                        vy,
+                        Box::new(balance(B, b, z, vz, cp)),
+                    ))
+                },
+            }
         }
         (_, _, _, _) => None,
     }
@@ -244,26 +233,27 @@ pub(crate) fn bal_right(tl: Tree, k: i32, v: i32, tr: Tree) -> Option<Tree> {
         }
         (T(B, a, x, vx, b), y, vy, bl) => Some(balance(B, T(R, a, x, vx, b), y, vy, bl)),
         (T(R, box a, x, vx, box T(B, box b, y, vy, c)), z, vz, bl) => {
-            /*| */
-            let ap = redden(a)?;
-            Some(T(
-                R,
-                Box::new(balance(B, ap, x, vx, b)),
-                y,
-                vy,
-                Box::new(T(B, c, z, vz, Box::new(bl))),
-            ))
-            /*|| miscolor_balRight */
-            /*|
-            Some(T(
-                R,
-                Box::new(balance(B, a, x, vx, b)),
-                y,
-                vy,
-                Box::new(T(B, c, z, vz, Box::new(bl))),
-            ))
-            */
-            /* |*/
+            match () {
+                _ if matches!(std::env::var("M_miscolor_balRight").as_deref(), Ok("active")) => {
+                    Some(T(
+                        R,
+                        Box::new(balance(B, a, x, vx, b)),
+                        y,
+                        vy,
+                        Box::new(T(B, c, z, vz, Box::new(bl))),
+                    ))
+                },
+                _ => {
+                    let ap = redden(a)?;
+                    Some(T(
+                        R,
+                        Box::new(balance(B, ap, x, vx, b)),
+                        y,
+                        vy,
+                        Box::new(T(B, c, z, vz, Box::new(bl))),
+                    ))
+                },
+            }
         }
         (_, _, _, _) => None,
     }
@@ -280,50 +270,52 @@ pub(crate) fn _join(t1: Tree, t2: Tree, f: usize) -> Option<Tree> {
         (T(R, a, x, vx, box b), T(R, box c, y, vy, d)) => match _join(b, c, fp) {
             None => None,
             Some(T(R, bp, z, vz, cp)) => {
-                /*| */
-                Some(T(
-                    R,
-                    Box::new(T(R, a, x, vx, bp)),
-                    z,
-                    vz,
-                    Box::new(T(R, cp, y, vy, d)),
-                ))
-                /*|| miscolor_join_1 */
-                /*|
-                Some(T(
-                    R,
-                    Box::new(T(B, a, x, vx, bp)),
-                    z,
-                    vz,
-                    Box::new(T(B, cp, y, vy, d)),
-                ))
-                */
-                /* |*/
+                match () {
+                    _ if matches!(std::env::var("M_miscolor_join_1").as_deref(), Ok("active")) => {
+                        Some(T(
+                            R,
+                            Box::new(T(B, a, x, vx, bp)),
+                            z,
+                            vz,
+                            Box::new(T(B, cp, y, vy, d)),
+                        ))
+                    },
+                    _ => {
+                        Some(T(
+                            R,
+                            Box::new(T(R, a, x, vx, bp)),
+                            z,
+                            vz,
+                            Box::new(T(R, cp, y, vy, d)),
+                        ))
+                    },
+                }
             }
             Some(bc) => Some(T(R, a, x, vx, Box::new(T(R, Box::new(bc), y, vy, d)))),
         },
         (T(B, a, x, vx, box b), T(B, box c, y, vy, d)) => match _join(b, c, fp) {
             None => None,
             Some(T(R, bp, z, vz, cp)) => {
-                /*| */
-                Some(T(
-                    R,
-                    Box::new(T(B, a, x, vx, bp)),
-                    z,
-                    vz,
-                    Box::new(T(B, cp, y, vy, d)),
-                ))
-                /*|| miscolor_join_2 */
-                /*|
-                Some(T(
-                    R,
-                    Box::new(T(R, a, x, vx, bp)),
-                    z,
-                    vz,
-                    Box::new(T(R, cp, y, vy, d)),
-                ))
-                */
-                /* |*/
+                match () {
+                    _ if matches!(std::env::var("M_miscolor_join_2").as_deref(), Ok("active")) => {
+                        Some(T(
+                            R,
+                            Box::new(T(R, a, x, vx, bp)),
+                            z,
+                            vz,
+                            Box::new(T(R, cp, y, vy, d)),
+                        ))
+                    },
+                    _ => {
+                        Some(T(
+                            R,
+                            Box::new(T(B, a, x, vx, bp)),
+                            z,
+                            vz,
+                            Box::new(T(B, cp, y, vy, d)),
+                        ))
+                    },
+                }
             }
             Some(bc) => bal_left(*a, x, vx, T(B, Box::new(bc), y, vy, d)),
         },
@@ -351,38 +343,38 @@ pub(crate) fn del(x: i32, s: Tree, f: usize) -> Option<Tree> {
     match s {
         E => Some(E),
         T(_, box a, y, vy, box b) => {
-            /*| */
-            if x < y {
-                let tp = del_left(x, a, y, vy, b, fp)?;
-                Some(tp)
-            } else if y < x {
-                let tp = del_right(x, a, y, vy, b, fp)?;
-                Some(tp)
-            } else {
-                let tp = join(a, b)?;
-                Some(tp)
+            match () {
+                _ if matches!(std::env::var("M_delete_4").as_deref(), Ok("active")) => {
+                    if x < y {
+                        del(x, a, fp)
+                    } else if y < x {
+                        del(x, b, fp)
+                    } else {
+                        join(a, b)
+                    }
+                },
+                _ if matches!(std::env::var("M_delete_5").as_deref(), Ok("active")) => {
+                    if y < x {
+                        del_left(x, a, y, vy, b, fp)
+                    } else if x < y {
+                        del_right(x, a, y, vy, b, fp)
+                    } else {
+                        join(a, b)
+                    }
+                },
+                _ => {
+                    if x < y {
+                        let tp = del_left(x, a, y, vy, b, fp)?;
+                        Some(tp)
+                    } else if y < x {
+                        let tp = del_right(x, a, y, vy, b, fp)?;
+                        Some(tp)
+                    } else {
+                        let tp = join(a, b)?;
+                        Some(tp)
+                    }
+                },
             }
-            /*|| delete_4 */
-            /*|
-            if x < y {
-                del(x, a, fp)
-            } else if y < x {
-                del(x, b, fp)
-            } else {
-                join(a, b)
-            }
-            */
-            /*|| delete_5 */
-            /*|
-            if y < x {
-                del_left(x, a, y, vy, b, fp)
-            } else if x < y {
-                del_right(x, a, y, vy, b, fp)
-            } else {
-                join(a, b)
-            }
-            */
-            /* |*/
         }
     }
 }
@@ -426,14 +418,15 @@ fn del_right(x: i32, dl: Tree, dy: i32, dvy: i32, dr: Tree, f: usize) -> Option<
 }
 
 pub(crate) fn delete(x: i32, t: Tree) -> Option<Tree> {
-    /*| */
-    let tp = del(x, t, FUEL)?;
-    Some(blacken(tp))
-    /*|| miscolor_delete */
-    /*|
-    del (x, t, FUEL)
-    */
-    /* |*/
+    match () {
+        _ if matches!(std::env::var("M_miscolor_delete").as_deref(), Ok("active")) => {
+            del (x, t, FUEL)
+        },
+        _ => {
+            let tp = del(x, t, FUEL)?;
+            Some(blacken(tp))
+        },
+    }
 }
 
 pub(crate) fn find(x: i32, t: Tree) -> Option<i32> {

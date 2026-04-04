@@ -1,0 +1,32 @@
+[
+  {
+    "language": "Rust",
+    "workload": "buf-list",
+    "mutations": [
+      "cursor_read_exact_missing_set_pos_on_eof_b58396d_1"
+    ],
+    "trials": 1,
+    "timeout": 600,
+    "tasks": [
+      { "strategy": "proptest", "property": "ReadExactEofPosition" },
+      { "strategy": "quickcheck", "property": "ReadExactEofPosition" },
+      { "strategy": "crabcheck", "property": "ReadExactEofPosition" },
+      { "strategy": "hegel", "property": "ReadExactEofPosition" }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "buf-list",
+    "mutations": [
+      "cursor_chunks_vectored_missing_has_remaining_guard_603087a_1"
+    ],
+    "trials": 1,
+    "timeout": 600,
+    "tasks": [
+      { "strategy": "proptest", "property": "ChunksVectoredAtEnd" },
+      { "strategy": "quickcheck", "property": "ChunksVectoredAtEnd" },
+      { "strategy": "crabcheck", "property": "ChunksVectoredAtEnd" },
+      { "strategy": "hegel", "property": "ChunksVectoredAtEnd" }
+    ]
+  }
+]
