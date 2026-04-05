@@ -58,7 +58,7 @@
                 "env": {
                     "LLVM_PROFILE_FILE": "coverage/snapshot_%p-%m.profraw"
                 },
-                "command": "./target/release/faultloc",
+                "command": "./target/release/etna",
                 "args": [
                     "${strategy}",
                     "${property}",
