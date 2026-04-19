@@ -1,0 +1,86 @@
+[
+  {
+    "language": "Rust",
+    "workload": "nom-rs",
+    "mode": "Solve",
+    "mutations": [
+      "multispace0_consumes_all_whitespace_51c3c4e_1"
+    ],
+    "trials": 1,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "Multispace0ConsumesAllWhitespace"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "Multispace0ConsumesAllWhitespace"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "Multispace0ConsumesAllWhitespace"
+      },
+      {
+        "strategy": "hegel",
+        "property": "Multispace0ConsumesAllWhitespace"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "nom-rs",
+    "mode": "Solve",
+    "mutations": [
+      "float_parses_infinity_fully_63def4e_1"
+    ],
+    "trials": 1,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "FloatParsesInfinityFully"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "FloatParsesInfinityFully"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "FloatParsesInfinityFully"
+      },
+      {
+        "strategy": "hegel",
+        "property": "FloatParsesInfinityFully"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "nom-rs",
+    "mode": "Solve",
+    "mutations": [
+      "count_handles_zero_sized_output_931bcf0_1"
+    ],
+    "trials": 1,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "CountHandlesZeroSizedOutput"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "CountHandlesZeroSizedOutput"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "CountHandlesZeroSizedOutput"
+      },
+      {
+        "strategy": "hegel",
+        "property": "CountHandlesZeroSizedOutput"
+      }
+    ]
+  }
+]

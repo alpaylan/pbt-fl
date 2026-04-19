@@ -1,0 +1,254 @@
+[
+  {
+    "language": "Rust",
+    "workload": "roaring-rs",
+    "mode": "Solve",
+    "mutations": [
+      "run_iter_forward_overflow_a24ff69_1"
+    ],
+    "trials": 1,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "IterMatchesModel"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "IterMatchesModel"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "IterMatchesModel"
+      },
+      {
+        "strategy": "hegel",
+        "property": "IterMatchesModel"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "roaring-rs",
+    "mode": "Solve",
+    "mutations": [
+      "run_iter_backward_overflow_a24ff69_2"
+    ],
+    "trials": 1,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "IterMatchesModel"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "IterMatchesModel"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "IterMatchesModel"
+      },
+      {
+        "strategy": "hegel",
+        "property": "IterMatchesModel"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "roaring-rs",
+    "mode": "Solve",
+    "mutations": [
+      "run_iter_forward_offset_reset_c41bab3_1"
+    ],
+    "trials": 1,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "IterMatchesModel"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "IterMatchesModel"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "IterMatchesModel"
+      },
+      {
+        "strategy": "hegel",
+        "property": "IterMatchesModel"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "roaring-rs",
+    "mode": "Solve",
+    "mutations": [
+      "run_iter_backward_offset_reset_c41bab3_2"
+    ],
+    "trials": 1,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "IterMatchesModel"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "IterMatchesModel"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "IterMatchesModel"
+      },
+      {
+        "strategy": "hegel",
+        "property": "IterMatchesModel"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "roaring-rs",
+    "mode": "Solve",
+    "mutations": [
+      "bitmap_advance_past_back_eaccd09_1"
+    ],
+    "trials": 1,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "AdvanceToMatchesModel"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "AdvanceToMatchesModel"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "AdvanceToMatchesModel"
+      },
+      {
+        "strategy": "hegel",
+        "property": "AdvanceToMatchesModel"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "roaring-rs",
+    "mode": "Solve",
+    "mutations": [
+      "bitmap_advance_back_to_invariant_136b8f1_1"
+    ],
+    "trials": 1,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "AdvanceBackToMatchesModel"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "AdvanceBackToMatchesModel"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "AdvanceBackToMatchesModel"
+      },
+      {
+        "strategy": "hegel",
+        "property": "AdvanceBackToMatchesModel"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "roaring-rs",
+    "mode": "Solve",
+    "mutations": [
+      "run_iter_advance_to_past_end_3116bcc_1"
+    ],
+    "trials": 1,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "AdvanceToMatchesModel"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "AdvanceToMatchesModel"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "AdvanceToMatchesModel"
+      },
+      {
+        "strategy": "hegel",
+        "property": "AdvanceToMatchesModel"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "roaring-rs",
+    "mode": "Solve",
+    "mutations": [
+      "run_iter_advance_back_to_past_start_3116bcc_2"
+    ],
+    "trials": 1,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "AdvanceBackToMatchesModel"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "AdvanceBackToMatchesModel"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "AdvanceBackToMatchesModel"
+      },
+      {
+        "strategy": "hegel",
+        "property": "AdvanceBackToMatchesModel"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "roaring-rs",
+    "mode": "Solve",
+    "mutations": [
+      "nth_over_u16_max_318366d_1"
+    ],
+    "trials": 1,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "IterNthMatchesModel"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "IterNthMatchesModel"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "IterNthMatchesModel"
+      },
+      {
+        "strategy": "hegel",
+        "property": "IterNthMatchesModel"
+      }
+    ]
+  }
+]

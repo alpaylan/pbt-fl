@@ -1,0 +1,86 @@
+[
+  {
+    "language": "Rust",
+    "workload": "arroy",
+    "mode": "Solve",
+    "mutations": [
+      "bq_len_bits_vs_bytes_facc857_1"
+    ],
+    "trials": 1,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "BqLenMatchesIter"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "BqLenMatchesIter"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "BqLenMatchesIter"
+      },
+      {
+        "strategy": "hegel",
+        "property": "BqLenMatchesIter"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "arroy",
+    "mode": "Solve",
+    "mutations": [
+      "cosine_distance_no_clamp_6a09118_1"
+    ],
+    "trials": 1,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "CosineDistanceInUnit"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "CosineDistanceInUnit"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "CosineDistanceInUnit"
+      },
+      {
+        "strategy": "hegel",
+        "property": "CosineDistanceInUnit"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "arroy",
+    "mode": "Solve",
+    "mutations": [
+      "bq_euclid_self_distance_or_not_xor_47fd2bd_1"
+    ],
+    "trials": 1,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "BqEuclidSelfDistanceZero"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "BqEuclidSelfDistanceZero"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "BqEuclidSelfDistanceZero"
+      },
+      {
+        "strategy": "hegel",
+        "property": "BqEuclidSelfDistanceZero"
+      }
+    ]
+  }
+]

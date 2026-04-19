@@ -1,0 +1,86 @@
+[
+  {
+    "language": "Rust",
+    "workload": "regex",
+    "mode": "Solve",
+    "mutations": [
+      "unicode_named_value_negation_c4865a0_1"
+    ],
+    "trials": 1,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "GcNeSeparatorNegation"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "GcNeSeparatorNegation"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "GcNeSeparatorNegation"
+      },
+      {
+        "strategy": "hegel",
+        "property": "GcNeSeparatorNegation"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "regex",
+    "mode": "Solve",
+    "mutations": [
+      "captures_get_group_overflow_ab76b86_1"
+    ],
+    "trials": 1,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "CaptureLocationsGetOverflow"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "CaptureLocationsGetOverflow"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "CaptureLocationsGetOverflow"
+      },
+      {
+        "strategy": "hegel",
+        "property": "CaptureLocationsGetOverflow"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "regex",
+    "mode": "Solve",
+    "mutations": [
+      "alternation_literal_from_alt_33898de_1"
+    ],
+    "trials": 1,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "AlternationLiteralFromAlt"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "AlternationLiteralFromAlt"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "AlternationLiteralFromAlt"
+      },
+      {
+        "strategy": "hegel",
+        "property": "AlternationLiteralFromAlt"
+      }
+    ]
+  }
+]

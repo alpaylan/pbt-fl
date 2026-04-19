@@ -1,0 +1,86 @@
+[
+  {
+    "language": "Rust",
+    "workload": "unicode-segmentation",
+    "mode": "Solve",
+    "mutations": [
+      "grapheme_next_boundary_unwrap_0f55f70_1"
+    ],
+    "trials": 1,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "GraphemeNextBoundaryEmptyChunk"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "GraphemeNextBoundaryEmptyChunk"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "GraphemeNextBoundaryEmptyChunk"
+      },
+      {
+        "strategy": "hegel",
+        "property": "GraphemeNextBoundaryEmptyChunk"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "unicode-segmentation",
+    "mode": "Solve",
+    "mutations": [
+      "grapheme_prev_boundary_chunk_start_fb5d7b6_1"
+    ],
+    "trials": 1,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "GraphemePrevBoundaryChunkStart"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "GraphemePrevBoundaryChunkStart"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "GraphemePrevBoundaryChunkStart"
+      },
+      {
+        "strategy": "hegel",
+        "property": "GraphemePrevBoundaryChunkStart"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "unicode-segmentation",
+    "mode": "Solve",
+    "mutations": [
+      "ascii_word_bound_drop_apostrophe_af87c8d_1"
+    ],
+    "trials": 1,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "AsciiWordBoundIndicesMatch"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "AsciiWordBoundIndicesMatch"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "AsciiWordBoundIndicesMatch"
+      },
+      {
+        "strategy": "hegel",
+        "property": "AsciiWordBoundIndicesMatch"
+      }
+    ]
+  }
+]
