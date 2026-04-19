@@ -6,7 +6,7 @@
     "mutations": [
       "multispace0_consumes_all_whitespace_51c3c4e_1"
     ],
-    "trials": 1,
+    "trials": 10,
     "timeout": 600,
     "tasks": [
       {
@@ -34,7 +34,7 @@
     "mutations": [
       "float_parses_infinity_fully_63def4e_1"
     ],
-    "trials": 1,
+    "trials": 10,
     "timeout": 600,
     "tasks": [
       {
@@ -62,7 +62,7 @@
     "mutations": [
       "count_handles_zero_sized_output_931bcf0_1"
     ],
-    "trials": 1,
+    "trials": 10,
     "timeout": 600,
     "tasks": [
       {

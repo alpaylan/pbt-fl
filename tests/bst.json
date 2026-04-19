@@ -5,7 +5,7 @@
         "mutations": [
             "insert_1"
         ],
-        "trials": 1,
+        "trials": 10,
         "timeout": 600,
         "tasks": [
             {
@@ -40,7 +40,7 @@
         "mutations": [
             "insert_2"
         ],
-        "trials": 1,
+        "trials": 10,
         "timeout": 600,
         "tasks": [
             {
@@ -79,7 +79,7 @@
         "mutations": [
             "insert_3"
         ],
-        "trials": 1,
+        "trials": 10,
         "timeout": 600,
         "tasks": [
             {
@@ -114,7 +114,7 @@
         "mutations": [
             "delete_4"
         ],
-        "trials": 1,
+        "trials": 10,
         "timeout": 600,
         "tasks": [
             {
@@ -153,7 +153,7 @@
         "mutations": [
             "delete_5"
         ],
-        "trials": 1,
+        "trials": 10,
         "timeout": 600,
         "tasks": [
             {
@@ -188,7 +188,7 @@
         "mutations": [
             "union_6"
         ],
-        "trials": 1,
+        "trials": 10,
         "timeout": 600,
         "tasks": [
             {
@@ -227,7 +227,7 @@
         "mutations": [
             "union_7"
         ],
-        "trials": 1,
+        "trials": 10,
         "timeout": 600,
         "tasks": [
             {
@@ -266,7 +266,7 @@
         "mutations": [
             "union_8"
         ],
-        "trials": 1,
+        "trials": 10,
         "timeout": 600,
         "tasks": [
             {

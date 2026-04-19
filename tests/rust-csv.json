@@ -6,7 +6,7 @@
     "mutations": [
       "core_reader_reset_output_pos_zero_066de4a_1"
     ],
-    "trials": 1,
+    "trials": 10,
     "timeout": 600,
     "tasks": [
       {
@@ -34,7 +34,7 @@
     "mutations": [
       "reader_trim_all_without_headers_ce01ae7_1"
     ],
-    "trials": 1,
+    "trials": 10,
     "timeout": 600,
     "tasks": [
       {
@@ -62,7 +62,7 @@
     "mutations": [
       "writer_comment_char_auto_quote_0f64d3f_1"
     ],
-    "trials": 1,
+    "trials": 10,
     "timeout": 600,
     "tasks": [
       {
@@ -90,7 +90,7 @@
     "mutations": [
       "byte_record_eq_field_boundaries_efc4a51_1"
     ],
-    "trials": 1,
+    "trials": 10,
     "timeout": 600,
     "tasks": [
       {
@@ -118,7 +118,7 @@
     "mutations": [
       "byte_record_eq_length_check_23fb0cd_1"
     ],
-    "trials": 1,
+    "trials": 10,
     "timeout": 600,
     "tasks": [
       {
@@ -146,7 +146,7 @@
     "mutations": [
       "core_reader_comment_only_at_record_start_a5745ba_1"
     ],
-    "trials": 1,
+    "trials": 10,
     "timeout": 600,
     "tasks": [
       {
@@ -174,7 +174,7 @@
     "mutations": [
       "deserialize_byte_buf_bypasses_utf8_9e644e6_1"
     ],
-    "trials": 1,
+    "trials": 10,
     "timeout": 600,
     "tasks": [
       {

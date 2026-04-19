@@ -6,7 +6,7 @@
     "mutations": [
       "read_exact_pos_on_eof_b58396d_1"
     ],
-    "trials": 1,
+    "trials": 10,
     "timeout": 600,
     "tasks": [
       {

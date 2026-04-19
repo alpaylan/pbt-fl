@@ -6,7 +6,7 @@
     "mutations": [
       "unicode_named_value_negation_c4865a0_1"
     ],
-    "trials": 1,
+    "trials": 10,
     "timeout": 600,
     "tasks": [
       {
@@ -34,7 +34,7 @@
     "mutations": [
       "captures_get_group_overflow_ab76b86_1"
     ],
-    "trials": 1,
+    "trials": 10,
     "timeout": 600,
     "tasks": [
       {
@@ -62,7 +62,7 @@
     "mutations": [
       "alternation_literal_from_alt_33898de_1"
     ],
-    "trials": 1,
+    "trials": 10,
     "timeout": 600,
     "tasks": [
       {

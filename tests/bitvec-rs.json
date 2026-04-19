@@ -6,7 +6,7 @@
     "mutations": [
       "split_at_mut_rejects_len_c71ea23_1"
     ],
-    "trials": 1,
+    "trials": 10,
     "timeout": 600,
     "tasks": [
       {
@@ -34,7 +34,7 @@
     "mutations": [
       "vec_insert_rejects_end_8e48751_1"
     ],
-    "trials": 1,
+    "trials": 10,
     "timeout": 600,
     "tasks": [
       {
@@ -62,7 +62,7 @@
     "mutations": [
       "leading_trailing_homogeneous_b08c4bd_1"
     ],
-    "trials": 1,
+    "trials": 10,
     "timeout": 600,
     "tasks": [
       {
@@ -90,7 +90,7 @@
     "mutations": [
       "bitvec_partial_cmp_reversed_f3d5b43_1"
     ],
-    "trials": 1,
+    "trials": 10,
     "timeout": 600,
     "tasks": [
       {
@@ -118,7 +118,7 @@
     "mutations": [
       "clone_from_bitslice_src_bug_935cad8_1"
     ],
-    "trials": 1,
+    "trials": 10,
     "timeout": 600,
     "tasks": [
       {
@@ -146,7 +146,7 @@
     "mutations": [
       "octal_fmt_buffer_size_aeef0be_1"
     ],
-    "trials": 1,
+    "trials": 10,
     "timeout": 600,
     "tasks": [
       {

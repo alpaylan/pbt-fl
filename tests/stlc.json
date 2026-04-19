@@ -5,7 +5,7 @@
         "mutations": [
             "shift_var_none"
         ],
-        "trials": 1,
+        "trials": 10,
         "timeout": 600,
         "tasks": [
             {
@@ -24,7 +24,7 @@
         "mutations": [
             "shift_var_all"
         ],
-        "trials": 1,
+        "trials": 10,
         "timeout": 600,
         "tasks": [
             {
@@ -43,7 +43,7 @@
         "mutations": [
             "shift_var_leq"
         ],
-        "trials": 1,
+        "trials": 10,
         "timeout": 600,
         "tasks": [
             {
@@ -62,7 +62,7 @@
         "mutations": [
             "shift_abs_no_incr"
         ],
-        "trials": 1,
+        "trials": 10,
         "timeout": 600,
         "tasks": [
             {
@@ -81,7 +81,7 @@
         "mutations": [
             "subst_var_all"
         ],
-        "trials": 1,
+        "trials": 10,
         "timeout": 600,
         "tasks": [
             {
@@ -100,7 +100,7 @@
         "mutations": [
             "subst_var_none"
         ],
-        "trials": 1,
+        "trials": 10,
         "timeout": 600,
         "tasks": [
             {
@@ -119,7 +119,7 @@
         "mutations": [
             "subst_abs_no_shift"
         ],
-        "trials": 1,
+        "trials": 10,
         "timeout": 600,
         "tasks": [
             {
@@ -138,7 +138,7 @@
         "mutations": [
             "subst_abs_no_incr"
         ],
-        "trials": 1,
+        "trials": 10,
         "timeout": 600,
         "tasks": [
             {
@@ -157,7 +157,7 @@
         "mutations": [
             "substTop_no_shift"
         ],
-        "trials": 1,
+        "trials": 10,
         "timeout": 600,
         "tasks": [
             {
@@ -176,7 +176,7 @@
         "mutations": [
             "substTop_no_shift_back"
         ],
-        "trials": 1,
+        "trials": 10,
         "timeout": 600,
         "tasks": [
             {

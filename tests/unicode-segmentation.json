@@ -6,7 +6,7 @@
     "mutations": [
       "grapheme_next_boundary_unwrap_0f55f70_1"
     ],
-    "trials": 1,
+    "trials": 10,
     "timeout": 600,
     "tasks": [
       {
@@ -34,7 +34,7 @@
     "mutations": [
       "grapheme_prev_boundary_chunk_start_fb5d7b6_1"
     ],
-    "trials": 1,
+    "trials": 10,
     "timeout": 600,
     "tasks": [
       {
@@ -62,7 +62,7 @@
     "mutations": [
       "ascii_word_bound_drop_apostrophe_af87c8d_1"
     ],
-    "trials": 1,
+    "trials": 10,
     "timeout": 600,
     "tasks": [
       {

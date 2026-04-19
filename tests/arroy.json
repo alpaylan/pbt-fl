@@ -6,7 +6,7 @@
     "mutations": [
       "bq_len_bits_vs_bytes_facc857_1"
     ],
-    "trials": 1,
+    "trials": 10,
     "timeout": 600,
     "tasks": [
       {
@@ -34,7 +34,7 @@
     "mutations": [
       "cosine_distance_no_clamp_6a09118_1"
     ],
-    "trials": 1,
+    "trials": 10,
     "timeout": 600,
     "tasks": [
       {
@@ -62,7 +62,7 @@
     "mutations": [
       "bq_euclid_self_distance_or_not_xor_47fd2bd_1"
     ],
-    "trials": 1,
+    "trials": 10,
     "timeout": 600,
     "tasks": [
       {

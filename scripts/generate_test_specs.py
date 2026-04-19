@@ -6,6 +6,7 @@ Reads each workload's etna.toml plus its src/bin/etna.rs dispatcher, builds the
 snake_case property -> PascalCase-dispatch-name map by scanning match arms, and
 emits one test-selector entry per variant for every declared framework.
 """
+
 from __future__ import annotations
 
 import json
@@ -106,16 +107,20 @@ def generate_for(workload: str) -> tuple[int, int]:
                 f"property_{snake} (known: {sorted(mapping)})"
             )
         pascal = mapping[snake]
-        frameworks = v.get("frameworks", ["proptest", "quickcheck", "crabcheck", "hegel"])
-        entries.append({
-            "language": "Rust",
-            "workload": workload,
-            "mode": "Solve",
-            "mutations": [v["name"]],
-            "trials": 1,
-            "timeout": 600,
-            "tasks": [{"strategy": fw, "property": pascal} for fw in frameworks],
-        })
+        frameworks = v.get(
+            "frameworks", ["proptest", "quickcheck", "crabcheck", "hegel"]
+        )
+        entries.append(
+            {
+                "language": "Rust",
+                "workload": workload,
+                "mode": "Solve",
+                "mutations": [v["name"]],
+                "trials": 10,
+                "timeout": 600,
+                "tasks": [{"strategy": fw, "property": pascal} for fw in frameworks],
+            }
+        )
         task_total += len(frameworks)
 
     tests_path = ROOT / "tests" / f"{workload}.json"
