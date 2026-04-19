@@ -1,0 +1,30 @@
+[
+  {
+    "language": "Rust",
+    "workload": "regex",
+    "mode": "Solve",
+    "mutations": [
+      "unicode_named_value_negation_c4865a0_1"
+    ],
+    "trials": 1,
+    "timeout": 30,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "GcNeSeparatorNegation"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "GcNeSeparatorNegation"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "GcNeSeparatorNegation"
+      },
+      {
+        "strategy": "hegel",
+        "property": "GcNeSeparatorNegation"
+      }
+    ]
+  }
+]
