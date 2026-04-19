@@ -1,0 +1,30 @@
+[
+  {
+    "language": "Rust",
+    "workload": "roaring-rs",
+    "mode": "Solve",
+    "mutations": [
+      "run_iter_forward_overflow_a24ff69_1"
+    ],
+    "trials": 1,
+    "timeout": 30,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "IterMatchesModel"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "IterMatchesModel"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "IterMatchesModel"
+      },
+      {
+        "strategy": "hegel",
+        "property": "IterMatchesModel"
+      }
+    ]
+  }
+]
