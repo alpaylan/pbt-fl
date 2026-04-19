@@ -2,6 +2,7 @@
   {
     "language": "Rust",
     "workload": "ordered-float",
+    "mode": "Solve",
     "mutations": [
       "hash_signed_zero_3aa8aa5_1"
     ],
@@ -21,6 +22,7 @@
   {
     "language": "Rust",
     "workload": "ordered-float",
+    "mode": "Solve",
     "mutations": [
       "notnan_binop_skip_nan_check_8d56a3c_1"
     ],
@@ -36,6 +38,7 @@
   {
     "language": "Rust",
     "workload": "ordered-float",
+    "mode": "Solve",
     "mutations": [
       "partial_cmp_delegates_to_inner_184a381_1"
     ],
@@ -51,6 +54,7 @@
   {
     "language": "Rust",
     "workload": "ordered-float",
+    "mode": "Solve",
     "mutations": [
       "notnan_assign_not_panic_safe_c55cda3_1"
     ],
