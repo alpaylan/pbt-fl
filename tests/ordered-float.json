@@ -1,0 +1,66 @@
+[
+  {
+    "language": "Rust",
+    "workload": "ordered-float",
+    "mutations": [
+      "hash_signed_zero_3aa8aa5_1"
+    ],
+    "trials": 1,
+    "timeout": 600,
+    "tasks": [
+      { "strategy": "proptest", "property": "HashMatchesEq" },
+      { "strategy": "quickcheck", "property": "HashMatchesEq" },
+      { "strategy": "crabcheck", "property": "HashMatchesEq" },
+      { "strategy": "hegel", "property": "HashMatchesEq" },
+      { "strategy": "proptest", "property": "HashMatchesEqNotNan" },
+      { "strategy": "quickcheck", "property": "HashMatchesEqNotNan" },
+      { "strategy": "crabcheck", "property": "HashMatchesEqNotNan" },
+      { "strategy": "hegel", "property": "HashMatchesEqNotNan" }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "ordered-float",
+    "mutations": [
+      "notnan_binop_skip_nan_check_8d56a3c_1"
+    ],
+    "trials": 1,
+    "timeout": 600,
+    "tasks": [
+      { "strategy": "proptest", "property": "NotNanBinopNoNan" },
+      { "strategy": "quickcheck", "property": "NotNanBinopNoNan" },
+      { "strategy": "crabcheck", "property": "NotNanBinopNoNan" },
+      { "strategy": "hegel", "property": "NotNanBinopNoNan" }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "ordered-float",
+    "mutations": [
+      "partial_cmp_delegates_to_inner_184a381_1"
+    ],
+    "trials": 1,
+    "timeout": 600,
+    "tasks": [
+      { "strategy": "proptest", "property": "PartialCmpMatchesCmp" },
+      { "strategy": "quickcheck", "property": "PartialCmpMatchesCmp" },
+      { "strategy": "crabcheck", "property": "PartialCmpMatchesCmp" },
+      { "strategy": "hegel", "property": "PartialCmpMatchesCmp" }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "ordered-float",
+    "mutations": [
+      "notnan_assign_not_panic_safe_c55cda3_1"
+    ],
+    "trials": 1,
+    "timeout": 600,
+    "tasks": [
+      { "strategy": "proptest", "property": "AssignPanicSafe" },
+      { "strategy": "quickcheck", "property": "AssignPanicSafe" },
+      { "strategy": "crabcheck", "property": "AssignPanicSafe" },
+      { "strategy": "hegel", "property": "AssignPanicSafe" }
+    ]
+  }
+]
