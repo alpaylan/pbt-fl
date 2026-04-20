@@ -1,0 +1,226 @@
+[
+  {
+    "language": "Rust",
+    "workload": "rust-decimal",
+    "mode": "Solve",
+    "mutations": [
+      "abs_sub_returns_abs_dd711db_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "AbsSubDifference"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "AbsSubDifference"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "AbsSubDifference"
+      },
+      {
+        "strategy": "hegel",
+        "property": "AbsSubDifference"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "rust-decimal",
+    "mode": "Solve",
+    "mutations": [
+      "is_integer_scale_decrement_951512d_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "IsIntegerMatchesString"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "IsIntegerMatchesString"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "IsIntegerMatchesString"
+      },
+      {
+        "strategy": "hegel",
+        "property": "IsIntegerMatchesString"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "rust-decimal",
+    "mode": "Solve",
+    "mutations": [
+      "from_i128_negation_overflow_6f7d295_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "FromI128Extremes"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "FromI128Extremes"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "FromI128Extremes"
+      },
+      {
+        "strategy": "hegel",
+        "property": "FromI128Extremes"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "rust-decimal",
+    "mode": "Solve",
+    "mutations": [
+      "round_dp_early_return_reorder_c205456_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "RoundDpPreserves"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "RoundDpPreserves"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "RoundDpPreserves"
+      },
+      {
+        "strategy": "hegel",
+        "property": "RoundDpPreserves"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "rust-decimal",
+    "mode": "Solve",
+    "mutations": [
+      "checked_ln_zero_panic_092fdf8_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "CheckedLnNoPanic"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "CheckedLnNoPanic"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "CheckedLnNoPanic"
+      },
+      {
+        "strategy": "hegel",
+        "property": "CheckedLnNoPanic"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "rust-decimal",
+    "mode": "Solve",
+    "mutations": [
+      "scientific_fmt_zero_d0f2a64_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "ScientificFmtRoundtrip"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "ScientificFmtRoundtrip"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "ScientificFmtRoundtrip"
+      },
+      {
+        "strategy": "hegel",
+        "property": "ScientificFmtRoundtrip"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "rust-decimal",
+    "mode": "Solve",
+    "mutations": [
+      "scientific_scale_overflow_722af9f_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "FromScientificNoPanic"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "FromScientificNoPanic"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "FromScientificNoPanic"
+      },
+      {
+        "strategy": "hegel",
+        "property": "FromScientificNoPanic"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "rust-decimal",
+    "mode": "Solve",
+    "mutations": [
+      "div_remainder_overflow_a231fbf_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "CheckedDivNoPanic"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "CheckedDivNoPanic"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "CheckedDivNoPanic"
+      },
+      {
+        "strategy": "hegel",
+        "property": "CheckedDivNoPanic"
+      }
+    ]
+  }
+]

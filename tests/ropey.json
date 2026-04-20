@@ -1,0 +1,170 @@
+[
+  {
+    "language": "Rust",
+    "workload": "ropey",
+    "mode": "Solve",
+    "mutations": [
+      "lines_empty_total_lines_faf6738_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "LinesMatchModel"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "LinesMatchModel"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "LinesMatchModel"
+      },
+      {
+        "strategy": "hegel",
+        "property": "LinesMatchModel"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "ropey",
+    "mode": "Solve",
+    "mutations": [
+      "rope_eq_utf8_boundary_cc516d5_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "RopeEqChunkInvariant"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "RopeEqChunkInvariant"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "RopeEqChunkInvariant"
+      },
+      {
+        "strategy": "hegel",
+        "property": "RopeEqChunkInvariant"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "ropey",
+    "mode": "Solve",
+    "mutations": [
+      "rope_hash_chunk_boundary_fef5be9_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "RopeHashChunkInvariant"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "RopeHashChunkInvariant"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "RopeHashChunkInvariant"
+      },
+      {
+        "strategy": "hegel",
+        "property": "RopeHashChunkInvariant"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "ropey",
+    "mode": "Solve",
+    "mutations": [
+      "utf16_code_unit_conversion_c0af16b_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "Utf16CharRoundtrip"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "Utf16CharRoundtrip"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "Utf16CharRoundtrip"
+      },
+      {
+        "strategy": "hegel",
+        "property": "Utf16CharRoundtrip"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "ropey",
+    "mode": "Solve",
+    "mutations": [
+      "rope_builder_default_empty_stack_dfcac8b_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "RopeBuilderDefaultBuild"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "RopeBuilderDefaultBuild"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "RopeBuilderDefaultBuild"
+      },
+      {
+        "strategy": "hegel",
+        "property": "RopeBuilderDefaultBuild"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "ropey",
+    "mode": "Solve",
+    "mutations": [
+      "slice_crlf_split_end_info_8699de0_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "SliceCrlfLenLines"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "SliceCrlfLenLines"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "SliceCrlfLenLines"
+      },
+      {
+        "strategy": "hegel",
+        "property": "SliceCrlfLenLines"
+      }
+    ]
+  }
+]
