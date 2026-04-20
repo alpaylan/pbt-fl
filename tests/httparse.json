@@ -1,0 +1,86 @@
+[
+  {
+    "language": "Rust",
+    "workload": "httparse",
+    "mode": "Solve",
+    "mutations": ["chunk_size_overflow_34efc1e_1"],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {"strategy": "proptest", "property": "ChunkSizeMatchesOracle"},
+      {"strategy": "quickcheck", "property": "ChunkSizeMatchesOracle"},
+      {"strategy": "crabcheck", "property": "ChunkSizeMatchesOracle"},
+      {"strategy": "hegel", "property": "ChunkSizeMatchesOracle"}
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "httparse",
+    "mode": "Solve",
+    "mutations": ["method_leading_space_9f6702b_1"],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {"strategy": "proptest", "property": "RequestMethodIsValid"},
+      {"strategy": "quickcheck", "property": "RequestMethodIsValid"},
+      {"strategy": "crabcheck", "property": "RequestMethodIsValid"},
+      {"strategy": "hegel", "property": "RequestMethodIsValid"}
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "httparse",
+    "mode": "Solve",
+    "mutations": ["invalid_token_delim_498de3f_1"],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {"strategy": "proptest", "property": "RequestMethodIsValid"},
+      {"strategy": "quickcheck", "property": "RequestMethodIsValid"},
+      {"strategy": "crabcheck", "property": "RequestMethodIsValid"},
+      {"strategy": "hegel", "property": "RequestMethodIsValid"}
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "httparse",
+    "mode": "Solve",
+    "mutations": ["header_value_htab_59a9fd1_1"],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {"strategy": "proptest", "property": "RequestHeaderValuePreserves"},
+      {"strategy": "quickcheck", "property": "RequestHeaderValuePreserves"},
+      {"strategy": "crabcheck", "property": "RequestHeaderValuePreserves"},
+      {"strategy": "hegel", "property": "RequestHeaderValuePreserves"}
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "httparse",
+    "mode": "Solve",
+    "mutations": ["backslash_in_uri_1a791f4_1"],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {"strategy": "proptest", "property": "RequestPathPreserves"},
+      {"strategy": "quickcheck", "property": "RequestPathPreserves"},
+      {"strategy": "crabcheck", "property": "RequestPathPreserves"},
+      {"strategy": "hegel", "property": "RequestPathPreserves"}
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "httparse",
+    "mode": "Solve",
+    "mutations": ["response_no_reason_c0631f2_1"],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {"strategy": "proptest", "property": "ResponseHeaderNamesAreTokens"},
+      {"strategy": "quickcheck", "property": "ResponseHeaderNamesAreTokens"},
+      {"strategy": "crabcheck", "property": "ResponseHeaderNamesAreTokens"},
+      {"strategy": "hegel", "property": "ResponseHeaderNamesAreTokens"}
+    ]
+  }
+]
