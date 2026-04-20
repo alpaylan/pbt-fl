@@ -19,14 +19,15 @@ RUN_DIR="$FAULTLOC/overnight-logs/$STAMP"
 MANIFEST="$RUN_DIR/runs.jsonl"
 mkdir -p "$RUN_DIR"
 
-# "name:cap_seconds" — cap=3600 for <1000 commits, 7200 for larger.
+# "name:cap_seconds[:force]" — cap=3600 for <1000 commits, 7200 for larger.
+# Append ":force" to bypass the `already_done` skip check. Use this for
+# re-running a workload whose etna.toml is populated but under-mined —
+# the agent's resume contract will extend the variant list rather than
+# redo completed work.
 CANDIDATES=(
-  "time:7200"
-  "num-bigint:3600"
-  "indexmap:3600"
-  "rust-decimal:3600"
-  "ropey:3600"
-  "bstr:3600"
+  "indexmap:7200:force"
+  "ropey:7200:force"
+  "rust-decimal:7200:force"
 )
 
 # Heredoc — keeps the prompt readable and lets us %-format the path safely.
@@ -55,6 +56,14 @@ state from an interrupted prior run:
 When resuming, append progress events with the current timestamp so the log
 shows both runs contiguously. Never rewrite or truncate progress.jsonl.
 If nothing partial exists, this is a fresh run — proceed normally from discover.
+
+EXTEND MODE. If progress.jsonl already contains `validate.all_checks_passed`,
+the workload is technically complete but may be under-mined — the prior run
+may have capped out before traversing the full git history. Do not exit early.
+Re-run discover across the full history, compare the candidate list against
+the variants already in etna.toml, and atomize every missing candidate. The
+existing variants are frozen; only add new ones. Run document + validate at
+the end so the docs and the detection matrix reflect the expanded variant set.
 
 Work through all five stages end-to-end: discover, atomize, runner, document,
 validate. Do not stop at the first passing build — every bug-fix commit in the
@@ -146,8 +155,8 @@ trap 'echo "[driver] interrupted — exiting"; exit 130' INT TERM
 printf "[driver] started %s\n[driver] logs: %s\n\n" "$STAMP" "$RUN_DIR"
 
 for entry in "${CANDIDATES[@]}"; do
-    name="${entry%:*}"
-    cap="${entry#*:}"
+    # Split "name:cap[:force]" using IFS so we correctly handle the optional third field.
+    IFS=':' read -r name cap force <<< "$entry"
     path="$FAULTLOC/workloads/Rust/$name"
     log="$RUN_DIR/$name.log"
     ts_start=$(date -u +%Y-%m-%dT%H:%M:%SZ)
@@ -160,7 +169,7 @@ for entry in "${CANDIDATES[@]}"; do
         continue
     fi
 
-    if already_done "$path"; then
+    if [ "$force" != "force" ] && already_done "$path"; then
         printf "[%s] skip — etna.toml already populated\n" "$name"
         printf '{"candidate":%s,"status":"skipped","reason":"already done","ts_start":%s}\n' \
             "$(json_str "$name")" "$(json_str "$ts_start")" >> "$MANIFEST"
