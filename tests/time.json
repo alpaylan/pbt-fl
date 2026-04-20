@@ -1,0 +1,86 @@
+[
+  {
+    "language": "Rust",
+    "workload": "time",
+    "mode": "Solve",
+    "mutations": [
+      "duration_abs_saturation_0e99ae7_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "DurationAbsMatchesModel"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "DurationAbsMatchesModel"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "DurationAbsMatchesModel"
+      },
+      {
+        "strategy": "hegel",
+        "property": "DurationAbsMatchesModel"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "time",
+    "mode": "Solve",
+    "mutations": [
+      "duration_checked_div_8060100_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "DurationCheckedDivMatchesModel"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "DurationCheckedDivMatchesModel"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "DurationCheckedDivMatchesModel"
+      },
+      {
+        "strategy": "hegel",
+        "property": "DurationCheckedDivMatchesModel"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "time",
+    "mode": "Solve",
+    "mutations": [
+      "utc_offset_ordering_3a60ceb_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "UtcOffsetOrdering"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "UtcOffsetOrdering"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "UtcOffsetOrdering"
+      },
+      {
+        "strategy": "hegel",
+        "property": "UtcOffsetOrdering"
+      }
+    ]
+  }
+]

@@ -1,0 +1,170 @@
+[
+  {
+    "language": "Rust",
+    "workload": "im-rs",
+    "mode": "Solve",
+    "mutations": [
+      "path_next_backtrack_41d99725_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "PathNextBacktrack"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "PathNextBacktrack"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "PathNextBacktrack"
+      },
+      {
+        "strategy": "hegel",
+        "property": "PathNextBacktrack"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "im-rs",
+    "mode": "Solve",
+    "mutations": [
+      "range_off_by_one_3f4e01a4_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "RangeOffByOne"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "RangeOffByOne"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "RangeOffByOne"
+      },
+      {
+        "strategy": "hegel",
+        "property": "RangeOffByOne"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "im-rs",
+    "mode": "Solve",
+    "mutations": [
+      "rrb_debug_pop_1209e823_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "RrbDebugPop"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "RrbDebugPop"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "RrbDebugPop"
+      },
+      {
+        "strategy": "hegel",
+        "property": "RrbDebugPop"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "im-rs",
+    "mode": "Solve",
+    "mutations": [
+      "rrb_density_check_cb431a6_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "RrbDensityCheck"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "RrbDensityCheck"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "RrbDensityCheck"
+      },
+      {
+        "strategy": "hegel",
+        "property": "RrbDensityCheck"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "im-rs",
+    "mode": "Solve",
+    "mutations": [
+      "ptr_eq_precedence_f744912_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "PtrEqPrecedence"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "PtrEqPrecedence"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "PtrEqPrecedence"
+      },
+      {
+        "strategy": "hegel",
+        "property": "PtrEqPrecedence"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "im-rs",
+    "mode": "Solve",
+    "mutations": [
+      "eq_single_chunk_005193a_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "EqSingleChunk"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "EqSingleChunk"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "EqSingleChunk"
+      },
+      {
+        "strategy": "hegel",
+        "property": "EqSingleChunk"
+      }
+    ]
+  }
+]

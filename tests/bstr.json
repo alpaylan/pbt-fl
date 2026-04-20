@@ -1,0 +1,170 @@
+[
+  {
+    "language": "Rust",
+    "workload": "bstr",
+    "mode": "Solve",
+    "mutations": [
+      "splitn_trailing_empty_aed424a_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "SplitnBounded"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "SplitnBounded"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "SplitnBounded"
+      },
+      {
+        "strategy": "hegel",
+        "property": "SplitnBounded"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "bstr",
+    "mode": "Solve",
+    "mutations": [
+      "cow_partialeq_self_compare_b2111b6_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "CowPartialEqBstr"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "CowPartialEqBstr"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "CowPartialEqBstr"
+      },
+      {
+        "strategy": "hegel",
+        "property": "CowPartialEqBstr"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "bstr",
+    "mode": "Solve",
+    "mutations": [
+      "debug_fffd_not_escaped_eafb495_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "DebugValidFfFdPreserved"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "DebugValidFfFdPreserved"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "DebugValidFfFdPreserved"
+      },
+      {
+        "strategy": "hegel",
+        "property": "DebugValidFfFdPreserved"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "bstr",
+    "mode": "Solve",
+    "mutations": [
+      "debug_non_ascii_control_unicode_escape_8e2041e_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "DebugAsciiControlHex"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "DebugAsciiControlHex"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "DebugAsciiControlHex"
+      },
+      {
+        "strategy": "hegel",
+        "property": "DebugAsciiControlHex"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "bstr",
+    "mode": "Solve",
+    "mutations": [
+      "debug_control_chars_x1a_732fc99_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "DebugAsciiControlHex"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "DebugAsciiControlHex"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "DebugAsciiControlHex"
+      },
+      {
+        "strategy": "hegel",
+        "property": "DebugAsciiControlHex"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "bstr",
+    "mode": "Solve",
+    "mutations": [
+      "debug_hex_uppercase_af99a6e_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "DebugHexLowercase"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "DebugHexLowercase"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "DebugHexLowercase"
+      },
+      {
+        "strategy": "hegel",
+        "property": "DebugHexLowercase"
+      }
+    ]
+  }
+]

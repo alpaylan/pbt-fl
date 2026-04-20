@@ -1,0 +1,142 @@
+[
+  {
+    "language": "Rust",
+    "workload": "num-bigint",
+    "mode": "Solve",
+    "mutations": [
+      "is_multiple_of_zero_016c04a_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "IsMultipleOfZero"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "IsMultipleOfZero"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "IsMultipleOfZero"
+      },
+      {
+        "strategy": "hegel",
+        "property": "IsMultipleOfZero"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "num-bigint",
+    "mode": "Solve",
+    "mutations": [
+      "mac3_all_zero_0940e50_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "MulSquareAllOnes"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "MulSquareAllOnes"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "MulSquareAllOnes"
+      },
+      {
+        "strategy": "hegel",
+        "property": "MulSquareAllOnes"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "num-bigint",
+    "mode": "Solve",
+    "mutations": [
+      "mul_undersized_buffer_8008707_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "MulSquareAllOnes"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "MulSquareAllOnes"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "MulSquareAllOnes"
+      },
+      {
+        "strategy": "hegel",
+        "property": "MulSquareAllOnes"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "num-bigint",
+    "mode": "Solve",
+    "mutations": [
+      "neg_isize_promotion_3b13d9a_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "NegIsizeAddAssign"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "NegIsizeAddAssign"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "NegIsizeAddAssign"
+      },
+      {
+        "strategy": "hegel",
+        "property": "NegIsizeAddAssign"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "num-bigint",
+    "mode": "Solve",
+    "mutations": [
+      "scalar_div_zero_5dcf2a1_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "ScalarDivByZeroPanics"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "ScalarDivByZeroPanics"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "ScalarDivByZeroPanics"
+      },
+      {
+        "strategy": "hegel",
+        "property": "ScalarDivByZeroPanics"
+      }
+    ]
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "language": "Rust",
+    "workload": "indexmap",
+    "mode": "Solve",
+    "mutations": [
+      "reverse_indices_offbyone_a442475_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "ReversePreservesLookup"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "ReversePreservesLookup"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "ReversePreservesLookup"
+      },
+      {
+        "strategy": "hegel",
+        "property": "ReversePreservesLookup"
+      }
+    ]
+  }
+]
