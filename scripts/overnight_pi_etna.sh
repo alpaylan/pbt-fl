@@ -25,9 +25,7 @@ mkdir -p "$RUN_DIR"
 # the agent's resume contract will extend the variant list rather than
 # redo completed work.
 CANDIDATES=(
-  "indexmap:7200:force"
-  "ropey:7200:force"
-  "rust-decimal:7200:force"
+  "petgraph:7200"
 )
 
 # Heredoc — keeps the prompt readable and lets us %-format the path safely.
