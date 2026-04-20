@@ -1,0 +1,30 @@
+[
+  {
+    "language": "Rust",
+    "workload": "memchr",
+    "mode": "Solve",
+    "mutations": ["memchr_iter_offbyone_8313aeb_1"],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {"strategy": "proptest", "property": "MemchrIterMatchesNaive"},
+      {"strategy": "quickcheck", "property": "MemchrIterMatchesNaive"},
+      {"strategy": "crabcheck", "property": "MemchrIterMatchesNaive"},
+      {"strategy": "hegel", "property": "MemchrIterMatchesNaive"}
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "memchr",
+    "mode": "Solve",
+    "mutations": ["memrchr_iter_forward_1b37466_1"],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {"strategy": "proptest", "property": "MemrchrIterMatchesNaive"},
+      {"strategy": "quickcheck", "property": "MemrchrIterMatchesNaive"},
+      {"strategy": "crabcheck", "property": "MemrchrIterMatchesNaive"},
+      {"strategy": "hegel", "property": "MemrchrIterMatchesNaive"}
+    ]
+  }
+]

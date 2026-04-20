@@ -25,7 +25,11 @@ mkdir -p "$RUN_DIR"
 # the agent's resume contract will extend the variant list rather than
 # redo completed work.
 CANDIDATES=(
-  "petgraph:7200"
+  "memchr:3600"
+  "semver:3600"
+  "httparse:3600"
+  "rust-base64:3600"
+  "uuid:7200"
 )
 
 # Heredoc — keeps the prompt readable and lets us %-format the path safely.
