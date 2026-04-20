@@ -1,0 +1,44 @@
+[
+  {
+    "language": "Rust",
+    "workload": "semver",
+    "mode": "Solve",
+    "mutations": ["less_prerelease_5742fc2_1"],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {"strategy": "proptest", "property": "LessRejectsPrerelease"},
+      {"strategy": "quickcheck", "property": "LessRejectsPrerelease"},
+      {"strategy": "crabcheck", "property": "LessRejectsPrerelease"},
+      {"strategy": "hegel", "property": "LessRejectsPrerelease"}
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "semver",
+    "mode": "Solve",
+    "mutations": ["wildcard_patch_digit_a5850bb_1"],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {"strategy": "proptest", "property": "ParseRejectsDigitAfterMinorWildcard"},
+      {"strategy": "quickcheck", "property": "ParseRejectsDigitAfterMinorWildcard"},
+      {"strategy": "crabcheck", "property": "ParseRejectsDigitAfterMinorWildcard"},
+      {"strategy": "hegel", "property": "ParseRejectsDigitAfterMinorWildcard"}
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "semver",
+    "mode": "Solve",
+    "mutations": ["debug_omits_empty_ae1b06c_1"],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {"strategy": "proptest", "property": "VersionDebugOmitsEmpty"},
+      {"strategy": "quickcheck", "property": "VersionDebugOmitsEmpty"},
+      {"strategy": "crabcheck", "property": "VersionDebugOmitsEmpty"},
+      {"strategy": "hegel", "property": "VersionDebugOmitsEmpty"}
+    ]
+  }
+]
