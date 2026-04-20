@@ -21,16 +21,12 @@ mkdir -p "$RUN_DIR"
 
 # "name:cap_seconds" — cap=3600 for <1000 commits, 7200 for larger.
 CANDIDATES=(
-  "unicode-segmentation:3600"
-  "bitvec-rs:3600"
-  "rust-csv:3600"
-  "nom-rs:3600"
-  "im-rs:3600"
-  "arroy:3600"
-  "buf-list:3600"
-  "roaring-rs:7200"
-  "petgraph:7200"
-  "regex:7200"
+  "time:7200"
+  "num-bigint:3600"
+  "indexmap:3600"
+  "rust-decimal:3600"
+  "ropey:3600"
+  "bstr:3600"
 )
 
 # Heredoc — keeps the prompt readable and lets us %-format the path safely.
@@ -38,10 +34,31 @@ read -r -d '' PROMPT_TMPL <<'PROMPT' || true
 Build an ETNA workload for the Rust project at %s.
 
 Follow the pi-etna pipeline verbatim as described in pi-etna/prompts/run.md and
-pi-etna/AGENTS.md. Read both documents first. Work through all five stages end-to-end:
-discover, atomize, runner, document, validate. Do not stop at the first passing build —
-every bug-fix commit in the target's history becomes a variant unless terminally
-inexpressible.
+pi-etna/AGENTS.md. Read both documents first.
+
+RESUME FIRST. Before starting any stage, inspect the project directory for partial
+state from an interrupted prior run:
+  - progress.jsonl — if it exists, read it tail-first. The last event tells you
+    which stage/variant you were in when the run stopped. Resume from there;
+    do not redo completed stages or re-process variants whose
+    `variant_committed` event is already logged.
+  - etna.toml — each `[[variant]]` entry is a completed atomize iteration. Skip
+    those candidates in atomize.
+  - etna/* branches (git branch --list 'etna/*') — these are per-variant
+    commits. If a branch exists and its variant is in etna.toml, treat the
+    variant as complete.
+  - patches/*.patch — each corresponds to a patch-injection variant. Same
+    rule: if its name is in etna.toml, skip.
+  - src/bin/etna.rs, BUGS.md, TASKS.md — if these exist and are coherent with
+    etna.toml, treat the runner/document stages as done; only re-enter them if
+    etna.toml changed after they were written.
+When resuming, append progress events with the current timestamp so the log
+shows both runs contiguously. Never rewrite or truncate progress.jsonl.
+If nothing partial exists, this is a fresh run — proceed normally from discover.
+
+Work through all five stages end-to-end: discover, atomize, runner, document,
+validate. Do not stop at the first passing build — every bug-fix commit in the
+target's history becomes a variant unless terminally inexpressible.
 
 Stay inside the candidate directory for all file edits; do not touch other workloads or
 unrelated repos. Use the standard marauders/git operations (commit per variant on
@@ -108,6 +125,17 @@ extract_counts() {
     ' "$log"
 }
 
+progress_success() {
+    # True if progress.jsonl has a validate.all_checks_passed event.
+    # This is a more reliable "run succeeded" signal than stdout scanning,
+    # because progress events are fsync'd to the file as they occur while
+    # claude -p's stdout is full-buffered when redirected and loses buffers
+    # on SIGTERM at cap-time.
+    local proj=$1
+    [ -f "$proj/progress.jsonl" ] || return 1
+    grep -q '"stage":"validate","event":"all_checks_passed"' "$proj/progress.jsonl"
+}
+
 OK=0
 FAILED=0
 TIMEOUT_COUNT=0
@@ -154,7 +182,16 @@ for entry in "${CANDIDATES[@]}"; do
     ts_end=$(date -u +%Y-%m-%dT%H:%M:%SZ)
     counts=$(extract_counts "$log" | tr '\n' ' ' | sed 's/ *$//')
 
-    if [ "$rc" -eq 124 ]; then
+    # Classification order matters:
+    # 1. progress.jsonl with validate.all_checks_passed wins over everything —
+    #    a timed-out run that actually finished is still a successful run
+    #    (claude -p may hold its stdout buffer past the SIGTERM, so log-grep
+    #    alone misses late-flushed success markers).
+    # 2. Otherwise fall back to rc + stdout markers.
+    if progress_success "$path"; then
+        status="ok"
+        OK=$((OK+1))
+    elif [ "$rc" -eq 124 ]; then
         status="timeout"
         TIMEOUT_COUNT=$((TIMEOUT_COUNT+1))
     elif [ "$rc" -ne 0 ]; then
