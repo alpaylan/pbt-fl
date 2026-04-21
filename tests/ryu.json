@@ -1,0 +1,30 @@
+[
+  {
+    "language": "Rust",
+    "workload": "ryu",
+    "mode": "Solve",
+    "mutations": [
+      "format32_sign_overwrite_daf6d4d_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "Format32Roundtrip"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "Format32Roundtrip"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "Format32Roundtrip"
+      },
+      {
+        "strategy": "hegel",
+        "property": "Format32Roundtrip"
+      }
+    ]
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "language": "Rust",
+    "workload": "encoding_rs",
+    "mode": "Solve",
+    "mutations": [
+      "overlong_label_panic_b9c57c2_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "ForLabelNoPanic"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "ForLabelNoPanic"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "ForLabelNoPanic"
+      },
+      {
+        "strategy": "hegel",
+        "property": "ForLabelNoPanic"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "encoding_rs",
+    "mode": "Solve",
+    "mutations": [
+      "ncr_short_buffer_panic_234bf08f_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "ShortBufferEncodeNoPanic"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "ShortBufferEncodeNoPanic"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "ShortBufferEncodeNoPanic"
+      },
+      {
+        "strategy": "hegel",
+        "property": "ShortBufferEncodeNoPanic"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "encoding_rs",
+    "mode": "Solve",
+    "mutations": [
+      "encode_utf16_ncr_spill_panic_d894e27_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "ShortBufferEncodeUtf16NoPanic"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "ShortBufferEncodeUtf16NoPanic"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "ShortBufferEncodeUtf16NoPanic"
+      },
+      {
+        "strategy": "hegel",
+        "property": "ShortBufferEncodeUtf16NoPanic"
+      }
+    ]
+  }
+]
