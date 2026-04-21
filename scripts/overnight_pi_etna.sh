@@ -27,6 +27,16 @@ mkdir -p "$RUN_DIR"
 CANDIDATES=(
   "unicode-normalization:3600"
   "ryu:3600"
+  "encoding_rs:7200"
+  "arrayvec:3600"
+  "tinyvec:3600"
+  "compact_str:3600"
+  "slotmap:3600"
+  "rangemap:3600"
+  "half:3600"
+  "mime:3600"
+  "simdutf8:3600"
+  "fast-float2:3600"
 )
 
 # Heredoc — keeps the prompt readable and lets us %-format the path safely.
