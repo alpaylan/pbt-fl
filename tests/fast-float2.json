@@ -1,0 +1,30 @@
+[
+  {
+    "language": "Rust",
+    "workload": "fast-float2",
+    "mode": "Solve",
+    "mutations": [
+      "decimal_trailing_zeros_56ac048_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "DecimalRoundtripF64"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "DecimalRoundtripF64"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "DecimalRoundtripF64"
+      },
+      {
+        "strategy": "hegel",
+        "property": "DecimalRoundtripF64"
+      }
+    ]
+  }
+]

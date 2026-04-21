@@ -1,0 +1,114 @@
+[
+  {
+    "language": "Rust",
+    "workload": "slotmap",
+    "mode": "Solve",
+    "mutations": [
+      "kd_debug_null_format_226c22a_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "KeyDataDebugFormat"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "KeyDataDebugFormat"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "KeyDataDebugFormat"
+      },
+      {
+        "strategy": "hegel",
+        "property": "KeyDataDebugFormat"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "slotmap",
+    "mode": "Solve",
+    "mutations": [
+      "sparse_secondary_null_insert_guard_2d49bbd_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "SparseSecondaryNullInsertIgnored"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "SparseSecondaryNullInsertIgnored"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "SparseSecondaryNullInsertIgnored"
+      },
+      {
+        "strategy": "hegel",
+        "property": "SparseSecondaryNullInsertIgnored"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "slotmap",
+    "mode": "Solve",
+    "mutations": [
+      "vacant_entry_insert_no_double_count_bd32b7d_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "SecondaryEntryDoesNotDoubleCount"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "SecondaryEntryDoesNotDoubleCount"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "SecondaryEntryDoesNotDoubleCount"
+      },
+      {
+        "strategy": "hegel",
+        "property": "SecondaryEntryDoesNotDoubleCount"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "slotmap",
+    "mode": "Solve",
+    "mutations": [
+      "slot_clone_from_drops_occupied_5c3fb22_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "SlotmapCloneFromDropsOverwrittenSlot"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "SlotmapCloneFromDropsOverwrittenSlot"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "SlotmapCloneFromDropsOverwrittenSlot"
+      },
+      {
+        "strategy": "hegel",
+        "property": "SlotmapCloneFromDropsOverwrittenSlot"
+      }
+    ]
+  }
+]

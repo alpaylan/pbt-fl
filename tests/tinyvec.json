@@ -1,0 +1,114 @@
+[
+  {
+    "language": "Rust",
+    "workload": "tinyvec",
+    "mode": "Solve",
+    "mutations": [
+      "debug_alternate_empty_a711c72_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "ArrayvecDebugMatchesSlice"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "ArrayvecDebugMatchesSlice"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "ArrayvecDebugMatchesSlice"
+      },
+      {
+        "strategy": "hegel",
+        "property": "ArrayvecDebugMatchesSlice"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "tinyvec",
+    "mode": "Solve",
+    "mutations": [
+      "remove_past_end_silent_fd3c92c_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "RemovePastEndPanics"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "RemovePastEndPanics"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "RemovePastEndPanics"
+      },
+      {
+        "strategy": "hegel",
+        "property": "RemovePastEndPanics"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "tinyvec",
+    "mode": "Solve",
+    "mutations": [
+      "swap_remove_last_71ad62a_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "SwapRemoveLastReturnsTail"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "SwapRemoveLastReturnsTail"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "SwapRemoveLastReturnsTail"
+      },
+      {
+        "strategy": "hegel",
+        "property": "SwapRemoveLastReturnsTail"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "tinyvec",
+    "mode": "Solve",
+    "mutations": [
+      "drain_end_off_by_one_9117614_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "DrainMatchesSliceRange"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "DrainMatchesSliceRange"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "DrainMatchesSliceRange"
+      },
+      {
+        "strategy": "hegel",
+        "property": "DrainMatchesSliceRange"
+      }
+    ]
+  }
+]

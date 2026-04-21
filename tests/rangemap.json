@@ -1,0 +1,114 @@
+[
+  {
+    "language": "Rust",
+    "workload": "rangemap",
+    "mode": "Solve",
+    "mutations": [
+      "coalesce_contiguous_d1999f4_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "CoalesceNoAdjacentSameValue"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "CoalesceNoAdjacentSameValue"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "CoalesceNoAdjacentSameValue"
+      },
+      {
+        "strategy": "hegel",
+        "property": "CoalesceNoAdjacentSameValue"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "rangemap",
+    "mode": "Solve",
+    "mutations": [
+      "partialeq_map_b3a59e6_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "PartialEqMatchesIterEq"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "PartialEqMatchesIterEq"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "PartialEqMatchesIterEq"
+      },
+      {
+        "strategy": "hegel",
+        "property": "PartialEqMatchesIterEq"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "rangemap",
+    "mode": "Solve",
+    "mutations": [
+      "inclusive_equality_a6cdac3_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "InclusiveEqMatchesIterEq"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "InclusiveEqMatchesIterEq"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "InclusiveEqMatchesIterEq"
+      },
+      {
+        "strategy": "hegel",
+        "property": "InclusiveEqMatchesIterEq"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "rangemap",
+    "mode": "Solve",
+    "mutations": [
+      "overlapping_backwards_6df612f_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "OverlappingReversible"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "OverlappingReversible"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "OverlappingReversible"
+      },
+      {
+        "strategy": "hegel",
+        "property": "OverlappingReversible"
+      }
+    ]
+  }
+]

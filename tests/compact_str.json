@@ -1,0 +1,58 @@
+[
+  {
+    "language": "Rust",
+    "workload": "compact_str",
+    "mode": "Solve",
+    "mutations": [
+      "try_reserve_overflow_silent_ae5f2bc_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "TryReserveOverflowReturnsErr"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "TryReserveOverflowReturnsErr"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "TryReserveOverflowReturnsErr"
+      },
+      {
+        "strategy": "hegel",
+        "property": "TryReserveOverflowReturnsErr"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "compact_str",
+    "mode": "Solve",
+    "mutations": [
+      "retain_leaves_stale_len_on_panic_042b64a_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "RetainPanicPreservesUtf8"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "RetainPanicPreservesUtf8"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "RetainPanicPreservesUtf8"
+      },
+      {
+        "strategy": "hegel",
+        "property": "RetainPanicPreservesUtf8"
+      }
+    ]
+  }
+]

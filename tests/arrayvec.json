@@ -1,0 +1,58 @@
+[
+  {
+    "language": "Rust",
+    "workload": "arrayvec",
+    "mode": "Solve",
+    "mutations": [
+      "extend_silent_truncate_a554ea2_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "ExtendPanicsOnOverflow"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "ExtendPanicsOnOverflow"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "ExtendPanicsOnOverflow"
+      },
+      {
+        "strategy": "hegel",
+        "property": "ExtendPanicsOnOverflow"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "arrayvec",
+    "mode": "Solve",
+    "mutations": [
+      "insert_bound_off_by_one_2a1378d_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "InsertAtLengthSucceeds"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "InsertAtLengthSucceeds"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "InsertAtLengthSucceeds"
+      },
+      {
+        "strategy": "hegel",
+        "property": "InsertAtLengthSucceeds"
+      }
+    ]
+  }
+]

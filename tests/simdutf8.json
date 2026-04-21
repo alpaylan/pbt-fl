@@ -1,0 +1,58 @@
+[
+  {
+    "language": "Rust",
+    "workload": "simdutf8",
+    "mode": "Solve",
+    "mutations": [
+      "incomplete_eof_basic_8c24752_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "BasicMatchesStd"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "BasicMatchesStd"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "BasicMatchesStd"
+      },
+      {
+        "strategy": "hegel",
+        "property": "BasicMatchesStd"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "simdutf8",
+    "mode": "Solve",
+    "mutations": [
+      "incomplete_eof_compat_8c24752_2"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "CompatMatchesStd"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "CompatMatchesStd"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "CompatMatchesStd"
+      },
+      {
+        "strategy": "hegel",
+        "property": "CompatMatchesStd"
+      }
+    ]
+  }
+]

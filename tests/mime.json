@@ -1,0 +1,114 @@
+[
+  {
+    "language": "Rust",
+    "workload": "mime",
+    "mode": "Solve",
+    "mutations": [
+      "subtype_with_plus_5ebf32e_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "SubtypeWithPlus"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "SubtypeWithPlus"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "SubtypeWithPlus"
+      },
+      {
+        "strategy": "hegel",
+        "property": "SubtypeWithPlus"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "mime",
+    "mode": "Solve",
+    "mutations": [
+      "strip_empty_params_7a39824_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "StripEmptyParams"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "StripEmptyParams"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "StripEmptyParams"
+      },
+      {
+        "strategy": "hegel",
+        "property": "StripEmptyParams"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "mime",
+    "mode": "Solve",
+    "mutations": [
+      "ows_before_semicolon_2e0268e_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "OwsBeforeSemicolon"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "OwsBeforeSemicolon"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "OwsBeforeSemicolon"
+      },
+      {
+        "strategy": "hegel",
+        "property": "OwsBeforeSemicolon"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "mime",
+    "mode": "Solve",
+    "mutations": [
+      "quoted_vs_unquoted_param_eq_0bba696_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "QuotedVsUnquotedParamEq"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "QuotedVsUnquotedParamEq"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "QuotedVsUnquotedParamEq"
+      },
+      {
+        "strategy": "hegel",
+        "property": "QuotedVsUnquotedParamEq"
+      }
+    ]
+  }
+]
