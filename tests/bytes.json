@@ -1,0 +1,142 @@
+[
+  {
+    "language": "Rust",
+    "workload": "bytes",
+    "mode": "Solve",
+    "mutations": [
+      "sign_extend_zero_nbytes_acd1e0f_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "GetIntZeroNbytes"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "GetIntZeroNbytes"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "GetIntZeroNbytes"
+      },
+      {
+        "strategy": "hegel",
+        "property": "GetIntZeroNbytes"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "bytes",
+    "mode": "Solve",
+    "mutations": [
+      "get_int_sign_extension_79fb853_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "GetIntSignExtension"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "GetIntSignExtension"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "GetIntSignExtension"
+      },
+      {
+        "strategy": "hegel",
+        "property": "GetIntSignExtension"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "bytes",
+    "mode": "Solve",
+    "mutations": [
+      "chain_remaining_saturating_2428c15_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "ChainRemainingSaturating"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "ChainRemainingSaturating"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "ChainRemainingSaturating"
+      },
+      {
+        "strategy": "hegel",
+        "property": "ChainRemainingSaturating"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "bytes",
+    "mode": "Solve",
+    "mutations": [
+      "partialord_bytes_reversed_939a5ed_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "PartialOrdBytesReversed"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "PartialOrdBytesReversed"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "PartialOrdBytesReversed"
+      },
+      {
+        "strategy": "hegel",
+        "property": "PartialOrdBytesReversed"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "bytes",
+    "mode": "Solve",
+    "mutations": [
+      "slice_ref_empty_f330ef6_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "SliceRefEmpty"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "SliceRefEmpty"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "SliceRefEmpty"
+      },
+      {
+        "strategy": "hegel",
+        "property": "SliceRefEmpty"
+      }
+    ]
+  }
+]

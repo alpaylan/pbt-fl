@@ -1,0 +1,58 @@
+[
+  {
+    "language": "Rust",
+    "workload": "rust-base64",
+    "mode": "Solve",
+    "mutations": [
+      "binhex_alphabet_838355e_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "BinhexAlphabetMatchesSpec"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "BinhexAlphabetMatchesSpec"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "BinhexAlphabetMatchesSpec"
+      },
+      {
+        "strategy": "hegel",
+        "property": "BinhexAlphabetMatchesSpec"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "rust-base64",
+    "mode": "Solve",
+    "mutations": [
+      "decoded_len_overflow_fa47981_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "DecodedLenEstimateDoesNotPanic"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "DecodedLenEstimateDoesNotPanic"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "DecodedLenEstimateDoesNotPanic"
+      },
+      {
+        "strategy": "hegel",
+        "property": "DecodedLenEstimateDoesNotPanic"
+      }
+    ]
+  }
+]

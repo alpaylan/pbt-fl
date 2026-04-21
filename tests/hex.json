@@ -1,0 +1,58 @@
+[
+  {
+    "language": "Rust",
+    "workload": "hex",
+    "mode": "Solve",
+    "mutations": [
+      "from_hex_accepts_whitespace_71c83f2_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "FromHexRejectsWhitespace"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "FromHexRejectsWhitespace"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "FromHexRejectsWhitespace"
+      },
+      {
+        "strategy": "hegel",
+        "property": "FromHexRejectsWhitespace"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "hex",
+    "mode": "Solve",
+    "mutations": [
+      "invalid_char_display_raw_764ee61_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "InvalidCharErrorDisplayEscaped"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "InvalidCharErrorDisplayEscaped"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "InvalidCharErrorDisplayEscaped"
+      },
+      {
+        "strategy": "hegel",
+        "property": "InvalidCharErrorDisplayEscaped"
+      }
+    ]
+  }
+]

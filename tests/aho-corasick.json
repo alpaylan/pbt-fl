@@ -1,0 +1,58 @@
+[
+  {
+    "language": "Rust",
+    "workload": "aho-corasick",
+    "mode": "Solve",
+    "mutations": [
+      "replace_all_utf8_boundary_e453f60_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "ReplaceAllUtf8Safe"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "ReplaceAllUtf8Safe"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "ReplaceAllUtf8Safe"
+      },
+      {
+        "strategy": "hegel",
+        "property": "ReplaceAllUtf8Safe"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "aho-corasick",
+    "mode": "Solve",
+    "mutations": [
+      "prefilter_pattern_id_sync_2df0983_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "FindIterPrefilterParity"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "FindIterPrefilterParity"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "FindIterPrefilterParity"
+      },
+      {
+        "strategy": "hegel",
+        "property": "FindIterPrefilterParity"
+      }
+    ]
+  }
+]

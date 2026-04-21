@@ -1,0 +1,114 @@
+[
+  {
+    "language": "Rust",
+    "workload": "url",
+    "mode": "Solve",
+    "mutations": [
+      "set_path_file_panic_a08aa2c_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "SetPathNoPanic"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "SetPathNoPanic"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "SetPathNoPanic"
+      },
+      {
+        "strategy": "hegel",
+        "property": "SetPathNoPanic"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "url",
+    "mode": "Solve",
+    "mutations": [
+      "pop_empty_path_panic_3174ea5_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "PopNoPanic"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "PopNoPanic"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "PopNoPanic"
+      },
+      {
+        "strategy": "hegel",
+        "property": "PopNoPanic"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "url",
+    "mode": "Solve",
+    "mutations": [
+      "search_setter_trailing_space_67fc273_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "SetQueryPreservesPath"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "SetQueryPreservesPath"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "SetQueryPreservesPath"
+      },
+      {
+        "strategy": "hegel",
+        "property": "SetQueryPreservesPath"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "url",
+    "mode": "Solve",
+    "mutations": [
+      "data_url_slice_start_e654efb_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "DataUrlDecodeLengthBound"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "DataUrlDecodeLengthBound"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "DataUrlDecodeLengthBound"
+      },
+      {
+        "strategy": "hegel",
+        "property": "DataUrlDecodeLengthBound"
+      }
+    ]
+  }
+]

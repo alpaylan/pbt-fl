@@ -1,0 +1,114 @@
+[
+  {
+    "language": "Rust",
+    "workload": "itertools",
+    "mode": "Solve",
+    "mutations": [
+      "merge_join_size_hint_overflow_9f41c18_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "MergeJoinSizeHintOverflow"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "MergeJoinSizeHintOverflow"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "MergeJoinSizeHintOverflow"
+      },
+      {
+        "strategy": "hegel",
+        "property": "MergeJoinSizeHintOverflow"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "itertools",
+    "mode": "Solve",
+    "mutations": [
+      "combinations_zero_empty_13aa10e_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "CombinationsZero"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "CombinationsZero"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "CombinationsZero"
+      },
+      {
+        "strategy": "hegel",
+        "property": "CombinationsZero"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "itertools",
+    "mode": "Solve",
+    "mutations": [
+      "cwr_remaining_overflow_c13ee58_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "CwrSizeHintOverflow"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "CwrSizeHintOverflow"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "CwrSizeHintOverflow"
+      },
+      {
+        "strategy": "hegel",
+        "property": "CwrSizeHintOverflow"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "itertools",
+    "mode": "Solve",
+    "mutations": [
+      "kmerge_heapify_order_ca70258_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "KmergeSorted"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "KmergeSorted"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "KmergeSorted"
+      },
+      {
+        "strategy": "hegel",
+        "property": "KmergeSorted"
+      }
+    ]
+  }
+]

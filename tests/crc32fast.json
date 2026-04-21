@@ -1,0 +1,30 @@
+[
+  {
+    "language": "Rust",
+    "workload": "crc32fast",
+    "mode": "Solve",
+    "mutations": [
+      "combine_zero_length_identity_724ceb6_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "CombineZeroLengthIdentity"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "CombineZeroLengthIdentity"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "CombineZeroLengthIdentity"
+      },
+      {
+        "strategy": "hegel",
+        "property": "CombineZeroLengthIdentity"
+      }
+    ]
+  }
+]

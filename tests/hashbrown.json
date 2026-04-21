@@ -1,0 +1,30 @@
+[
+  {
+    "language": "Rust",
+    "workload": "hashbrown",
+    "mode": "Solve",
+    "mutations": [
+      "rehash_panic_length_6cb0eb5_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "RehashPanicLength"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "RehashPanicLength"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "RehashPanicLength"
+      },
+      {
+        "strategy": "hegel",
+        "property": "RehashPanicLength"
+      }
+    ]
+  }
+]

@@ -1,0 +1,114 @@
+[
+  {
+    "language": "Rust",
+    "workload": "petgraph",
+    "mode": "Solve",
+    "mutations": [
+      "iterative_dfs_order_0fae246_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "DfsReuseNoDuplicateVisits"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "DfsReuseNoDuplicateVisits"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "DfsReuseNoDuplicateVisits"
+      },
+      {
+        "strategy": "hegel",
+        "property": "DfsReuseNoDuplicateVisits"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "petgraph",
+    "mode": "Solve",
+    "mutations": [
+      "floyd_warshall_undirected_4c7f18e_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "FloydWarshallUndirectedSymmetric"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "FloydWarshallUndirectedSymmetric"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "FloydWarshallUndirectedSymmetric"
+      },
+      {
+        "strategy": "hegel",
+        "property": "FloydWarshallUndirectedSymmetric"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "petgraph",
+    "mode": "Solve",
+    "mutations": [
+      "stable_graph_node_bound_b87cf17_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "StableGraphNodeBoundTight"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "StableGraphNodeBoundTight"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "StableGraphNodeBoundTight"
+      },
+      {
+        "strategy": "hegel",
+        "property": "StableGraphNodeBoundTight"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "petgraph",
+    "mode": "Solve",
+    "mutations": [
+      "graphmap_incoming_self_loop_e39f0f9_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "GraphmapIncomingSelfLoop"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "GraphmapIncomingSelfLoop"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "GraphmapIncomingSelfLoop"
+      },
+      {
+        "strategy": "hegel",
+        "property": "GraphmapIncomingSelfLoop"
+      }
+    ]
+  }
+]

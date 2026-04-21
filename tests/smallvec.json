@@ -1,0 +1,86 @@
+[
+  {
+    "language": "Rust",
+    "workload": "smallvec",
+    "mode": "Solve",
+    "mutations": [
+      "leak_inline_panic_3395246_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "LeakInlinePanics"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "LeakInlinePanics"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "LeakInlinePanics"
+      },
+      {
+        "strategy": "hegel",
+        "property": "LeakInlinePanics"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "smallvec",
+    "mode": "Solve",
+    "mutations": [
+      "append_set_len_1bd2dbc_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "AppendPreservesLength"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "AppendPreservesLength"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "AppendPreservesLength"
+      },
+      {
+        "strategy": "hegel",
+        "property": "AppendPreservesLength"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "smallvec",
+    "mode": "Solve",
+    "mutations": [
+      "from_vec_zero_capacity_944f603_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "FromVecZeroCapacity"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "FromVecZeroCapacity"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "FromVecZeroCapacity"
+      },
+      {
+        "strategy": "hegel",
+        "property": "FromVecZeroCapacity"
+      }
+    ]
+  }
+]
