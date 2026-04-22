@@ -60,7 +60,12 @@ def sh(cmd: list[str]) -> str:
 
 
 def find_etna_rs(wl_root: Path) -> Path:
-    for candidate in [wl_root / "src" / "bin" / "etna.rs", *wl_root.glob("*/src/bin/etna.rs")]:
+    candidates = [
+        wl_root / "src" / "bin" / "etna.rs",
+        *wl_root.glob("*/src/bin/etna.rs"),
+        *wl_root.glob("*/*/src/bin/etna.rs"),
+    ]
+    for candidate in candidates:
         if candidate.exists():
             return candidate
     raise FileNotFoundError(f"no src/bin/etna.rs under {wl_root}")
@@ -334,7 +339,7 @@ def fetch_pr_data(
 
 def short_name_from_variant(variant: str) -> str:
     # `debug_alternate_empty_a711c72_1` -> `debug_alternate_empty`
-    return re.sub(r"_[0-9a-f]{7}_\d+$", "", variant)
+    return re.sub(r"_[0-9a-f]{7,40}_\d+$", "", variant)
 
 
 def fmt_toml_string(s: str) -> str:
@@ -372,9 +377,11 @@ def build_new_toml(
     repo = extract_repo(wl_root)
     crate = old.get("workload", {}).get("crate") or extract_crate_name(wl_root)
     description = old.get("workload", {}).get("description", "").strip()
-    name = old.get("workload", {}).get("name") or old.get("name")
-    if not name:
-        raise SystemExit("old etna.toml missing workload name")
+    name = (
+        old.get("workload", {}).get("name")
+        or old.get("name")
+        or wl_root.name
+    )
     language = (
         old.get("workload", {}).get("language") or old.get("language") or "Rust"
     ).lower()
