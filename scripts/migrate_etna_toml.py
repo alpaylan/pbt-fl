@@ -134,23 +134,54 @@ def extract_crate_name(wl_root: Path) -> str | None:
     return m.group(1) if m else None
 
 
-def parse_bugs_md(bugs_path: Path) -> dict[str, dict[str, Any]]:
-    """Return short_name -> {location, symbol, fix_subject, invariant, how_triggered}.
+def parse_bugs_md(bugs_path: Path) -> tuple[dict[str, dict[str, Any]], list[dict[str, Any]]]:
+    """Return (by_header, in_order).
 
-    Best-effort: if a section is missing, that field is omitted. Hand-review
-    after migration catches the gaps."""
+    - `by_header[raw_header]` — bug sections keyed by whatever text follows
+      `### N.`. Useful when BUGS.md uses the short_name directly.
+    - `in_order[i]` — bug sections in document order. Falls back here when
+      the section header is prose (e.g. "`IndexMap::reverse` stores ...")
+      and doesn't match any known short_name.
+
+    Best-effort: if a section is missing, its fields are omitted. Hand-review
+    after migration catches the gaps.
+    """
     if not bugs_path.exists():
-        return {}
+        return {}, []
     text = bugs_path.read_text()
-    # Split by `### N. <short_name>` headers.
     parts = re.split(r"^###\s*\d+\.\s*(.+?)\s*$", text, flags=re.MULTILINE)
-    # parts[0] is preamble; then alternates: short_name, body, short_name, body, ...
-    result: dict[str, dict[str, Any]] = {}
+    by_header: dict[str, dict[str, Any]] = {}
+    in_order: list[dict[str, Any]] = []
     for i in range(1, len(parts), 2):
-        short = parts[i].strip()
+        raw = parts[i].strip()
         body = parts[i + 1] if i + 1 < len(parts) else ""
-        result[short] = _parse_bug_section(body)
-    return result
+        parsed = _parse_bug_section(body)
+        parsed["_raw_header"] = raw
+        by_header[raw] = parsed
+        in_order.append(parsed)
+    return by_header, in_order
+
+
+def match_bug_section(
+    by_header: dict[str, dict[str, Any]],
+    in_order: list[dict[str, Any]],
+    idx: int,
+    short_name: str,
+    variant_name: str,
+) -> dict[str, Any]:
+    """Pick the BUGS.md section that best matches a variant. Tries short_name,
+    then variant_name, then any header whose prose mentions the short_name,
+    then positional (`in_order[idx]`)."""
+    if short_name in by_header:
+        return by_header[short_name]
+    if variant_name in by_header:
+        return by_header[variant_name]
+    for hdr, body in by_header.items():
+        if short_name and short_name in hdr:
+            return body
+    if idx < len(in_order):
+        return in_order[idx]
+    return {}
 
 
 def _parse_bug_section(body: str) -> dict[str, Any]:
@@ -297,7 +328,7 @@ def build_new_toml(
     etna_rs = find_etna_rs(wl_root)
     snake_pascal = snake_to_pascal_map(etna_rs)
 
-    bugs_sections = parse_bugs_md(wl_root / "BUGS.md")
+    bugs_by_header, bugs_in_order = parse_bugs_md(wl_root / "BUGS.md")
 
     variants = old.get("variant", [])
     if not variants:
@@ -314,9 +345,11 @@ def build_new_toml(
         out.append(f"base_commit = {fmt_toml_string(base_commit)}")
     out.append("")
 
-    for v in variants:
+    for idx, v in enumerate(variants):
         short = short_name_from_variant(v["name"])
-        bug_info = bugs_sections.get(short, {})
+        bug_info = match_bug_section(
+            bugs_by_header, bugs_in_order, idx, short, v["name"]
+        )
         snake = v["property"]
         pascal = snake_pascal.get(snake)
         if not pascal:
@@ -355,10 +388,15 @@ def build_new_toml(
         out.append("[tasks.injection]")
         out.append(f'kind = {fmt_toml_string(v.get("injection", "marauders"))}')
         out.append(f'files = {fmt_toml_string_array(v.get("files", []))}')
-        if "file" in bug_info:
-            out.append(
-                "locations = [" + fmt_inline_loc(bug_info) + "]"
-            )
+        # When BUGS.md points Location at the patch file itself (common for
+        # patch-kind bugs), resolve it to the real source file from v.files[0]
+        # — we want the location to index into the workload tree, not the
+        # patches/ directory.
+        loc = dict(bug_info)
+        if loc.get("file", "").startswith("patches/") and v.get("files"):
+            loc["file"] = v["files"][0]
+        if "file" in loc:
+            out.append("locations = [" + fmt_inline_loc(loc) + "]")
         if v.get("injection") == "patch":
             patch_path = v.get("patch")
             if not patch_path:
