@@ -153,12 +153,18 @@ def extract_dropped(etna_toml_text: str) -> list[dict[str, str]]:
 
 
 def extract_repo(wl_root: Path) -> str | None:
-    cargo = wl_root / "Cargo.toml"
-    if not cargo.exists():
-        return None
-    text = cargo.read_text()
-    m = REPO_RE.search(text)
-    return m.group(1) if m else None
+    # Try top-level Cargo.toml first, then any member Cargo.toml for workspace
+    # layouts (e.g. compact_str/compact_str/Cargo.toml carries the real
+    # `repository` field).
+    candidates = [wl_root / "Cargo.toml", *wl_root.glob("*/Cargo.toml")]
+    for cargo in candidates:
+        if not cargo.exists():
+            continue
+        text = cargo.read_text()
+        m = REPO_RE.search(text)
+        if m:
+            return m.group(1)
+    return None
 
 
 def extract_crate_name(wl_root: Path) -> str | None:
@@ -267,7 +273,12 @@ def _parse_bug_section(body: str) -> dict[str, Any]:
         m = re.match(r"`([0-9a-f]{7,40})`\s*(?:—|--)\s*(.*)", fix)
         if m:
             out["fix_commit"] = m.group(1)
-            out["fix_subject"] = m.group(2).strip().strip("`")
+            subj = m.group(2).strip().strip("`")
+            # BUGS.md often wraps commit subjects in double-quotes — strip
+            # them so the emitted TOML doesn't need triple-quoting.
+            if len(subj) >= 2 and subj[0] == subj[-1] and subj[0] in ('"', "'"):
+                subj = subj[1:-1]
+            out["fix_subject"] = subj
     inv = join("Invariant violated")
     if inv:
         out["invariant"] = _unwrap_backticks(inv)
@@ -389,15 +400,22 @@ def build_new_toml(
         bug_info = match_bug_section(
             bugs_by_header, bugs_in_order, idx, short, v["name"]
         )
-        snake = v["property"]
+        raw_prop = v["property"]
+        # Some old manifests accidentally included the `property_` prefix.
+        # The dispatcher keys off the un-prefixed snake name.
+        snake = raw_prop[len("property_"):] if raw_prop.startswith("property_") else raw_prop
         pascal = snake_pascal.get(snake)
         if not pascal:
-            print(
-                f"  warning: variant {v['name']} references property_{snake} "
-                f"but no PascalCase dispatch arm found; leaving as {snake}",
-                file=sys.stderr,
-            )
-            pascal = snake
+            # If the manifest already stored a PascalCase name, keep it.
+            if re.match(r"^[A-Z][A-Za-z0-9]*$", raw_prop):
+                pascal = raw_prop
+            else:
+                print(
+                    f"  warning: variant {v['name']} references property_{snake} "
+                    f"but no PascalCase dispatch arm found; leaving as {snake}",
+                    file=sys.stderr,
+                )
+                pascal = snake
         pr_data: dict[str, Any] = {}
         if repo:
             pr_data = fetch_pr_data(
@@ -425,7 +443,11 @@ def build_new_toml(
             out.append("")
 
         out.append("[tasks.injection]")
-        out.append(f'kind = {fmt_toml_string(v.get("injection", "marauders"))}')
+        # Old manifests use `injection = "marauder"` (singular); v2 schema is
+        # `marauders`. `patch` stays as-is.
+        raw_kind = v.get("injection", "marauders")
+        kind = "marauders" if raw_kind in ("marauder", "marauders") else raw_kind
+        out.append(f'kind = {fmt_toml_string(kind)}')
         out.append(f'files = {fmt_toml_string_array(v.get("files", []))}')
         # When BUGS.md points Location at the patch file itself (common for
         # patch-kind bugs), resolve it to the real source file from v.files[0]
