@@ -82,9 +82,49 @@ def snake_to_pascal_map(etna_rs: Path) -> dict[str, str]:
     return mapping
 
 
-def extract_base_commit(etna_toml_text: str) -> str | None:
+def extract_base_commit(etna_toml_text: str, wl_root: Path, variants: list[dict[str, Any]]) -> str | None:
+    """Pick the base commit for this workload.
+
+    Preference order:
+      1. Explicit `Base commit ... <sha>` line in the header comment
+         (expand short SHAs to full 40-char form via `git rev-parse`).
+      2. The merge-base of every `etna/<variant>` branch that exists locally.
+         This is the correct answer: the base is the commit every variant
+         branch descends from, not the current HEAD (which may have moved
+         ahead on main after the variants were cut).
+      3. `git rev-parse HEAD` as a last-resort fallback (used when no etna
+         branches exist yet).
+    """
     m = BASE_COMMIT_RE.search(etna_toml_text)
-    return m.group(1) if m else None
+    if m:
+        sha = m.group(1)
+        if len(sha) < 40:
+            try:
+                return sh(["git", "-C", str(wl_root), "rev-parse", sha]).strip()
+            except subprocess.CalledProcessError:
+                return sha
+        return sha
+
+    def rev_parse(ref: str) -> str | None:
+        try:
+            return sh(["git", "-C", str(wl_root), "rev-parse", ref]).strip()
+        except subprocess.CalledProcessError:
+            return None
+
+    etna_branches = [
+        f"etna/{v['name']}" for v in variants if rev_parse(f"etna/{v['name']}")
+    ]
+    head = rev_parse("HEAD")
+    if etna_branches and head:
+        # Include HEAD so the single-variant case (where merge-base of one
+        # branch = tip of that branch) still resolves to the pre-etna base.
+        try:
+            return sh(
+                ["git", "-C", str(wl_root), "merge-base", "--octopus", head, *etna_branches]
+            ).strip()
+        except subprocess.CalledProcessError:
+            pass
+    return head
 
 
 def extract_dropped(etna_toml_text: str) -> list[dict[str, str]]:
@@ -313,7 +353,10 @@ def build_new_toml(
 ) -> str:
     cache_dir = wl_root / ".migration-cache"
     old_text = (wl_root / "etna.toml").read_text()
-    base_commit = extract_base_commit(old_text)
+    variants = old.get("variant", [])
+    if not variants:
+        raise SystemExit("old etna.toml has no [[variant]] blocks")
+    base_commit = extract_base_commit(old_text, wl_root, variants)
     dropped = extract_dropped(old_text)
     repo = extract_repo(wl_root)
     crate = old.get("workload", {}).get("crate") or extract_crate_name(wl_root)
@@ -329,10 +372,6 @@ def build_new_toml(
     snake_pascal = snake_to_pascal_map(etna_rs)
 
     bugs_by_header, bugs_in_order = parse_bugs_md(wl_root / "BUGS.md")
-
-    variants = old.get("variant", [])
-    if not variants:
-        raise SystemExit("old etna.toml has no [[variant]] blocks")
 
     out: list[str] = []
     out.append(f"name = {fmt_toml_string(name)}")
