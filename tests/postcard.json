@@ -1,0 +1,198 @@
+[
+  {
+    "language": "Rust",
+    "workload": "postcard",
+    "mode": "Solve",
+    "mutations": [
+      "i128_deserialization_70ea33a_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "I128Roundtrip"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "I128Roundtrip"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "I128Roundtrip"
+      },
+      {
+        "strategy": "hegel",
+        "property": "I128Roundtrip"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "postcard",
+    "mode": "Solve",
+    "mutations": [
+      "cobs_acc_oob_41c2ddb_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "CobsAccNoOob"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "CobsAccNoOob"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "CobsAccNoOob"
+      },
+      {
+        "strategy": "hegel",
+        "property": "CobsAccNoOob"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "postcard",
+    "mode": "Solve",
+    "mutations": [
+      "tuple_struct_deserialize_2a62f8c_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "TupleStructRoundtrip"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "TupleStructRoundtrip"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "TupleStructRoundtrip"
+      },
+      {
+        "strategy": "hegel",
+        "property": "TupleStructRoundtrip"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "postcard",
+    "mode": "Solve",
+    "mutations": [
+      "serialize_bytes_size_prefix_58b3047_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "BytesRoundtrip"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "BytesRoundtrip"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "BytesRoundtrip"
+      },
+      {
+        "strategy": "hegel",
+        "property": "BytesRoundtrip"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "postcard",
+    "mode": "Solve",
+    "mutations": [
+      "max_size_varint_zero_f31d226_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "MaxSizeHeaplessVecZero"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "MaxSizeHeaplessVecZero"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "MaxSizeHeaplessVecZero"
+      },
+      {
+        "strategy": "hegel",
+        "property": "MaxSizeHeaplessVecZero"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "postcard",
+    "mode": "Solve",
+    "mutations": [
+      "max_size_varint_off_by_one_c160626_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "MaxSizeVecUpperBound"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "MaxSizeVecUpperBound"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "MaxSizeVecUpperBound"
+      },
+      {
+        "strategy": "hegel",
+        "property": "MaxSizeVecUpperBound"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "postcard",
+    "mode": "Solve",
+    "mutations": [
+      "collect_str_unreachable_77fd54b_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "CollectStrRoundtrip"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "CollectStrRoundtrip"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "CollectStrRoundtrip"
+      },
+      {
+        "strategy": "hegel",
+        "property": "CollectStrRoundtrip"
+      }
+    ]
+  }
+]

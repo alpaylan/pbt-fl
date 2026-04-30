@@ -1,0 +1,114 @@
+[
+  {
+    "language": "Rust",
+    "workload": "unicode-normalization",
+    "mode": "Solve",
+    "mutations": [
+      "composition_table_astral_99d6e46_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "ComposeTable"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "ComposeTable"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "ComposeTable"
+      },
+      {
+        "strategy": "hegel",
+        "property": "ComposeTable"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "unicode-normalization",
+    "mode": "Solve",
+    "mutations": [
+      "hangul_compose_lvt_e4fd0e1_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "HangulComposeLvt"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "HangulComposeLvt"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "HangulComposeLvt"
+      },
+      {
+        "strategy": "hegel",
+        "property": "HangulComposeLvt"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "unicode-normalization",
+    "mode": "Solve",
+    "mutations": [
+      "hangul_compose_tbase_bd3770c_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "HangulComposeTbase"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "HangulComposeTbase"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "HangulComposeTbase"
+      },
+      {
+        "strategy": "hegel",
+        "property": "HangulComposeTbase"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "unicode-normalization",
+    "mode": "Solve",
+    "mutations": [
+      "streamsafe_drop_buffer_47906fa_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "StreamsafePreservesInput"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "StreamsafePreservesInput"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "StreamsafePreservesInput"
+      },
+      {
+        "strategy": "hegel",
+        "property": "StreamsafePreservesInput"
+      }
+    ]
+  }
+]

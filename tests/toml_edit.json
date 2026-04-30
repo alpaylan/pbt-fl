@@ -1,0 +1,142 @@
+[
+  {
+    "language": "Rust",
+    "workload": "toml_edit",
+    "mode": "Solve",
+    "mutations": [
+      "lex_close_paren_loop_cc68ae4f_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "ParseTerminates"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "ParseTerminates"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "ParseTerminates"
+      },
+      {
+        "strategy": "hegel",
+        "property": "ParseTerminates"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "toml_edit",
+    "mode": "Solve",
+    "mutations": [
+      "inline_table_no_value_panic_b91d460c_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "ParseDoesNotPanic"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "ParseDoesNotPanic"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "ParseDoesNotPanic"
+      },
+      {
+        "strategy": "hegel",
+        "property": "ParseDoesNotPanic"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "toml_edit",
+    "mode": "Solve",
+    "mutations": [
+      "missing_value_no_span_panic_79681201_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "ParseDoesNotPanic"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "ParseDoesNotPanic"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "ParseDoesNotPanic"
+      },
+      {
+        "strategy": "hegel",
+        "property": "ParseDoesNotPanic"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "toml_edit",
+    "mode": "Solve",
+    "mutations": [
+      "malformed_array_outer_span_1b0bd028_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "ParseDoesNotPanic"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "ParseDoesNotPanic"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "ParseDoesNotPanic"
+      },
+      {
+        "strategy": "hegel",
+        "property": "ParseDoesNotPanic"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "toml_edit",
+    "mode": "Solve",
+    "mutations": [
+      "malformed_inline_table_outer_span_57ea4b4f_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "ParseDoesNotPanic"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "ParseDoesNotPanic"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "ParseDoesNotPanic"
+      },
+      {
+        "strategy": "hegel",
+        "property": "ParseDoesNotPanic"
+      }
+    ]
+  }
+]

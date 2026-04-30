@@ -2,3 +2,5 @@ results/
 *.log
 **/*.profraw
 overnight-logs/
+cf.id
+cf.token

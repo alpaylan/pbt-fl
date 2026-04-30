@@ -1,0 +1,58 @@
+[
+  {
+    "language": "Rust",
+    "workload": "lexical-core",
+    "mode": "Solve",
+    "mutations": [
+      "neg_zero_serialize_88f3bf04_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "F64RoundtripBitIdentity"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "F64RoundtripBitIdentity"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "F64RoundtripBitIdentity"
+      },
+      {
+        "strategy": "hegel",
+        "property": "F64RoundtripBitIdentity"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "lexical-core",
+    "mode": "Solve",
+    "mutations": [
+      "leading_zeros_invalid_digit_9eeedfe8_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "IntLeadingZeroThenNondigitErrors"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "IntLeadingZeroThenNondigitErrors"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "IntLeadingZeroThenNondigitErrors"
+      },
+      {
+        "strategy": "hegel",
+        "property": "IntLeadingZeroThenNondigitErrors"
+      }
+    ]
+  }
+]

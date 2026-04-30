@@ -1,0 +1,114 @@
+[
+  {
+    "language": "Rust",
+    "workload": "num-rational",
+    "mode": "Solve",
+    "mutations": [
+      "recip_zero_panic_and_sign_norm_8c75506_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "RecipZeroPanicAndSignNorm"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "RecipZeroPanicAndSignNorm"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "RecipZeroPanicAndSignNorm"
+      },
+      {
+        "strategy": "hegel",
+        "property": "RecipZeroPanicAndSignNorm"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "num-rational",
+    "mode": "Solve",
+    "mutations": [
+      "is_pos_neg_zero_excluded_c22e3bf_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "IsPosNegZeroExcluded"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "IsPosNegZeroExcluded"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "IsPosNegZeroExcluded"
+      },
+      {
+        "strategy": "hegel",
+        "property": "IsPosNegZeroExcluded"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "num-rational",
+    "mode": "Solve",
+    "mutations": [
+      "cmp_zero_numer_equal_e10ca81_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "CmpZeroNumerEqual"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "CmpZeroNumerEqual"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "CmpZeroNumerEqual"
+      },
+      {
+        "strategy": "hegel",
+        "property": "CmpZeroNumerEqual"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "num-rational",
+    "mode": "Solve",
+    "mutations": [
+      "cmp_overflow_safe_4e66bbe_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "CmpOverflowSafe"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "CmpOverflowSafe"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "CmpOverflowSafe"
+      },
+      {
+        "strategy": "hegel",
+        "property": "CmpOverflowSafe"
+      }
+    ]
+  }
+]

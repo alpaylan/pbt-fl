@@ -1,0 +1,30 @@
+{
+  "setup_steps": [
+    {
+      "Command": {
+        "command": "bash",
+        "args": ["-c", "cd cedar-lean && lake update"]
+      }
+    }
+  ],
+  "build_steps": [
+    {
+      "Command": {
+        "command": "bash",
+        "args": ["-c", "cd cedar-lean && lake build etna_cedar"]
+      }
+    }
+  ],
+  "capabilities": {
+    "solve": [
+      {
+        "Command": {
+          "command": "lake",
+          "args": ["exe", "etna_cedar", "${strategy}", "${property}"],
+          "run_at": "${workload_path}/cedar-lean",
+          "params": ["workload_path", "property", "strategy"]
+        }
+      }
+    ]
+  }
+}

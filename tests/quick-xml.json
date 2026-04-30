@@ -1,0 +1,58 @@
+[
+  {
+    "language": "Rust",
+    "workload": "quick-xml",
+    "mode": "Solve",
+    "mutations": [
+      "unescape_predef_entities_0315ed0_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "UnescapePredefEntities"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "UnescapePredefEntities"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "UnescapePredefEntities"
+      },
+      {
+        "strategy": "hegel",
+        "property": "UnescapePredefEntities"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "quick-xml",
+    "mode": "Solve",
+    "mutations": [
+      "swap_lf_cr_escape_codes_ebaffb3_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "EscapeCharCodes"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "EscapeCharCodes"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "EscapeCharCodes"
+      },
+      {
+        "strategy": "hegel",
+        "property": "EscapeCharCodes"
+      }
+    ]
+  }
+]

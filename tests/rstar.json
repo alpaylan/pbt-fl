@@ -1,0 +1,86 @@
+[
+  {
+    "language": "Rust",
+    "workload": "rstar",
+    "mode": "Solve",
+    "mutations": [
+      "min_size_one_log_clamp_44e1bf5_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "MinSizeOneNoPanic"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "MinSizeOneNoPanic"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "MinSizeOneNoPanic"
+      },
+      {
+        "strategy": "hegel",
+        "property": "MinSizeOneNoPanic"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "rstar",
+    "mode": "Solve",
+    "mutations": [
+      "bulk_load_clusters_clamp_0139255a_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "BulkLoadSizeCorrect"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "BulkLoadSizeCorrect"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "BulkLoadSizeCorrect"
+      },
+      {
+        "strategy": "hegel",
+        "property": "BulkLoadSizeCorrect"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "rstar",
+    "mode": "Solve",
+    "mutations": [
+      "empty_tree_iter_no_overflow_4b44c03_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "EmptyTreeQueryNoPanic"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "EmptyTreeQueryNoPanic"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "EmptyTreeQueryNoPanic"
+      },
+      {
+        "strategy": "hegel",
+        "property": "EmptyTreeQueryNoPanic"
+      }
+    ]
+  }
+]

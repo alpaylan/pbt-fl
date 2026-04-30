@@ -1,0 +1,198 @@
+[
+  {
+    "language": "Rust",
+    "workload": "strsim",
+    "mode": "Solve",
+    "mutations": [
+      "jaro_length_one_panic_3dfff3d_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "JaroLengthOne"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "JaroLengthOne"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "JaroLengthOne"
+      },
+      {
+        "strategy": "hegel",
+        "property": "JaroLengthOne"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "strsim",
+    "mode": "Solve",
+    "mutations": [
+      "jaro_length_one_same_char_605c81c_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "JaroLengthOne"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "JaroLengthOne"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "JaroLengthOne"
+      },
+      {
+        "strategy": "hegel",
+        "property": "JaroLengthOne"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "strsim",
+    "mode": "Solve",
+    "mutations": [
+      "jaro_transposition_count_5b512dc_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "JaroSymmetric"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "JaroSymmetric"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "JaroSymmetric"
+      },
+      {
+        "strategy": "hegel",
+        "property": "JaroSymmetric"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "strsim",
+    "mode": "Solve",
+    "mutations": [
+      "jaro_winkler_prefix_limit_f6a7593_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "JaroWinklerBounded"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "JaroWinklerBounded"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "JaroWinklerBounded"
+      },
+      {
+        "strategy": "hegel",
+        "property": "JaroWinklerBounded"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "strsim",
+    "mode": "Solve",
+    "mutations": [
+      "jaro_winkler_boost_threshold_20e3bdd_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "JaroWinklerBoostThreshold"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "JaroWinklerBoostThreshold"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "JaroWinklerBoostThreshold"
+      },
+      {
+        "strategy": "hegel",
+        "property": "JaroWinklerBoostThreshold"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "strsim",
+    "mode": "Solve",
+    "mutations": [
+      "damerau_levenshtein_transposition_f8d8c1f_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "DamerauLevenshteinMatchesGeneric"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "DamerauLevenshteinMatchesGeneric"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "DamerauLevenshteinMatchesGeneric"
+      },
+      {
+        "strategy": "hegel",
+        "property": "DamerauLevenshteinMatchesGeneric"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "strsim",
+    "mode": "Solve",
+    "mutations": [
+      "multibyte_char_len_14cf91e_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "LevenshteinSingleChar"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "LevenshteinSingleChar"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "LevenshteinSingleChar"
+      },
+      {
+        "strategy": "hegel",
+        "property": "LevenshteinSingleChar"
+      }
+    ]
+  }
+]

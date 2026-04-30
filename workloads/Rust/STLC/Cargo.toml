@@ -5,7 +5,7 @@ edition = "2024"
 
 [dependencies]
 # quickcheck = { git = "https://github.com/alpaylan/quickcheck.git" , branch = "master" , features = ["etna"]}
-quickcheck = { path = "/Users/akeles/Programming/projects/PbtBenchmark/quickcheck" , features = ["etna"]}
+quickcheck = { path = "/Users/akeles/Programming/projects/PbtBenchmark/quickcheck-rs" , features = ["etna"]}
 etna-rs-utils = { git = "https://github.com/alpaylan/etna-rs-utils", branch = "main" }
 serde = { version = "1.0.219", features = ["derive"] }
 serde-lexpr = "0.1.3"

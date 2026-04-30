@@ -1,0 +1,30 @@
+[
+  {
+    "language": "Rust",
+    "workload": "ahash",
+    "mode": "Solve",
+    "mutations": [
+      "null_padding_collisions_5c99070_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "NullPaddingDistinct"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "NullPaddingDistinct"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "NullPaddingDistinct"
+      },
+      {
+        "strategy": "hegel",
+        "property": "NullPaddingDistinct"
+      }
+    ]
+  }
+]

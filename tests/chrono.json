@@ -1,0 +1,114 @@
+[
+  {
+    "language": "Rust",
+    "workload": "chrono",
+    "mode": "Solve",
+    "mutations": [
+      "from_num_days_from_ce_overflow_f659719_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "FromNumDaysFromCeNoPanic"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "FromNumDaysFromCeNoPanic"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "FromNumDaysFromCeNoPanic"
+      },
+      {
+        "strategy": "hegel",
+        "property": "FromNumDaysFromCeNoPanic"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "chrono",
+    "mode": "Solve",
+    "mutations": [
+      "parse_rfc3339_utc_str_slicing_5a6b2b4_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "ParseRfc3339NoPanic"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "ParseRfc3339NoPanic"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "ParseRfc3339NoPanic"
+      },
+      {
+        "strategy": "hegel",
+        "property": "ParseRfc3339NoPanic"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "chrono",
+    "mode": "Solve",
+    "mutations": [
+      "duration_round_zero_panic_9a5f76c_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "DurationRoundZeroNoPanic"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "DurationRoundZeroNoPanic"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "DurationRoundZeroNoPanic"
+      },
+      {
+        "strategy": "hegel",
+        "property": "DurationRoundZeroNoPanic"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "chrono",
+    "mode": "Solve",
+    "mutations": [
+      "weekday_long_sunday_33516cc_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "LongWeekdayParsesFullName"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "LongWeekdayParsesFullName"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "LongWeekdayParsesFullName"
+      },
+      {
+        "strategy": "hegel",
+        "property": "LongWeekdayParsesFullName"
+      }
+    ]
+  }
+]

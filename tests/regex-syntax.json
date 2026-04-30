@@ -1,0 +1,114 @@
+[
+  {
+    "language": "Rust",
+    "workload": "regex-syntax",
+    "mode": "Solve",
+    "mutations": [
+      "blank_class_5241919_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "BlankClassCorrect"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "BlankClassCorrect"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "BlankClassCorrect"
+      },
+      {
+        "strategy": "hegel",
+        "property": "BlankClassCorrect"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "regex-syntax",
+    "mode": "Solve",
+    "mutations": [
+      "empty_class_print_e6d251a_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "PrintRoundtripParses"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "PrintRoundtripParses"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "PrintRoundtripParses"
+      },
+      {
+        "strategy": "hegel",
+        "property": "PrintRoundtripParses"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "regex-syntax",
+    "mode": "Solve",
+    "mutations": [
+      "negation_handling_c4865a0_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "NamedNeqComplements"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "NamedNeqComplements"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "NamedNeqComplements"
+      },
+      {
+        "strategy": "hegel",
+        "property": "NamedNeqComplements"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "regex-syntax",
+    "mode": "Solve",
+    "mutations": [
+      "counted_rep_directive_7b1599f_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "DirectiveRepRejected"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "DirectiveRepRejected"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "DirectiveRepRejected"
+      },
+      {
+        "strategy": "hegel",
+        "property": "DirectiveRepRejected"
+      }
+    ]
+  }
+]

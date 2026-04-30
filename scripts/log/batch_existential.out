@@ -1,0 +1,93 @@
+# Sample: 9 variants across tiers {'11-30', '100+', '31-100'}
+   11-30  num-bigint             mul_undersized_buffer                    ochiai=  15  delta=    1
+   11-30  num-bigint             mac3_all_zero                            ochiai=  25  delta=    1
+   11-30  smallvec               leak_inline_panic                        ochiai=  14  delta=   41
+   11-30  httparse               backslash_in_uri                         ochiai=  18  delta=   85
+  31-100  rust-decimal           div_remainder_overflow                   ochiai=  41  delta=   62
+  31-100  rust-decimal           scientific_fmt_zero                      ochiai=  38  delta=   40
+  31-100  rust-decimal           abs_sub_returns_abs                      ochiai=  46  delta=   54
+  31-100  rust-decimal           round_dp_early_return_reorder            ochiai=  35  delta=   37
+    100+  regex                  captures_get_group_overflow              ochiai= 454  delta=    2
+
+=== [1/9] num-bigint/mul_undersized_buffer (tier 11-30, baseline ochiai_fn=15) ===
+  building num-bigint/mul_undersized_buffer ...
+  running etna-faultloc crabcheck MulSquareAllOnes ...
+  rebuild+run: 31s
+  loaded matrix in 36s: 15050 regions, 187 pos, 14 neg, 18 truth keys
+  existential search: 154s
+  ochiai: 7 -> 7
+  delta:  1 -> 1
+
+=== [2/9] num-bigint/mac3_all_zero (tier 11-30, baseline ochiai_fn=25) ===
+  building num-bigint/mac3_all_zero ...
+  running etna-faultloc crabcheck MulSquareAllOnes ...
+  rebuild+run: 17s
+  loaded matrix in 36s: 15050 regions, 189 pos, 12 neg, 19 truth keys
+  existential search: 179s
+  ochiai: 1 -> 1
+  delta:  1 -> 1
+
+=== [3/9] smallvec/leak_inline_panic (tier 11-30, baseline ochiai_fn=14) ===
+  building smallvec/leak_inline_panic ...
+  running etna-faultloc crabcheck LeakInlinePanics ...
+  rebuild+run: 14s
+  loaded matrix in 18s: 3247 regions, 17 pos, 90 neg, 25 truth keys
+  existential search: 22s
+  ochiai: 17 -> 17
+  delta:  24 -> 19
+
+=== [4/9] httparse/backslash_in_uri (tier 11-30, baseline ochiai_fn=18) ===
+  building httparse/backslash_in_uri ...
+  running etna-faultloc crabcheck RequestPathPreserves ...
+  rebuild+run: 12s
+  loaded matrix in 15s: 1447 regions, 5 pos, 96 neg, 19 truth keys
+  existential search: 8s
+  ochiai: 6 -> 6
+  delta:  20 -> 20
+
+=== [5/9] rust-decimal/div_remainder_overflow (tier 31-100, baseline ochiai_fn=41) ===
+  building rust-decimal/div_remainder_overflow ...
+  running etna-faultloc crabcheck CheckedDivNoPanic ...
+  rebuild+run: 17s
+  loaded matrix in 15s: 9131 regions, 26 pos, 75 neg, 7 truth keys
+  existential search: 28s
+  ochiai: 32 -> 32
+  delta:  61 -> 61
+
+=== [6/9] rust-decimal/scientific_fmt_zero (tier 31-100, baseline ochiai_fn=38) ===
+  building rust-decimal/scientific_fmt_zero ...
+  running etna-faultloc crabcheck ScientificFmtRoundtrip ...
+  rebuild+run: 7s
+  loaded matrix in 17s: 9125 regions, 64 pos, 37 neg, 2 truth keys
+  existential search: 29s
+  ochiai: 38 -> 38
+  delta:  40 -> 40
+
+=== [7/9] rust-decimal/abs_sub_returns_abs (tier 31-100, baseline ochiai_fn=46) ===
+  building rust-decimal/abs_sub_returns_abs ...
+  running etna-faultloc crabcheck AbsSubDifference ...
+  rebuild+run: 12s
+  loaded matrix in 16s: 9132 regions, 36 pos, 63 neg, 8 truth keys
+  existential search: 50s
+  ochiai: 46 -> 46
+  delta:  53 -> 51
+
+=== [8/9] rust-decimal/round_dp_early_return_reorder (tier 31-100, baseline ochiai_fn=35) ===
+  building rust-decimal/round_dp_early_return_reorder ...
+  running etna-faultloc crabcheck RoundDpPreservesWhenDpExceedsScale ...
+  rebuild+run: 9s
+  loaded matrix in 17s: 9131 regions, 51 pos, 53 neg, 20 truth keys
+  existential search: 31s
+  ochiai: 35 -> 35
+  delta:  37 -> 37
+
+=== [9/9] regex/captures_get_group_overflow (tier 100+, baseline ochiai_fn=454) ===
+  building regex/captures_get_group_overflow ...
+  running etna-faultloc crabcheck CaptureLocationsGetOverflow ...
+  rebuild+run: 224s
+  loaded matrix in 160s: 40560 regions, 96 pos, 14 neg, 18 truth keys
+  existential search: 8199s
+  ochiai: 21 -> 21
+  delta:  3 -> 3
+
+Done. Results in /Users/akeles/Programming/projects/PbtBenchmark/faultloc/faultloc-results/existential_results.jsonl

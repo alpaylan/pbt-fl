@@ -1,0 +1,86 @@
+[
+  {
+    "language": "Rust",
+    "workload": "winnow",
+    "mode": "Solve",
+    "mutations": [
+      "hex_uint_overflow_b428d65_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "HexUintOverflowErrors"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "HexUintOverflowErrors"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "HexUintOverflowErrors"
+      },
+      {
+        "strategy": "hegel",
+        "property": "HexUintOverflowErrors"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "winnow",
+    "mode": "Solve",
+    "mutations": [
+      "iterator_misuse_panic_86b4c25_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "IteratorNoPanicAfterDone"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "IteratorNoPanicAfterDone"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "IteratorNoPanicAfterDone"
+      },
+      {
+        "strategy": "hegel",
+        "property": "IteratorNoPanicAfterDone"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "winnow",
+    "mode": "Solve",
+    "mutations": [
+      "repeat_n_loop_check_f5c49ba_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "RepeatNLoopCheckErrors"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "RepeatNLoopCheckErrors"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "RepeatNLoopCheckErrors"
+      },
+      {
+        "strategy": "hegel",
+        "property": "RepeatNLoopCheckErrors"
+      }
+    ]
+  }
+]

@@ -1,31 +1,30 @@
 #!/usr/bin/env python3
-"""Generate tests/<name>.json and workloads/Rust/<name>/steps.json for overnight
-pi-etna workloads.
+"""Generate tests/<name>.json and workloads/Rust/<name>/steps.json from each
+workload's etna.toml (v2 schema with `[[tasks]]` + `[[tasks.tasks]]`).
 
-Reads each workload's etna.toml plus its src/bin/etna.rs dispatcher, builds the
-snake_case property -> PascalCase-dispatch-name map by scanning match arms, and
-emits one test-selector entry per variant for every declared framework.
+Usage:
+    scripts/generate_test_specs.py <workload> [<workload> ...]
+    scripts/generate_test_specs.py --all   # every dir under workloads/Rust with etna.toml
+
+Each `[[tasks]]` block in etna.toml is one mutation; each `[[tasks.tasks]]`
+inside is one property under that mutation. Default frameworks are the four
+runners (proptest, quickcheck, crabcheck, hegel); override with
+`frameworks = [...]` on either the outer task or the inner property.
 """
 
 from __future__ import annotations
 
+import argparse
 import json
-import re
 import sys
 import tomllib
 from pathlib import Path
 
-ROOT = Path("/Users/akeles/Programming/projects/PbtBenchmark/faultloc")
-WORKLOADS = [
-    "unicode-segmentation",
-    "bitvec-rs",
-    "rust-csv",
-    "nom-rs",
-    "arroy",
-    "buf-list",
-    "roaring-rs",
-    "regex",
-]
+ROOT = Path(__file__).resolve().parent.parent
+
+DEFAULT_FRAMEWORKS = ["proptest", "quickcheck", "crabcheck", "hegel"]
+DEFAULT_TRIALS = 10
+DEFAULT_TIMEOUT = 600
 
 STEPS_JSON = {
     "setup_steps": [],
@@ -51,77 +50,54 @@ STEPS_JSON = {
     },
 }
 
-ARM_RE = re.compile(r'"([A-Z][A-Za-z0-9]+)"\s*=>')
-PROP_CALL_RE = re.compile(r"\bproperty_([a-z0-9_]+)\b")
-
-
-def find_etna_rs(workload_root: Path) -> Path:
-    """Standard layout is src/bin/etna.rs; workspaces (e.g. roaring-rs) nest it
-    under a member crate."""
-    for candidate in [
-        workload_root / "src" / "bin" / "etna.rs",
-        *workload_root.glob("*/src/bin/etna.rs"),
-    ]:
-        if candidate.exists():
-            return candidate
-    raise FileNotFoundError(f"no src/bin/etna.rs under {workload_root}")
-
-
-def build_snake_to_pascal(etna_rs: Path) -> dict[str, str]:
-    """Walk `"PascalCase" =>` arms and record the first property_<snake> call in
-    each arm body. First occurrence wins, so later duplicates (e.g. a sub-match
-    inside the arm) don't clobber the canonical mapping."""
-    src = etna_rs.read_text()
-    arms = [(m.start(), m.end(), m.group(1)) for m in ARM_RE.finditer(src)]
-    mapping: dict[str, str] = {}
-    for i, (_, end, pascal) in enumerate(arms):
-        block_end = arms[i + 1][0] if i + 1 < len(arms) else len(src)
-        body = src[end:block_end]
-        call = PROP_CALL_RE.search(body)
-        if not call:
-            continue
-        snake = call.group(1)
-        mapping.setdefault(snake, pascal)
-    return mapping
-
 
 def generate_for(workload: str) -> tuple[int, int]:
-    """Returns (variant_count, task_count) written."""
     wl_root = ROOT / "workloads" / "Rust" / workload
     etna_toml = wl_root / "etna.toml"
-    etna_rs = find_etna_rs(wl_root)
+    if not etna_toml.exists():
+        raise SystemExit(f"{workload}: missing {etna_toml}")
 
     with etna_toml.open("rb") as f:
         cfg = tomllib.load(f)
 
-    mapping = build_snake_to_pascal(etna_rs)
-    variants = cfg.get("variant", [])
+    blocks = cfg.get("tasks", [])
+    if not blocks:
+        raise SystemExit(f"{workload}: no [[tasks]] in {etna_toml}")
+
     entries = []
     task_total = 0
-    for v in variants:
-        snake = v["property"]
-        if snake not in mapping:
+    for block in blocks:
+        mutations = block.get("mutations")
+        if not mutations:
+            raise SystemExit(f"{workload}: [[tasks]] block missing 'mutations'")
+        outer_fws = block.get("frameworks", DEFAULT_FRAMEWORKS)
+        inner_props = block.get("tasks", [])
+        if not inner_props:
             raise SystemExit(
-                f"{workload}: variant {v['name']!r} references property "
-                f"{snake!r} but no dispatch arm in {etna_rs} calls "
-                f"property_{snake} (known: {sorted(mapping)})"
+                f"{workload}: [[tasks]] for {mutations} has no [[tasks.tasks]]"
             )
-        pascal = mapping[snake]
-        frameworks = v.get(
-            "frameworks", ["proptest", "quickcheck", "crabcheck", "hegel"]
-        )
+        tasks_json = []
+        for inner in inner_props:
+            prop = inner.get("property")
+            if not prop:
+                raise SystemExit(
+                    f"{workload}: [[tasks.tasks]] in {mutations} missing 'property'"
+                )
+            fws = inner.get("frameworks", outer_fws)
+            for fw in fws:
+                tasks_json.append({"strategy": fw, "property": prop})
         entries.append(
             {
                 "language": "Rust",
                 "workload": workload,
                 "mode": "Solve",
-                "mutations": [v["name"]],
-                "trials": 10,
-                "timeout": 600,
-                "tasks": [{"strategy": fw, "property": pascal} for fw in frameworks],
+                "mutations": mutations,
+                "trials": DEFAULT_TRIALS,
+                "timeout": DEFAULT_TIMEOUT,
+                "tasks": tasks_json,
             }
         )
-        task_total += len(frameworks)
+        task_total += len(tasks_json)
 
     tests_path = ROOT / "tests" / f"{workload}.json"
     tests_path.write_text(json.dumps(entries, indent=2) + "\n")
@@ -129,18 +105,34 @@ def generate_for(workload: str) -> tuple[int, int]:
     steps_path = wl_root / "steps.json"
     steps_path.write_text(json.dumps(STEPS_JSON, indent=2) + "\n")
 
-    return len(variants), task_total
+    return len(entries), task_total
 
 
 def main() -> None:
-    total_v = 0
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("workloads", nargs="*", help="workload names under workloads/Rust/")
+    parser.add_argument("--all", action="store_true", help="every dir with etna.toml")
+    args = parser.parse_args()
+
+    if args.all:
+        names = sorted(
+            p.parent.name
+            for p in (ROOT / "workloads" / "Rust").glob("*/etna.toml")
+        )
+    else:
+        names = args.workloads
+
+    if not names:
+        parser.error("provide workload names or --all")
+
+    total_e = 0
     total_t = 0
-    for wl in WORKLOADS:
-        v, t = generate_for(wl)
-        print(f"  {wl:<22}  variants={v}  tasks={t}")
-        total_v += v
+    for wl in names:
+        e, t = generate_for(wl)
+        print(f"  {wl:<25}  entries={e}  tasks={t}")
+        total_e += e
         total_t += t
-    print(f"\n  TOTAL                   variants={total_v}  tasks={total_t}")
+    print(f"\n  TOTAL                      entries={total_e}  tasks={total_t}")
 
 
 if __name__ == "__main__":

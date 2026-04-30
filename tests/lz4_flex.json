@@ -1,0 +1,86 @@
+[
+  {
+    "language": "Rust",
+    "workload": "lz4_flex",
+    "mode": "Solve",
+    "mutations": [
+      "dont_panic_on_drop_44e14b1_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "DontPanicOnDrop"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "DontPanicOnDrop"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "DontPanicOnDrop"
+      },
+      {
+        "strategy": "hegel",
+        "property": "DontPanicOnDrop"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "lz4_flex",
+    "mode": "Solve",
+    "mutations": [
+      "small_dict_no_panic_2d83a3d_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "SmallDictNoPanic"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "SmallDictNoPanic"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "SmallDictNoPanic"
+      },
+      {
+        "strategy": "hegel",
+        "property": "SmallDictNoPanic"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "lz4_flex",
+    "mode": "Solve",
+    "mutations": [
+      "decompress_short_input_no_panic_e0e7e5c_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "DecompressShortInputNoPanic"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "DecompressShortInputNoPanic"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "DecompressShortInputNoPanic"
+      },
+      {
+        "strategy": "hegel",
+        "property": "DecompressShortInputNoPanic"
+      }
+    ]
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "language": "Rust",
+    "workload": "fst",
+    "mode": "Solve",
+    "mutations": [
+      "output_value_zero_distinguished_32fc82b_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "OutputValueZeroDistinguished"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "OutputValueZeroDistinguished"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "OutputValueZeroDistinguished"
+      },
+      {
+        "strategy": "hegel",
+        "property": "OutputValueZeroDistinguished"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "fst",
+    "mode": "Solve",
+    "mutations": [
+      "transitions_iter_256_5c2f0c8_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "TransitionsIter256"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "TransitionsIter256"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "TransitionsIter256"
+      },
+      {
+        "strategy": "hegel",
+        "property": "TransitionsIter256"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "fst",
+    "mode": "Solve",
+    "mutations": [
+      "set_difference_pop_if_le_439e6aa_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "SetDifferencePopIfLe"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "SetDifferencePopIfLe"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "SetDifferencePopIfLe"
+      },
+      {
+        "strategy": "hegel",
+        "property": "SetDifferencePopIfLe"
+      }
+    ]
+  }
+]

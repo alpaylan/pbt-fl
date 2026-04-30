@@ -1,0 +1,142 @@
+[
+  {
+    "language": "Rust",
+    "workload": "lru",
+    "mode": "Solve",
+    "mutations": [
+      "clone_unbounded_no_panic_3ec42b6_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "CloneUnboundedNoPanic"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "CloneUnboundedNoPanic"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "CloneUnboundedNoPanic"
+      },
+      {
+        "strategy": "hegel",
+        "property": "CloneUnboundedNoPanic"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "lru",
+    "mode": "Solve",
+    "mutations": [
+      "pop_iter_consistent_5f4a46a_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "PopIterConsistent"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "PopIterConsistent"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "PopIterConsistent"
+      },
+      {
+        "strategy": "hegel",
+        "property": "PopIterConsistent"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "lru",
+    "mode": "Solve",
+    "mutations": [
+      "drop_impl_drops_all_37dbda0_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "DropImplDropsAll"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "DropImplDropsAll"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "DropImplDropsAll"
+      },
+      {
+        "strategy": "hegel",
+        "property": "DropImplDropsAll"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "lru",
+    "mode": "Solve",
+    "mutations": [
+      "clear_resize_drops_all_4460158_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "ClearResizeDropsAll"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "ClearResizeDropsAll"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "ClearResizeDropsAll"
+      },
+      {
+        "strategy": "hegel",
+        "property": "ClearResizeDropsAll"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "lru",
+    "mode": "Solve",
+    "mutations": [
+      "pop_drops_key_ea64c8f_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "PopDropsKey"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "PopDropsKey"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "PopDropsKey"
+      },
+      {
+        "strategy": "hegel",
+        "property": "PopDropsKey"
+      }
+    ]
+  }
+]

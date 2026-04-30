@@ -1,0 +1,170 @@
+[
+  {
+    "language": "Rust",
+    "workload": "prost",
+    "mode": "Solve",
+    "mutations": [
+      "negative_nanos_duration_try_from_c00da0b_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "NegativeNanosDuration"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "NegativeNanosDuration"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "NegativeNanosDuration"
+      },
+      {
+        "strategy": "hegel",
+        "property": "NegativeNanosDuration"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "prost",
+    "mode": "Solve",
+    "mutations": [
+      "format_negative_fractional_duration_d16bed8_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "FormatNegativeFractionalDuration"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "FormatNegativeFractionalDuration"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "FormatNegativeFractionalDuration"
+      },
+      {
+        "strategy": "hegel",
+        "property": "FormatNegativeFractionalDuration"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "prost",
+    "mode": "Solve",
+    "mutations": [
+      "varint_overflow_87cea1d_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "VarintOverflowDetected"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "VarintOverflowDetected"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "VarintOverflowDetected"
+      },
+      {
+        "strategy": "hegel",
+        "property": "VarintOverflowDetected"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "prost",
+    "mode": "Solve",
+    "mutations": [
+      "datetime_plus_in_two_digit_366c6fb_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "DatetimePlusInTwoDigit"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "DatetimePlusInTwoDigit"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "DatetimePlusInTwoDigit"
+      },
+      {
+        "strategy": "hegel",
+        "property": "DatetimePlusInTwoDigit"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "prost",
+    "mode": "Solve",
+    "mutations": [
+      "datetime_negative_zero_offset_7e55cda_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "DatetimeNegativeZeroOffset"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "DatetimeNegativeZeroOffset"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "DatetimeNegativeZeroOffset"
+      },
+      {
+        "strategy": "hegel",
+        "property": "DatetimeNegativeZeroOffset"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "workload": "prost",
+    "mode": "Solve",
+    "mutations": [
+      "datetime_long_second_fraction_1076101_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "proptest",
+        "property": "DatetimeLongSecondFraction"
+      },
+      {
+        "strategy": "quickcheck",
+        "property": "DatetimeLongSecondFraction"
+      },
+      {
+        "strategy": "crabcheck",
+        "property": "DatetimeLongSecondFraction"
+      },
+      {
+        "strategy": "hegel",
+        "property": "DatetimeLongSecondFraction"
+      }
+    ]
+  }
+]

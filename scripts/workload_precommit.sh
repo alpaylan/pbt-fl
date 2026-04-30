@@ -10,7 +10,7 @@
 # v2 schema could silently pass by rejecting the file, so we pin the version.
 set -eu
 
-EXPECTED_ETNA_VERSION="etna 0.1.6"
+EXPECTED_ETNA_VERSION="etna 0.1.7"
 
 if ! command -v etna >/dev/null 2>&1; then
   echo "pre-commit: 'etna' CLI not on PATH; install etna-cli from /Users/akeles/Programming/projects/PbtBenchmark/etna2 first." >&2
