@@ -26,29 +26,48 @@ DEFAULT_FRAMEWORKS = ["proptest", "quickcheck", "crabcheck", "hegel"]
 DEFAULT_TRIALS = 10
 DEFAULT_TIMEOUT = 600
 
-STEPS_JSON = {
-    "setup_steps": [],
-    "build_steps": [
-        {
-            "Command": {
-                "command": "cargo",
-                "args": ["build", "--release", "--bin", "etna"],
-                "run_at": "${workload_path}",
-            }
-        }
-    ],
-    "capabilities": {
-        "solve": [
+def _build_args(wl_root: Path) -> list[str]:
+    """Cargo workspaces with a root package + sibling etna_runner crate
+    (e.g. regex-syntax, toml_edit) need an explicit `--package etna_runner`,
+    because `--bin etna` looks only in default-run packages and the root
+    package doesn't contain the etna binary. Workspace-only roots (rstar,
+    chrono, lru, …) accept the bare `--bin etna`."""
+    base = ["build", "--release", "--bin", "etna"]
+    cargo_toml = wl_root / "Cargo.toml"
+    runner_toml = wl_root / "etna_runner" / "Cargo.toml"
+    if cargo_toml.exists() and runner_toml.exists():
+        text = cargo_toml.read_text()
+        # Heuristic: a `[package]` section AND a `[workspace]` section means
+        # the bare `--bin etna` would resolve against the root package.
+        if "\n[package]" in ("\n" + text) and "\n[workspace]" in ("\n" + text):
+            return base + ["--package", "etna_runner"]
+    return base
+
+
+def steps_json_for(wl_root: Path) -> dict:
+    return {
+        "setup_steps": [],
+        "build_steps": [
             {
                 "Command": {
-                    "command": "${workload_path}/target/release/etna",
-                    "args": ["${strategy}", "${property}"],
-                    "params": ["workload_path", "property", "strategy"],
+                    "command": "cargo",
+                    "args": _build_args(wl_root),
+                    "run_at": "${workload_path}",
                 }
             }
-        ]
-    },
-}
+        ],
+        "capabilities": {
+            "solve": [
+                {
+                    "Command": {
+                        "command": "${workload_path}/target/release/etna",
+                        "args": ["${strategy}", "${property}"],
+                        "params": ["workload_path", "property", "strategy"],
+                    }
+                }
+            ]
+        },
+    }
 
 
 def generate_for(workload: str) -> tuple[int, int]:
@@ -103,7 +122,7 @@ def generate_for(workload: str) -> tuple[int, int]:
     tests_path.write_text(json.dumps(entries, indent=2) + "\n")
 
     steps_path = wl_root / "steps.json"
-    steps_path.write_text(json.dumps(STEPS_JSON, indent=2) + "\n")
+    steps_path.write_text(json.dumps(steps_json_for(wl_root), indent=2) + "\n")
 
     return len(entries), task_total
 
