@@ -14,16 +14,16 @@ Total mutations: 12
 |---|---------|------|----------|-----------|------------|
 | 1 | `decimal_parse_negative_sign_preserved_84fe9c6_1` | `decimal_parse_negative_sign_preserved` | `cedar-lean/Cedar/Spec/Ext/Decimal.lean:59` | `patch` | `84fe9c6d4121f6fcb6b4f032cce0ae08f23ad8d4` |
 | 2 | `decimal_parse_no_underscore_a0c5812_1` | `decimal_parse_no_underscore` | `cedar-lean/Cedar/Spec/Ext/Util.lean:12` | `patch` | `a0c5812f171bcf142e43dedf8518d94becb0e11b` |
-| 3 | `encoder_define_entity_rejects_non_member_fe5a046_1` | `encoder_define_entity_rejects_non_member` | `cedar-lean/Cedar/SymCC/Encoder.lean:269` | `patch` | `fe5a0464ef36716ff37ced2d7a4e62ef91a23d7e` |
-| 4 | `schema_well_formed_no_singleton_bools_e785e2e_1` | `schema_well_formed_no_singleton_bools` | `cedar-lean/Cedar/Validation/EnvironmentValidator.lean:126` | `patch` | `e785e2ed37e0ec9f4c4ecb42f84f794c4735b11f` |
-| 5 | `smt_encode_string_balanced_quotes_84708ca_1` | `smt_encode_string_balanced_quotes` | `cedar-lean/Cedar/SymCC/Encoder.lean:170` | `patch` | `84708ca6ab57d462306429d345b1414842330127` |
-| 6 | `validate_rejects_undeclared_entities_eb3bfff_1` | `validate_rejects_undeclared_entities` | `cedar-lean/Cedar/Validation/Validator.lean:217` | `patch` | `eb3bfff4fcebff716ae86983ae78fd6407e13290` |
-| 7 | `validate_request_principal_exists_1a76346_1` | `validate_request_principal_exists` | `cedar-lean/Cedar/Validation/RequestEntityValidator.lean:52` | `patch` | `1a7634653370892318d14bd9213668bf23c022de` |
-| 8 | `validate_with_level_accepts_c186f0f_1` | `validate_with_level_accepts` | `cedar-lean/Cedar/Validation/Levels.lean:61` | `patch` | `c186f0f4d34c7f244836279e0b4aa6535e1ce252` |
-| 9 | `validator_action_entity_no_attrs_d7ab5ab_1` | `validator_action_entity_no_attrs` | `cedar-lean/Cedar/Validation/RequestEntityValidator.lean:132` | `patch` | `d7ab5abeff0d55f23914b5f2257da8fe3e917002` |
-| 10 | `encoder_empty_record_well_formed_7b9fe45_1` | `encoder_empty_record_well_formed` | `cedar-lean/Cedar/SymCC/Encoder.lean:230` | `patch` | `7b9fe456931e826d272455c233ccefa3552f0493` |
-| 11 | `encoder_empty_record_decode_roundtrip_05e7634_1` | `encoder_empty_record_decode_roundtrip` | `cedar-lean/Cedar/SymCC/Decoder.lean:236` | `patch` | `05e76349a9a3f662ea77b8be58bbd9a3fbd2b16f` |
-| 12 | `duration_parse_min_value_577_1` | `duration_parse_min_value` | `cedar-lean/Cedar/Spec/Ext/Datetime.lean:257` | `patch` | `1b6649e6d0bb130574ca8ce8a8c2cf9aad3f9158` |
+| 3 | `duration_parse_min_value_577_1` | `duration_parse_min_value` | `cedar-lean/Cedar/Spec/Ext/Datetime.lean:257` | `patch` | `1b6649e6d0bb130574ca8ce8a8c2cf9aad3f9158` |
+| 4 | `encoder_define_entity_rejects_non_member_fe5a046_1` | `encoder_define_entity_rejects_non_member` | `cedar-lean/Cedar/SymCC/Encoder.lean:269` | `patch` | `fe5a0464ef36716ff37ced2d7a4e62ef91a23d7e` |
+| 5 | `encoder_empty_record_decode_roundtrip_05e7634_1` | `encoder_empty_record_decode_roundtrip` | `cedar-lean/Cedar/SymCC/Decoder.lean:236` | `patch` | `05e76349a9a3f662ea77b8be58bbd9a3fbd2b16f` |
+| 6 | `encoder_empty_record_well_formed_7b9fe45_1` | `encoder_empty_record_well_formed` | `cedar-lean/Cedar/SymCC/Encoder.lean:230` | `patch` | `7b9fe456931e826d272455c233ccefa3552f0493` |
+| 7 | `schema_well_formed_no_singleton_bools_e785e2e_1` | `schema_well_formed_no_singleton_bools` | `cedar-lean/Cedar/Validation/EnvironmentValidator.lean:126` | `patch` | `e785e2ed37e0ec9f4c4ecb42f84f794c4735b11f` |
+| 8 | `smt_encode_string_balanced_quotes_84708ca_1` | `smt_encode_string_balanced_quotes` | `cedar-lean/Cedar/SymCC/Encoder.lean:170` | `patch` | `84708ca6ab57d462306429d345b1414842330127` |
+| 9 | `validate_rejects_undeclared_entities_eb3bfff_1` | `validate_rejects_undeclared_entities` | `cedar-lean/Cedar/Validation/Validator.lean:217` | `patch` | `eb3bfff4fcebff716ae86983ae78fd6407e13290` |
+| 10 | `validate_request_principal_exists_1a76346_1` | `validate_request_principal_exists` | `cedar-lean/Cedar/Validation/RequestEntityValidator.lean:52` | `patch` | `1a7634653370892318d14bd9213668bf23c022de` |
+| 11 | `validate_with_level_accepts_c186f0f_1` | `validate_with_level_accepts` | `cedar-lean/Cedar/Validation/Levels.lean:61` | `patch` | `c186f0f4d34c7f244836279e0b4aa6535e1ce252` |
+| 12 | `validator_action_entity_no_attrs_d7ab5ab_1` | `validator_action_entity_no_attrs` | `cedar-lean/Cedar/Validation/RequestEntityValidator.lean:132` | `patch` | `d7ab5abeff0d55f23914b5f2257da8fe3e917002` |
 
 ## Property Mapping
 
@@ -31,16 +31,16 @@ Total mutations: 12
 |---------|----------|-------------|
 | `decimal_parse_negative_sign_preserved_84fe9c6_1` | `DecimalParseNegativeSignPreserved` | `witness_decimal_parse_negative_sign_preserved_case_neg_zero` |
 | `decimal_parse_no_underscore_a0c5812_1` | `DecimalParseNoUnderscore` | `witness_decimal_parse_no_underscore_case_int_part` |
+| `duration_parse_min_value_577_1` | `DurationParseMinValue` | `witness_duration_parse_min_value_case_int64_min` |
 | `encoder_define_entity_rejects_non_member_fe5a046_1` | `DefineEntityRejectsNonMember` | `witness_define_entity_rejects_non_member_case_zzz` |
+| `encoder_empty_record_decode_roundtrip_05e7634_1` | `EncoderEmptyRecordDecodeRoundtrip` | `witness_encoder_empty_record_decode_roundtrip_case_R0_zero_fields` |
+| `encoder_empty_record_well_formed_7b9fe45_1` | `EncoderEmptyRecordWellFormed` | `witness_encoder_empty_record_well_formed_case_record_zero_fields` |
 | `schema_well_formed_no_singleton_bools_e785e2e_1` | `SchemaWellFormedNoSingletonBools` | `witness_schema_well_formed_no_singleton_bools_case_attr_bool_tt` |
 | `smt_encode_string_balanced_quotes_84708ca_1` | `SmtEncodeStringBalancedQuotes` | `witness_smt_encode_string_balanced_quotes_case_quote_in_middle` |
 | `validate_rejects_undeclared_entities_eb3bfff_1` | `ValidateRejectsUndeclaredEntities` | `witness_validate_rejects_undeclared_entities_case_unknown_principal` |
 | `validate_request_principal_exists_1a76346_1` | `ValidateRequestPrincipalExists` | `witness_validate_request_principal_exists_case_ghost_user` |
 | `validate_with_level_accepts_c186f0f_1` | `ValidateWithLevelAccepts` | `witness_validate_with_level_accepts_case_action_in_action` |
 | `validator_action_entity_no_attrs_d7ab5ab_1` | `ValidateActionEntityNoAttrs` | `witness_validate_action_entity_no_attrs_case_action_with_attr` |
-| `encoder_empty_record_well_formed_7b9fe45_1` | `EncoderEmptyRecordWellFormed` | `witness_encoder_empty_record_well_formed_case_record_zero_fields` |
-| `encoder_empty_record_decode_roundtrip_05e7634_1` | `EncoderEmptyRecordDecodeRoundtrip` | `witness_encoder_empty_record_decode_roundtrip_case_R0_zero_fields` |
-| `duration_parse_min_value_577_1` | `DurationParseMinValue` | `witness_duration_parse_min_value_case_int64_min` |
 
 ## Framework Coverage
 
@@ -48,16 +48,16 @@ Total mutations: 12
 |----------|---------:|-----------:|----------:|------:|
 | `DecimalParseNegativeSignPreserved` | ✓ | ✓ | ✓ | ✓ |
 | `DecimalParseNoUnderscore` | ✓ | ✓ | ✓ | ✓ |
+| `DurationParseMinValue` | ✓ | ✓ | ✓ | ✓ |
 | `DefineEntityRejectsNonMember` | ✓ | ✓ | ✓ | ✓ |
+| `EncoderEmptyRecordDecodeRoundtrip` | ✓ | ✓ | ✓ | ✓ |
+| `EncoderEmptyRecordWellFormed` | ✓ | ✓ | ✓ | ✓ |
 | `SchemaWellFormedNoSingletonBools` | ✓ | ✓ | ✓ | ✓ |
 | `SmtEncodeStringBalancedQuotes` | ✓ | ✓ | ✓ | ✓ |
 | `ValidateRejectsUndeclaredEntities` | ✓ | ✓ | ✓ | ✓ |
 | `ValidateRequestPrincipalExists` | ✓ | ✓ | ✓ | ✓ |
 | `ValidateWithLevelAccepts` | ✓ | ✓ | ✓ | ✓ |
 | `ValidateActionEntityNoAttrs` | ✓ | ✓ | ✓ | ✓ |
-| `EncoderEmptyRecordWellFormed` | ✓ | ✓ | ✓ | ✓ |
-| `EncoderEmptyRecordDecodeRoundtrip` | ✓ | ✓ | ✓ | ✓ |
-| `DurationParseMinValue` | ✓ | ✓ | ✓ | ✓ |
 
 ## Bug Details
 
@@ -96,7 +96,34 @@ Total mutations: 12
 - **Invariant violated**: If `Decimal.parse s = some _`, then `s` does not contain `_`.
 - **How the mutation triggers**: Removing the `if str.contains '_' then .none else …` gates from `toInt?'`/`toNat?'` exposes Lean's lenient `String.toInt?` behavior to the parser, so `Decimal.parse "1_2.34"` returns `some 12.3400` instead of `none`.
 
-### 3. encoder_define_entity_rejects_non_member
+### 3. duration_parse_min_value
+
+- **Variant**: `duration_parse_min_value_577_1`
+- **Location**: `cedar-lean/Cedar/Spec/Ext/Datetime.lean:257` (inside `Cedar.Spec.Ext.Datetime.Duration.parse`)
+- **Property**: `DurationParseMinValue`
+- **Witness(es)**:
+  - `witness_duration_parse_min_value_case_int64_min` — Duration.parse "-9223372036854775808ms"; fix returns some Duration{val:=Int64.MIN}, bug returns none
+- **Source**: [#577](https://github.com/cedar-policy/cedar-spec/pull/577) — Fixes issue in Datetime.Duration.parse when parsing min duration (#577)
+  > Numerical boundary bug at `Int64.MIN`. Pre-#577, `Duration.parse` first
+  > parsed the *unsigned* magnitude into `Int64` via `parseUnsignedDuration?`
+  > and only then negated via `Duration.neg?`. For `Int64.MIN =
+  > -9223372036854775808` the unsigned magnitude `9223372036854775808`
+  > overflows `Int64.MAX = 9223372036854775807` — `parseUnit?` returned
+  > `none` and the whole parse failed, even though `Int64.MIN` is itself a
+  > valid `Int64`.
+  > 
+  > The fix folded the negation into per-unit parsing: `parseUnit?` now
+  > takes an `isNegative` flag and applies `Int.negOfNat` to the magnitude
+  > *before* the `Int64.ofInt?` range check, so values like `Int64.MIN`
+  > parse cleanly. The synthetic ETNA patch is a surgical 1-block change
+  > to `Duration.parse` that always passes `isNegative=false` to
+  > `parseDuration?` and applies `Duration.neg?` afterward — restoring the
+  > historical negate-after-unsigned-parse pattern that loses `Int64.MIN`.
+- **Fix commit**: `1b6649e6d0bb130574ca8ce8a8c2cf9aad3f9158` — Fixes issue in Datetime.Duration.parse when parsing min duration (#577)
+- **Invariant violated**: For any `Int n` with `Int64.MIN ≤ n ≤ Int64.MAX`, `Duration.parse s!"{n}ms"` returns `some d` with `d.val = Int64.ofInt n` (in particular, parses succeed at the `Int64.MIN` boundary).
+- **How the mutation triggers**: Re-applying the historical negate-after-unsigned-parse pattern in `Duration.parse` makes the parser run `parseDuration? false restStr` (always treating magnitudes as positive) and then negate the result. The unsigned magnitude `9223372036854775808` for `Int64.MIN` overflows `Int64.MAX` during `parseUnit?`'s `Int64.ofInt?` check, so `parseDuration?` returns `none` and `Duration.parse` returns `none` for the witness input `"-9223372036854775808ms"`.
+
+### 4. encoder_define_entity_rejects_non_member
 
 - **Variant**: `encoder_define_entity_rejects_non_member_fe5a046_1`
 - **Location**: `cedar-lean/Cedar/SymCC/Encoder.lean:269` (inside `Cedar.SymCC.Encoder.defineEntity`)
@@ -120,7 +147,59 @@ Total mutations: 12
 - **Invariant violated**: If `defineEntity tyEnc entity` returns `Ok` for an entity whose type is registered as an enum, then `entity.eid` is one of the declared members.
 - **How the mutation triggers**: Replacing the inner `match members.idxOf? entity.eid with | .some idx => … | .none => throw …` with the single line `return s!"{enumId tyEnc (members.idxOf entity.eid)}"` lets `defineEntity` succeed for non-member eids: `List.idxOf` returns `members.length`, producing the bogus identifier `U_enc_m2` for `["alice", "bob"]`-membered `User::"zzz"`.
 
-### 4. schema_well_formed_no_singleton_bools
+### 5. encoder_empty_record_decode_roundtrip
+
+- **Variant**: `encoder_empty_record_decode_roundtrip_05e7634_1`
+- **Location**: `cedar-lean/Cedar/SymCC/Decoder.lean:236` (inside `Cedar.SymCC.Decoder.SExpr.decodeLit.enumOrEmptyRecord`)
+- **Property**: `EncoderEmptyRecordDecodeRoundtrip`
+- **Witness(es)**:
+  - `witness_encoder_empty_record_decode_roundtrip_case_R0_zero_fields` — decodeLit on `.symbol "R0"` with R0 registered as empty record type; fix returns Term.record (Map.mk []), bug fails with `enum id` error
+- **Source**: [#721](https://github.com/cedar-policy/cedar-spec/pull/721) — Fix decoder issue on empty records (#721)
+  > SymCC decoder companion to the empty-record encoding fix (#752). The
+  > encoder emits the bare type-constructor symbol `Rn` for an empty record
+  > literal (post-#752); the decoder must accept that bare symbol and
+  > reconstruct an empty record term. Pre-#721, `SExpr.decodeLit` on a
+  > bare `.symbol e` only consulted the enum table — if the symbol wasn't a
+  > declared enum member, it failed with `"enum id"`. After #752 the
+  > decoder would crash on any model containing an empty record value.
+  > 
+  > The fix renamed the helper from `enum` to `enumOrEmptyRecord` and
+  > routed the `.none` case to `constructEntityOrRecord s []`, which
+  > resolves the symbol against `IdMaps.types` and returns `Term.record`
+  > when the type is registered as a record. The synthetic ETNA patch
+  > reverts the `.none` branch to the original `fail "enum id" s` form.
+- **Fix commit**: `05e76349a9a3f662ea77b8be58bbd9a3fbd2b16f` — Fix decoder issue on empty records (#721)
+- **Invariant violated**: If `tyEnc` is registered as a `TermType.record (Map.mk [])` in `IdMaps.types`, then `SExpr.decodeLit ids (.symbol tyEnc)` returns `Except.ok (Term.record (Map.mk []))` — never `Except.error "enum id"`.
+- **How the mutation triggers**: Replacing the `.none => constructEntityOrRecord s []` arm of `enumOrEmptyRecord` with `.none => fail "enum id" s` makes the decoder reject any bare symbol that isn't a declared enum member, so an empty-record symbol like `R0` (the form the encoder emits) decodes to `Except.error "expected enum id, but got R0"` instead of an empty `Term.record`.
+
+### 6. encoder_empty_record_well_formed
+
+- **Variant**: `encoder_empty_record_well_formed_7b9fe45_1`
+- **Location**: `cedar-lean/Cedar/SymCC/Encoder.lean:230` (inside `Cedar.SymCC.Encoder.defineRecord`)
+- **Property**: `EncoderEmptyRecordWellFormed`
+- **Witness(es)**:
+  - `witness_encoder_empty_record_well_formed_case_record_zero_fields` — defineRecord "R0" []; fix emits bare `R0`, bug emits malformed `(R0 )`
+- **Source**: [#752](https://github.com/cedar-policy/cedar-spec/pull/752) — Fix encodings of empty record literals (#752)
+  > SymCC encoder soundness gap on empty-record literals. Pre-#752,
+  > `defineRecord tyEnc tEncs` unconditionally emitted
+  > `({tyEnc} {String.intercalate " " tEncs})` as the SMT term body. For
+  > `tEncs = []`, the intercalate result is the empty string, so the
+  > emitted body becomes `({tyEnc} )` — a parenthesized application with
+  > zero arguments and a stray internal space, which is not a legal SMT-LIB
+  > 2.7 s-expression. Downstream solvers either reject the script or
+  > silently misparse it; either way symbolic verification of policies
+  > that mention empty record literals (a legal Cedar value) is unsound.
+  > 
+  > The fix gates on `tEncs.isEmpty`: when there are no field encodings,
+  > emit the bare type-constructor `{tyEnc}` (an `as` constant of the
+  > record sort); otherwise emit the parenthesized form as before. The
+  > synthetic ETNA patch removes that gate, restoring the malformed-empty
+  > emission.
+- **Fix commit**: `7b9fe456931e826d272455c233ccefa3552f0493` — Fix encodings of empty record literals (#752)
+- **Invariant violated**: The SMT-LIB text produced by `defineRecord tyEnc []` does not contain the malformed empty-application substring `({tyEnc} )` (a parenthesized constructor with zero arguments and a single internal space).
+- **How the mutation triggers**: Removing the `tEncs.isEmpty` guard from `defineRecord` makes the empty-list case fall through to the parenthesized format string, emitting `({tyEnc} )` as the term body. The witness invokes `defineRecord "R0" []`, captures the SMT input stream into an `IO.FS.Buffer`, and observes the malformed substring.
+
+### 7. schema_well_formed_no_singleton_bools
 
 - **Variant**: `schema_well_formed_no_singleton_bools_e785e2e_1`
 - **Location**: `cedar-lean/Cedar/Validation/EnvironmentValidator.lean:126` (inside `Cedar.Validation.StandardSchemaEntry.validateWellFormed`)
@@ -146,7 +225,7 @@ Total mutations: 12
 - **Invariant violated**: If `Schema.validateWellFormed schema = .ok ()`, then for every standard entity entry in `schema.ets`, the attribute record passes `CedarType.validateLifted` (no `.bool .tt` / `.bool .ff` nested anywhere).
 - **How the mutation triggers**: Removing the `(CedarType.record entry.attrs).validateLifted` line from `StandardSchemaEntry.validateWellFormed` lets the validator accept entities whose attributes have singleton-bool types. The witness builds a schema with `User.flag : (.bool .tt)` and observes `Schema.validateWellFormed` returning `.ok ()` instead of `"bool type is not lifted"`.
 
-### 5. smt_encode_string_balanced_quotes
+### 8. smt_encode_string_balanced_quotes
 
 - **Variant**: `smt_encode_string_balanced_quotes_84708ca_1`
 - **Location**: `cedar-lean/Cedar/SymCC/Encoder.lean:170` (inside `Cedar.SymCC.encodeString`)
@@ -168,7 +247,7 @@ Total mutations: 12
 - **Invariant violated**: For any string `s`, the SMT literal `"…encodeString s…"` contains an even number of `"` characters (every literal `"` inside is doubled).
 - **How the mutation triggers**: Replacing `return "\"\""` (doubled quote) with `return "\""` (single quote) in the `c = '"'` branch of `encodeString` lets a single `"` leak through; the witness `x"y` then encodes to `"x"y"` (3 `"` chars, odd) instead of `"x""y"` (4, even).
 
-### 6. validate_rejects_undeclared_entities
+### 9. validate_rejects_undeclared_entities
 
 - **Variant**: `validate_rejects_undeclared_entities_eb3bfff_1`
 - **Location**: `cedar-lean/Cedar/Validation/Validator.lean:217` (inside `Cedar.Validation.typecheckPolicyWithEnvironments`)
@@ -192,7 +271,7 @@ Total mutations: 12
 - **Invariant violated**: If `validate policies schema = .ok ()`, then for every policy `p` in `policies`, `checkEntities schema p.toExpr = .ok ()` — i.e. `validate` agrees with `checkEntities` on the entity-existence question.
 - **How the mutation triggers**: Removing the `(checkEntities schema policy.toExpr).mapError ...` line from `typecheckPolicyWithEnvironments` lets the typechecker short-circuit through any reference to an undeclared entity. The witness encodes `permit(principal, action, resource) when { true || (principal == Foo::"x") };` — `true || …` types as `bool .tt` without inspecting the right operand, so `validate` returns `.ok ()` despite `Foo` being absent from the schema.
 
-### 7. validate_request_principal_exists
+### 10. validate_request_principal_exists
 
 - **Variant**: `validate_request_principal_exists_1a76346_1`
 - **Location**: `cedar-lean/Cedar/Validation/RequestEntityValidator.lean:52` (inside `Cedar.Validation.instanceOfEntityType`)
@@ -216,7 +295,7 @@ Total mutations: 12
 - **Invariant violated**: If `validateRequest schema request = .ok ()`, then `request.principal` is declared in the schema (either `schema.ets.isValidEntityUID` or `schema.acts.contains`).
 - **How the mutation triggers**: Replacing the existence check `(env.ets.isValidEntityUID e || env.acts.contains e)` in `instanceOfEntityType` with `true` collapses the second conjunct, so any UID whose entity type matches the request type passes — including `User::"ghost"` against a schema that has no `User` entity declared.
 
-### 8. validate_with_level_accepts
+### 11. validate_with_level_accepts
 
 - **Variant**: `validate_with_level_accepts_c186f0f_1`
 - **Location**: `cedar-lean/Cedar/Validation/Levels.lean:61` (inside `Cedar.Validation.TypedExpr.checkEntityAccessLevel`)
@@ -243,7 +322,7 @@ Total mutations: 12
 - **Invariant violated**: For the chosen `(policies, schema, level)` fixture, `validateWithLevel` returns `.ok ()`. (A unit-test-style invariant: the level checker should not over-reject literal action references.)
 - **How the mutation triggers**: Replacing `euid == env.reqty.action` with `false` in the literal-entity case of `checkEntityAccessLevel` makes the level checker reject `Action::"a" in Action::"a"`. The witness policy's level check then fails with `.levelError`.
 
-### 9. validator_action_entity_no_attrs
+### 12. validator_action_entity_no_attrs
 
 - **Variant**: `validator_action_entity_no_attrs_d7ab5ab_1`
 - **Location**: `cedar-lean/Cedar/Validation/RequestEntityValidator.lean:132` (inside `Cedar.Validation.instanceOfSchema.instanceOfActionSchemaEntry`)
@@ -264,76 +343,3 @@ Total mutations: 12
 - **Fix commit**: `d7ab5abeff0d55f23914b5f2257da8fe3e917002` — Fix validator soundness when `updateSchema` is not used (#648)
 - **Invariant violated**: If `validateEntities schema entities = .ok ()`, then every action entity in `entities` (member of any environment's `acts`) has empty `attrs`.
 - **How the mutation triggers**: Short-circuiting the `data.attrs == Map.empty` guard in `instanceOfActionSchemaEntry` (changing the test to `(data.attrs == Map.empty) || true`) accepts action entities with non-empty `attrs`. The witness installs `Action::"a"` with `{x: 1}` and observes `validateEntities` returning `.ok ()`.
-
-### 10. encoder_empty_record_well_formed
-
-- **Variant**: `encoder_empty_record_well_formed_7b9fe45_1`
-- **Location**: `cedar-lean/Cedar/SymCC/Encoder.lean:230` (inside `Cedar.SymCC.Encoder.defineRecord`)
-- **Property**: `EncoderEmptyRecordWellFormed`
-- **Witness(es)**:
-  - `witness_encoder_empty_record_well_formed_case_record_zero_fields` — `defineRecord "R0" []`; fix emits bare `R0`, bug emits malformed `(R0 )`
-- **Source**: [#752](https://github.com/cedar-policy/cedar-spec/pull/752) — Fix encodings of empty record literals (#752)
-  > SymCC encoder soundness gap on empty-record literals. Pre-#752,
-  > `defineRecord tyEnc tEncs` unconditionally emitted
-  > `({tyEnc} {String.intercalate " " tEncs})` as the SMT term body. For
-  > `tEncs = []`, the intercalate result is the empty string, so the
-  > emitted body becomes `({tyEnc} )` — a parenthesized application with
-  > zero arguments and a stray internal space, which is not a legal SMT-LIB
-  > 2.7 s-expression. Downstream solvers either reject the script or
-  > silently misparse it; either way symbolic verification of policies
-  > that mention empty record literals (a legal Cedar value) is unsound.
-  > 
-  > The fix gates on `tEncs.isEmpty`: when there are no field encodings,
-  > emit the bare type-constructor `{tyEnc}` (an `as` constant of the
-  > record sort); otherwise emit the parenthesized form as before.
-- **Fix commit**: `7b9fe456931e826d272455c233ccefa3552f0493` — Fix encodings of empty record literals (#752)
-- **Invariant violated**: The SMT-LIB text produced by `defineRecord tyEnc []` does not contain the malformed empty-application substring `({tyEnc} )` (a parenthesized constructor with zero arguments and a single internal space).
-- **How the mutation triggers**: Removing the `tEncs.isEmpty` guard from `defineRecord` makes the empty-list case fall through to the parenthesized format string, emitting `({tyEnc} )` as the term body. The witness invokes `defineRecord "R0" []`, captures the SMT input stream into an `IO.FS.Stream.Buffer`, and observes the malformed substring.
-
-### 11. encoder_empty_record_decode_roundtrip
-
-- **Variant**: `encoder_empty_record_decode_roundtrip_05e7634_1`
-- **Location**: `cedar-lean/Cedar/SymCC/Decoder.lean:236` (inside `Cedar.SymCC.Decoder.SExpr.decodeLit.enumOrEmptyRecord`)
-- **Property**: `EncoderEmptyRecordDecodeRoundtrip`
-- **Witness(es)**:
-  - `witness_encoder_empty_record_decode_roundtrip_case_R0_zero_fields` — `decodeLit` on `.symbol "R0"` with `R0` registered as empty record type; fix returns `Term.record (Map.mk [])`, bug fails with `"enum id"` error
-- **Source**: [#721](https://github.com/cedar-policy/cedar-spec/pull/721) — Fix decoder issue on empty records (#721)
-  > SymCC decoder companion to the empty-record encoding fix (#752). The
-  > encoder emits the bare type-constructor symbol `Rn` for an empty record
-  > literal (post-#752); the decoder must accept that bare symbol and
-  > reconstruct an empty record term. Pre-#721, `SExpr.decodeLit` on a
-  > bare `.symbol e` only consulted the enum table — if the symbol wasn't a
-  > declared enum member, it failed with `"enum id"`. After #752 the
-  > decoder would crash on any model containing an empty record value.
-  > 
-  > The fix renamed the helper from `enum` to `enumOrEmptyRecord` and
-  > routed the `.none` case to `constructEntityOrRecord s []`, which
-  > resolves the symbol against `IdMaps.types` and returns `Term.record`
-  > when the type is registered as a record.
-- **Fix commit**: `05e76349a9a3f662ea77b8be58bbd9a3fbd2b16f` — Fix decoder issue on empty records (#721)
-- **Invariant violated**: If `tyEnc` is registered as a `TermType.record (Map.mk [])` in `IdMaps.types`, then `SExpr.decodeLit ids (.symbol tyEnc)` returns `Except.ok (Term.record (Map.mk []))` — never `Except.error "enum id"`.
-- **How the mutation triggers**: Replacing the `.none => constructEntityOrRecord s []` arm of `enumOrEmptyRecord` with `.none => fail "enum id" s` makes the decoder reject any bare symbol that isn't a declared enum member, so an empty-record symbol like `R0` (the form the encoder emits) decodes to `Except.error "expected enum id, but got R0"` instead of an empty `Term.record`.
-
-### 12. duration_parse_min_value
-
-- **Variant**: `duration_parse_min_value_577_1`
-- **Location**: `cedar-lean/Cedar/Spec/Ext/Datetime.lean:257` (inside `Cedar.Spec.Ext.Datetime.Duration.parse`)
-- **Property**: `DurationParseMinValue`
-- **Witness(es)**:
-  - `witness_duration_parse_min_value_case_int64_min` — `Duration.parse "-9223372036854775808ms"`; fix returns `some Duration{val:=Int64.MIN}`, bug returns `none`
-- **Source**: [#577](https://github.com/cedar-policy/cedar-spec/pull/577) — Fixes issue in Datetime.Duration.parse when parsing min duration (#577)
-  > Numerical boundary bug at `Int64.MIN`. Pre-#577, `Duration.parse` first
-  > parsed the *unsigned* magnitude into `Int64` via `parseUnsignedDuration?`
-  > and only then negated via `Duration.neg?`. For `Int64.MIN =
-  > -9223372036854775808` the unsigned magnitude `9223372036854775808`
-  > overflows `Int64.MAX = 9223372036854775807` — `parseUnit?` returned
-  > `none` and the whole parse failed, even though `Int64.MIN` is itself a
-  > valid `Int64`.
-  > 
-  > The fix folded the negation into per-unit parsing: `parseUnit?` now
-  > takes an `isNegative` flag and applies `Int.negOfNat` to the magnitude
-  > *before* the `Int64.ofInt?` range check, so values like `Int64.MIN`
-  > parse cleanly.
-- **Fix commit**: `1b6649e6d0bb130574ca8ce8a8c2cf9aad3f9158` — Fixes issue in Datetime.Duration.parse when parsing min duration (#577)
-- **Invariant violated**: For any `Int n` with `Int64.MIN ≤ n ≤ Int64.MAX`, `Duration.parse s!"{n}ms"` returns `some d` with `d.val = Int64.ofInt n` (in particular, parses succeed at the `Int64.MIN` boundary).
-- **How the mutation triggers**: Replacing `parseDuration? isNegative restStr` in `Duration.parse` with `match parseDuration? false restStr with | some d => if isNegative then d.neg? else some d | none => none` reinstates the historical negate-after-unsigned-parse pattern. The unsigned magnitude `9223372036854775808` for `Int64.MIN` overflows `Int64.MAX` during `parseUnit?`'s `Int64.ofInt?` check, so the witness input `"-9223372036854775808ms"` decodes to `none` instead of `some Duration{val:=Int64.MIN}`.

@@ -1,0 +1,162 @@
+[
+  {
+    "language": "Python",
+    "workload": "iso8601",
+    "mode": "Solve",
+    "mutations": [
+      "is_iso8601_returns_false_on_exception_fde429d_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "IsIso8601RaisesOnInternalError"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "IsIso8601RaisesOnInternalError"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "iso8601",
+    "mode": "Solve",
+    "mutations": [
+      "year_unconstrained_dc7f577_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "YearMustBeFourDigits"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "YearMustBeFourDigits"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "iso8601",
+    "mode": "Solve",
+    "mutations": [
+      "regex_requires_full_date_6d33d31_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "YearOnlyParses"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "YearOnlyParses"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "iso8601",
+    "mode": "Solve",
+    "mutations": [
+      "z_uses_default_tz_704a58e_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "ZIsAlwaysUtc"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "ZIsAlwaysUtc"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "iso8601",
+    "mode": "Solve",
+    "mutations": [
+      "negative_tz_minutes_dropped_d724fec_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "NegativeTimezoneMinutesNegated"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "NegativeTimezoneMinutesNegated"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "iso8601",
+    "mode": "Solve",
+    "mutations": [
+      "microsecond_float_rounding_81ff287_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "MicrosecondPreservesAllDigits"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "MicrosecondPreservesAllDigits"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "iso8601",
+    "mode": "Solve",
+    "mutations": [
+      "parse_date_unwrapped_value_error_4e89389_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "ParseDateWrapsValueError"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "ParseDateWrapsValueError"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "iso8601",
+    "mode": "Solve",
+    "mutations": [
+      "parse_error_not_value_error_4498905_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "ParseErrorIsValueError"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "ParseErrorIsValueError"
+      }
+    ]
+  }
+]

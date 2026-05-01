@@ -1,0 +1,82 @@
+[
+  {
+    "language": "Python",
+    "workload": "python-slugify",
+    "mode": "Solve",
+    "mutations": [
+      "uppercase_pre_translations_a243ccdc_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "AddUppercaseCovers"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "AddUppercaseCovers"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "python-slugify",
+    "mode": "Solve",
+    "mutations": [
+      "stopwords_with_custom_separator_a1543fe0_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "StopwordsRespectSeparator"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "StopwordsRespectSeparator"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "python-slugify",
+    "mode": "Solve",
+    "mutations": [
+      "regex_pattern_cli_ignored_7edf477f_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "CliRegexPatternForwarded"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "CliRegexPatternForwarded"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "python-slugify",
+    "mode": "Solve",
+    "mutations": [
+      "normalize_accents_twice_e52c35e3_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "NfkdPreNormalize"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "NfkdPreNormalize"
+      }
+    ]
+  }
+]

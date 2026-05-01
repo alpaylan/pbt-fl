@@ -1,0 +1,162 @@
+[
+  {
+    "language": "Python",
+    "workload": "toolz",
+    "mode": "Solve",
+    "mutations": [
+      "partition_all_invalid_length_5a7e078_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "PartitionAllValidatesLength"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "PartitionAllValidatesLength"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "toolz",
+    "mode": "Solve",
+    "mutations": [
+      "join_iteritems_namerror_80ae197_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "JoinRightDefaultIterates"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "JoinRightDefaultIterates"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "toolz",
+    "mode": "Solve",
+    "mutations": [
+      "fold_chunksize_one_e9c2724_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "FoldChunksizeOneRejected"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "FoldChunksizeOneRejected"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "toolz",
+    "mode": "Solve",
+    "mutations": [
+      "topk_zero_key_falsy_dd87e4f_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "TopkZeroKeyAccepted"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "TopkZeroKeyAccepted"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "toolz",
+    "mode": "Solve",
+    "mutations": [
+      "dissoc_missing_key_keyerror_46b1726_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "DissocMissingKeyOk"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "DissocMissingKeyOk"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "toolz",
+    "mode": "Solve",
+    "mutations": [
+      "isdistinct_iter_broken_060cc4b_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "IsdistinctOnIterators"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "IsdistinctOnIterators"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "toolz",
+    "mode": "Solve",
+    "mutations": [
+      "accumulate_iter_double_consume_1d78a46_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "AccumulateOnIterators"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "AccumulateOnIterators"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "toolz",
+    "mode": "Solve",
+    "mutations": [
+      "merge_with_mapping_typecheck_c696ac6_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "MergeWithCustomMapping"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "MergeWithCustomMapping"
+      }
+    ]
+  }
+]

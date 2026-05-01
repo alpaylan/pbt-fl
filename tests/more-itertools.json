@@ -1,0 +1,162 @@
+[
+  {
+    "language": "Python",
+    "workload": "more-itertools",
+    "mode": "Solve",
+    "mutations": [
+      "numeric_range_reversed_empty_edb3346_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "NumericRangeReversedHandlesEmpty"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "NumericRangeReversedHandlesEmpty"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "more-itertools",
+    "mode": "Solve",
+    "mutations": [
+      "numeric_range_negative_step_slice_a51da82_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "NumericRangeSliceNegativeStep"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "NumericRangeSliceNegativeStep"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "more-itertools",
+    "mode": "Solve",
+    "mutations": [
+      "last_reversed_truthy_check_cca3294_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "LastWithNoneReversed"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "LastWithNoneReversed"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "more-itertools",
+    "mode": "Solve",
+    "mutations": [
+      "split_before_empty_buffer_2e81a56_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "SplitBeforeEmptyIterableNoEmpty"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "SplitBeforeEmptyIterableNoEmpty"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "more-itertools",
+    "mode": "Solve",
+    "mutations": [
+      "split_after_maxsplit_empty_9245cd0_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "SplitAfterMaxsplitNoEmpty"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "SplitAfterMaxsplitNoEmpty"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "more-itertools",
+    "mode": "Solve",
+    "mutations": [
+      "exactly_n_negative_input_adeda34_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "ExactlyNRejectsNegative"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "ExactlyNRejectsNegative"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "more-itertools",
+    "mode": "Solve",
+    "mutations": [
+      "iterate_func_stop_iteration_cd0a3a8_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "IterateStopsOnStopIteration"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "IterateStopsOnStopIteration"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "more-itertools",
+    "mode": "Solve",
+    "mutations": [
+      "product_index_iterator_input_cf186b5_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "ProductIndexAcceptsIterator"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "ProductIndexAcceptsIterator"
+      }
+    ]
+  }
+]

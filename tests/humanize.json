@@ -1,0 +1,142 @@
+[
+  {
+    "language": "Python",
+    "workload": "humanize",
+    "mode": "Solve",
+    "mutations": [
+      "metric_zero_crash_b1ee687_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "MetricFiniteOnZero"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "MetricFiniteOnZero"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "humanize",
+    "mode": "Solve",
+    "mutations": [
+      "intword_negative_no_sign_520aac1_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "IntwordPreservesSign"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "IntwordPreservesSign"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "humanize",
+    "mode": "Solve",
+    "mutations": [
+      "intcomma_ndigits_zero_03863fe_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "IntcommaNdigitsZeroRounds"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "IntcommaNdigitsZeroRounds"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "humanize",
+    "mode": "Solve",
+    "mutations": [
+      "apnumber_zero_off_by_one_2f179b6_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "ApnumberZeroIsZero"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "ApnumberZeroIsZero"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "humanize",
+    "mode": "Solve",
+    "mutations": [
+      "naturalsize_float_int_cast_11e62ee_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "NaturalsizeIntForSmallFloats"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "NaturalsizeIntForSmallFloats"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "humanize",
+    "mode": "Solve",
+    "mutations": [
+      "naturaldelta_negative_components_b939b2e_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "NaturaldeltaNegativeIsAbsolute"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "NaturaldeltaNegativeIsAbsolute"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "humanize",
+    "mode": "Solve",
+    "mutations": [
+      "naturaldelta_subsecond_872d733_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "NaturaldeltaSubsecondsAreMilliseconds"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "NaturaldeltaSubsecondsAreMilliseconds"
+      }
+    ]
+  }
+]

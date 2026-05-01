@@ -1,0 +1,102 @@
+[
+  {
+    "language": "Python",
+    "workload": "sortedcontainers",
+    "mode": "Solve",
+    "mutations": [
+      "ior_uses_union_94b7d8f_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "IorPreservesIdentity"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "IorPreservesIdentity"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "sortedcontainers",
+    "mode": "Solve",
+    "mutations": [
+      "fromkeys_no_cls_a0dfdd8_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "FromkeysUsesCls"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "FromkeysUsesCls"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "sortedcontainers",
+    "mode": "Solve",
+    "mutations": [
+      "shallow_copy_aliases_set_970f93f_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "CopyDoesNotAliasSet"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "CopyDoesNotAliasSet"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "sortedcontainers",
+    "mode": "Solve",
+    "mutations": [
+      "shallow_copy_aliases_dict_970f93f_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "CopyDoesNotAliasDict"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "CopyDoesNotAliasDict"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "sortedcontainers",
+    "mode": "Solve",
+    "mutations": [
+      "update_ordering_inconsistent_7dc426c_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "UpdateMatchesAdd"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "UpdateMatchesAdd"
+      }
+    ]
+  }
+]

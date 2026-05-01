@@ -1,0 +1,122 @@
+[
+  {
+    "language": "Python",
+    "workload": "bidict",
+    "mode": "Solve",
+    "mutations": [
+      "bidict_none_silently_empty_678c007_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "BidictNoneRejected"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "BidictNoneRejected"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "bidict",
+    "mode": "Solve",
+    "mutations": [
+      "ior_returns_new_bidict_6faf1ef_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "IorPreservesIdentity"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "IorPreservesIdentity"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "bidict",
+    "mode": "Solve",
+    "mutations": [
+      "or_mutates_self_2074f4b_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "OrDoesNotMutateSelf"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "OrDoesNotMutateSelf"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "bidict",
+    "mode": "Solve",
+    "mutations": [
+      "popitem_orphans_inverse_b1d1c70_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "PopitemKeepsInverseConsistent"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "PopitemKeepsInverseConsistent"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "bidict",
+    "mode": "Solve",
+    "mutations": [
+      "forceput_raises_on_dup_b1d1c71_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "ForceputOverwritesNotRaises"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "ForceputOverwritesNotRaises"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "bidict",
+    "mode": "Solve",
+    "mutations": [
+      "ordered_popitem_last_swapped_b1d1c72_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "OrderedPopitemLastFalseReturnsFirst"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "OrderedPopitemLastFalseReturnsFirst"
+      }
+    ]
+  }
+]

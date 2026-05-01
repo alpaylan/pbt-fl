@@ -1,0 +1,122 @@
+[
+  {
+    "language": "Python",
+    "workload": "inflect",
+    "mode": "Solve",
+    "mutations": [
+      "plural_apostrophe_no_crash_498619b_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "PluralApostropheNoCrash"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "PluralApostropheNoCrash"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "inflect",
+    "mode": "Solve",
+    "mutations": [
+      "a_not_incorrectly_abbreviated_924695c_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "IndefArticleAbbrev"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "IndefArticleAbbrev"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "inflect",
+    "mode": "Solve",
+    "mutations": [
+      "ordinal_accepts_numeric_27b2157_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "OrdinalAcceptsNumeric"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "OrdinalAcceptsNumeric"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "inflect",
+    "mode": "Solve",
+    "mutations": [
+      "shoes_is_plverb_oe_36269c1_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "PluralShoeReturnsShoes"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "PluralShoeReturnsShoes"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "inflect",
+    "mode": "Solve",
+    "mutations": [
+      "pound_force_pluralizes_pound_f87c0b9_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "PoundForcePluralizesPound"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "PoundForcePluralizesPound"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "inflect",
+    "mode": "Solve",
+    "mutations": [
+      "louse_lice_plural_8d610f3_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "LouseLicePlural"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "LouseLicePlural"
+      }
+    ]
+  }
+]

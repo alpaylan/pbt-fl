@@ -1,0 +1,142 @@
+[
+  {
+    "language": "Python",
+    "workload": "funcy",
+    "mode": "Solve",
+    "mutations": [
+      "walk_values_defaultdict_factory_c245b04_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "WalkValuesDefaultdictFactory"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "WalkValuesDefaultdictFactory"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "funcy",
+    "mode": "Solve",
+    "mutations": [
+      "flatten_follow_argument_54ed07a_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "FlattenFollowArgument"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "FlattenFollowArgument"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "funcy",
+    "mode": "Solve",
+    "mutations": [
+      "iffy_default_argument_77e4c5e_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "IffyDefaultArgument"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "IffyDefaultArgument"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "funcy",
+    "mode": "Solve",
+    "mutations": [
+      "empty_iterators_4a5e9df_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "EmptyOnIterators"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "EmptyOnIterators"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "funcy",
+    "mode": "Solve",
+    "mutations": [
+      "partition_by_extended_mapper_7729f8d_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "PartitionByExtendedMapper"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "PartitionByExtendedMapper"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "funcy",
+    "mode": "Solve",
+    "mutations": [
+      "where_nonexistent_keys_e068b64_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "WhereNonexistentKeys"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "WhereNonexistentKeys"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "funcy",
+    "mode": "Solve",
+    "mutations": [
+      "cache_mixed_args_592b6ea_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "CacheMixedArgs"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "CacheMixedArgs"
+      }
+    ]
+  }
+]

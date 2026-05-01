@@ -1,0 +1,282 @@
+[
+  {
+    "language": "Python",
+    "workload": "boltons",
+    "mode": "Solve",
+    "mutations": [
+      "barrellist_sort_drops_lists_b8855d7_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "BarrelListSortPreservesElements"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "BarrelListSortPreservesElements"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "boltons",
+    "mode": "Solve",
+    "mutations": [
+      "table_to_text_row_widths_0c88f25_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "TableToTextColumnsAlign"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "TableToTextColumnsAlign"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "boltons",
+    "mode": "Solve",
+    "mutations": [
+      "onetoone_update_unbound_keys_vals_6cac49c_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "OneToOneUpdateEmptyOk"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "OneToOneUpdateEmptyOk"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "boltons",
+    "mode": "Solve",
+    "mutations": [
+      "bits_as_list_truncates_zero_pad_40a7b47_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "BitsAsListLengthMatches"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "BitsAsListLengthMatches"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "boltons",
+    "mode": "Solve",
+    "mutations": [
+      "daterange_inclusive_same_start_stop_93185b2_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "DaterangeSameStartStopTerminates"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "DaterangeSameStartStopTerminates"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "boltons",
+    "mode": "Solve",
+    "mutations": [
+      "indexed_set_index_ignores_dead_4457dec_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "IndexedSetIndexAfterRemovals"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "IndexedSetIndexAfterRemovals"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "boltons",
+    "mode": "Solve",
+    "mutations": [
+      "singularize_senses_to_sens_d056712_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "SingularizeSensesIsSense"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "SingularizeSensesIsSense"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "boltons",
+    "mode": "Solve",
+    "mutations": [
+      "omd_setdefault_returns_default_b1df971_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "OmdSetdefaultReturnsStored"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "OmdSetdefaultReturnsStored"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "boltons",
+    "mode": "Solve",
+    "mutations": [
+      "daterange_finished_arity_mismatch_139d5dc_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "DaterangeInfiniteIterates"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "DaterangeInfiniteIterates"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "boltons",
+    "mode": "Solve",
+    "mutations": [
+      "bytes2human_size_ranges_consumed_0082e13_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "Bytes2HumanIsRepeatable"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "Bytes2HumanIsRepeatable"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "boltons",
+    "mode": "Solve",
+    "mutations": [
+      "remap_set_passes_pairs_to_update_f74b7e5_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "RemapPreservesSet"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "RemapPreservesSet"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "boltons",
+    "mode": "Solve",
+    "mutations": [
+      "omd_eq_raises_on_non_iterable_31873ae_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "OmdEqHandlesNonIterable"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "OmdEqHandlesNonIterable"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "boltons",
+    "mode": "Solve",
+    "mutations": [
+      "stats_quantile_empty_raises_a13bfb1_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "StatsQuantileEmptyReturnsDefault"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "StatsQuantileEmptyReturnsDefault"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "workload": "boltons",
+    "mode": "Solve",
+    "mutations": [
+      "lru_repr_swaps_max_size_on_miss_bad95b6_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "hypothesis",
+        "property": "LruReprFieldOrder"
+      },
+      {
+        "strategy": "crosshair",
+        "property": "LruReprFieldOrder"
+      }
+    ]
+  }
+]
