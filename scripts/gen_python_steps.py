@@ -29,17 +29,21 @@ FAULTLOC = Path(__file__).resolve().parent.parent
 
 STEPS_JSON = {
     "setup_steps": [
+        # etna's `build()` overrides current_dir to the workload root, so
+        # `run_at` is ignored for setup/build steps. Wrap in bash -c so the
+        # cd is encoded in the command — matches the Cedar / Lean pattern.
         {
             "Command": {
-                "command": "uv",
-                "args": ["sync"],
-                "run_at": "${workload_path}/etna",
+                "command": "bash",
+                "args": ["-c", "cd etna && uv sync"],
             }
         }
     ],
     "build_steps": [],
     "capabilities": {
         "solve": [
+            # Run-step `run_at` IS respected (different code path), so the
+            # solve command can use it directly.
             {
                 "Command": {
                     "command": "uv",
