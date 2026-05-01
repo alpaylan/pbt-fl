@@ -44,26 +44,6 @@
     "workload": "python-slugify",
     "mode": "Solve",
     "mutations": [
-      "regex_pattern_cli_ignored_7edf477f_1"
-    ],
-    "trials": 10,
-    "timeout": 600,
-    "tasks": [
-      {
-        "strategy": "hypothesis",
-        "property": "CliRegexPatternForwarded"
-      },
-      {
-        "strategy": "crosshair",
-        "property": "CliRegexPatternForwarded"
-      }
-    ]
-  },
-  {
-    "language": "Python",
-    "workload": "python-slugify",
-    "mode": "Solve",
-    "mutations": [
       "normalize_accents_twice_e52c35e3_1"
     ],
     "trials": 10,
