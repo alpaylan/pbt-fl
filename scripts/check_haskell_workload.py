@@ -202,14 +202,17 @@ class Checker:
             if not patch_path.exists():
                 self.fail(f"variant {variant}: patch file missing: {patch_rel}")
                 continue
+            # Forward direction: etna's driver runs `git apply <patch>`
+            # (no -R) for kind="patch" variants, so the patch must
+            # forward-apply to install the bug into the base (fixed) tree.
             res = subprocess.run(
-                ["git", "-C", str(self.root), "apply", "--check", "-R",
+                ["git", "-C", str(self.root), "apply", "--check",
                  "--whitespace=nowarn", str(patch_path)],
                 capture_output=True, text=True,
             )
             if res.returncode != 0:
                 self.fail(
-                    f"variant {variant}: patch does not apply in reverse "
+                    f"variant {variant}: patch does not apply forward "
                     f"against base — patch may need re-synthesis. stderr: "
                     f"{res.stderr.strip()[:300]}"
                 )
