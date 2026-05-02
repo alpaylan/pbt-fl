@@ -1,0 +1,86 @@
+[
+  {
+    "language": "Haskell",
+    "workload": "bytestring-trie",
+    "mode": "Solve",
+    "mutations": [
+      "mergeby_arg_order_68ef3934_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "MergeByLeftBiased"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "MergeByLeftBiased"
+      },
+      {
+        "strategy": "falsify",
+        "property": "MergeByLeftBiased"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "MergeByLeftBiased"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "bytestring-trie",
+    "mode": "Solve",
+    "mutations": [
+      "delete_submap_keeps_children_c7caacad_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "DeleteSubmapRemovesAllPrefixed"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "DeleteSubmapRemovesAllPrefixed"
+      },
+      {
+        "strategy": "falsify",
+        "property": "DeleteSubmapRemovesAllPrefixed"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "DeleteSubmapRemovesAllPrefixed"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "bytestring-trie",
+    "mode": "Solve",
+    "mutations": [
+      "merge_maybe_drops_left_only_10bfe2dd_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "MergeByLeftBiased"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "MergeByLeftBiased"
+      },
+      {
+        "strategy": "falsify",
+        "property": "MergeByLeftBiased"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "MergeByLeftBiased"
+      }
+    ]
+  }
+]

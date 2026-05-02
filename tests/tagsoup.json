@@ -1,0 +1,86 @@
+[
+  {
+    "language": "Haskell",
+    "workload": "tagsoup",
+    "mode": "Solve",
+    "mutations": [
+      "escape_quote_xml_f37c174_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "EscapeQuoteApostropheSafe"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "EscapeQuoteApostropheSafe"
+      },
+      {
+        "strategy": "falsify",
+        "property": "EscapeQuoteApostropheSafe"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "EscapeQuoteApostropheSafe"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "tagsoup",
+    "mode": "Solve",
+    "mutations": [
+      "uppercase_hex_entity_6cd85ac6_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "LookupNumericEntityCaseInsensitivePrefix"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "LookupNumericEntityCaseInsensitivePrefix"
+      },
+      {
+        "strategy": "falsify",
+        "property": "LookupNumericEntityCaseInsensitivePrefix"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "LookupNumericEntityCaseInsensitivePrefix"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "tagsoup",
+    "mode": "Solve",
+    "mutations": [
+      "chr_oob_overflow_synth_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "LookupNumericEntityNoCrash"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "LookupNumericEntityNoCrash"
+      },
+      {
+        "strategy": "falsify",
+        "property": "LookupNumericEntityNoCrash"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "LookupNumericEntityNoCrash"
+      }
+    ]
+  }
+]

@@ -303,7 +303,8 @@ GITIGNORE_LINES = [
     ".ruff_cache/",
     "etna/__pycache__/",
     "etna/.venv/",
-    "etna/uv.lock",
+    # NOTE: etna/uv.lock is intentionally NOT ignored — pin hypothesis-crosshair
+    # versions for reproducibility. The fork-push script enforces this.
     "etna/dist/",
     "etna/*.egg-info/",
 ]

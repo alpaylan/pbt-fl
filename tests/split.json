@@ -1,0 +1,58 @@
+[
+  {
+    "language": "Haskell",
+    "workload": "split",
+    "mode": "Solve",
+    "mutations": [
+      "drop_final_blank_empty_list_6da4473_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "DropFinalBlankEmptyList"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "DropFinalBlankEmptyList"
+      },
+      {
+        "strategy": "falsify",
+        "property": "DropFinalBlankEmptyList"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "DropFinalBlankEmptyList"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "split",
+    "mode": "Solve",
+    "mutations": [
+      "unintercalate_inverse_82edf4e_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "UnintercalateIsInverseOfIntercalate"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "UnintercalateIsInverseOfIntercalate"
+      },
+      {
+        "strategy": "falsify",
+        "property": "UnintercalateIsInverseOfIntercalate"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "UnintercalateIsInverseOfIntercalate"
+      }
+    ]
+  }
+]

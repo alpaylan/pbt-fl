@@ -1,0 +1,226 @@
+[
+  {
+    "language": "Haskell",
+    "workload": "pretty-show",
+    "mode": "Solve",
+    "mutations": [
+      "relax_parser_atoms_879d764d_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "AtomSequenceParses"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "AtomSequenceParses"
+      },
+      {
+        "strategy": "falsify",
+        "property": "AtomSequenceParses"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "AtomSequenceParses"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "pretty-show",
+    "mode": "Solve",
+    "mutations": [
+      "ratio_round_trip_a0e39e1c_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "RatioRoundTrip"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "RatioRoundTrip"
+      },
+      {
+        "strategy": "falsify",
+        "property": "RatioRoundTrip"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "RatioRoundTrip"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "pretty-show",
+    "mode": "Solve",
+    "mutations": [
+      "unary_minus_precedence_aefc6dfc_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "NegInRatioParses"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "NegInRatioParses"
+      },
+      {
+        "strategy": "falsify",
+        "property": "NegInRatioParses"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "NegInRatioParses"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "pretty-show",
+    "mode": "Solve",
+    "mutations": [
+      "reserved_op_infix_122936f1_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "ReservedOpInfixParses"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "ReservedOpInfixParses"
+      },
+      {
+        "strategy": "falsify",
+        "property": "ReservedOpInfixParses"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "ReservedOpInfixParses"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "pretty-show",
+    "mode": "Solve",
+    "mutations": [
+      "varsym_infix_4a810ee5_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "VarsymInfixParses"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "VarsymInfixParses"
+      },
+      {
+        "strategy": "falsify",
+        "property": "VarsymInfixParses"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "VarsymInfixParses"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "pretty-show",
+    "mode": "Solve",
+    "mutations": [
+      "reserved_id_con_cfb8b434_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "ReservedIdConParses"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "ReservedIdConParses"
+      },
+      {
+        "strategy": "falsify",
+        "property": "ReservedIdConParses"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "ReservedIdConParses"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "pretty-show",
+    "mode": "Solve",
+    "mutations": [
+      "constructor_extra_args_6fb39a38_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "ConstructorExtraArgs"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "ConstructorExtraArgs"
+      },
+      {
+        "strategy": "falsify",
+        "property": "ConstructorExtraArgs"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "ConstructorExtraArgs"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "pretty-show",
+    "mode": "Solve",
+    "mutations": [
+      "hex_literal_join_546f1862_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "HexLiteralJoin"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "HexLiteralJoin"
+      },
+      {
+        "strategy": "falsify",
+        "property": "HexLiteralJoin"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "HexLiteralJoin"
+      }
+    ]
+  }
+]

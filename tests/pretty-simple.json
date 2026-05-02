@@ -1,0 +1,58 @@
+[
+  {
+    "language": "Haskell",
+    "workload": "pretty-simple",
+    "mode": "Solve",
+    "mutations": [
+      "parse_other_greedy_3adbc187_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "IdentifierNotSplit"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "IdentifierNotSplit"
+      },
+      {
+        "strategy": "falsify",
+        "property": "IdentifierNotSplit"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "IdentifierNotSplit"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "pretty-simple",
+    "mode": "Solve",
+    "mutations": [
+      "parse_other_apostrophe_7639db45_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "ApostropheInIdentifier"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "ApostropheInIdentifier"
+      },
+      {
+        "strategy": "falsify",
+        "property": "ApostropheInIdentifier"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "ApostropheInIdentifier"
+      }
+    ]
+  }
+]

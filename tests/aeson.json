@@ -1,0 +1,30 @@
+[
+  {
+    "language": "Haskell",
+    "workload": "aeson",
+    "mode": "Solve",
+    "mutations": [
+      "parse_qoy_lowercase_only_f625f493_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "QuarterOfYearCaseInsensitive"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "QuarterOfYearCaseInsensitive"
+      },
+      {
+        "strategy": "falsify",
+        "property": "QuarterOfYearCaseInsensitive"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "QuarterOfYearCaseInsensitive"
+      }
+    ]
+  }
+]

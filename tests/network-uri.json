@@ -1,0 +1,30 @@
+[
+  {
+    "language": "Haskell",
+    "workload": "network-uri",
+    "mode": "Solve",
+    "mutations": [
+      "segments_drop_trailing_8dcbd7fe_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "PathSegmentsRoundTrip"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "PathSegmentsRoundTrip"
+      },
+      {
+        "strategy": "falsify",
+        "property": "PathSegmentsRoundTrip"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "PathSegmentsRoundTrip"
+      }
+    ]
+  }
+]

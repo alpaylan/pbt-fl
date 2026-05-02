@@ -1,0 +1,142 @@
+[
+  {
+    "language": "Haskell",
+    "workload": "email-validate",
+    "mode": "Solve",
+    "mutations": [
+      "remove_local_length_check_655883ca_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "LocalPartUnder64"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "LocalPartUnder64"
+      },
+      {
+        "strategy": "falsify",
+        "property": "LocalPartUnder64"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "LocalPartUnder64"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "email-validate",
+    "mode": "Solve",
+    "mutations": [
+      "remove_total_length_check_655883ca_2"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "TotalUnder254"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "TotalUnder254"
+      },
+      {
+        "strategy": "falsify",
+        "property": "TotalUnder254"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "TotalUnder254"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "email-validate",
+    "mode": "Solve",
+    "mutations": [
+      "remove_label_length_check_fcef63cc_2"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "DomainLabelUnder63"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "DomainLabelUnder63"
+      },
+      {
+        "strategy": "falsify",
+        "property": "DomainLabelUnder63"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "DomainLabelUnder63"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "email-validate",
+    "mode": "Solve",
+    "mutations": [
+      "remove_label_hyphen_check_fcef63cc_3"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "DomainLabelNoTrailingHyphen"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "DomainLabelNoTrailingHyphen"
+      },
+      {
+        "strategy": "falsify",
+        "property": "DomainLabelNoTrailingHyphen"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "DomainLabelNoTrailingHyphen"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "email-validate",
+    "mode": "Solve",
+    "mutations": [
+      "relax_domain_to_dotted_atoms_070763d6_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "DomainNameAlphanumeric"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "DomainNameAlphanumeric"
+      },
+      {
+        "strategy": "falsify",
+        "property": "DomainNameAlphanumeric"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "DomainNameAlphanumeric"
+      }
+    ]
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "language": "Haskell",
+    "workload": "mod",
+    "mode": "Solve",
+    "mutations": [
+      "invert_mod_unit_86672749_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "InvertModNaturalUnit"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "InvertModNaturalUnit"
+      },
+      {
+        "strategy": "falsify",
+        "property": "InvertModNaturalUnit"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "InvertModNaturalUnit"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "mod",
+    "mode": "Solve",
+    "mutations": [
+      "invert_mod_unit_86672749_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "InvertModWordUnit"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "InvertModWordUnit"
+      },
+      {
+        "strategy": "falsify",
+        "property": "InvertModWordUnit"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "InvertModWordUnit"
+      }
+    ]
+  }
+]

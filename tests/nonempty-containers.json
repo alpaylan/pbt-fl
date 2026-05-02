@@ -1,0 +1,226 @@
+[
+  {
+    "language": "Haskell",
+    "workload": "nonempty-containers",
+    "mode": "Solve",
+    "mutations": [
+      "delete_max_nemap_singleton_ccc4283_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "DeleteMaxNeMapKeysShrink"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "DeleteMaxNeMapKeysShrink"
+      },
+      {
+        "strategy": "falsify",
+        "property": "DeleteMaxNeMapKeysShrink"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "DeleteMaxNeMapKeysShrink"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "nonempty-containers",
+    "mode": "Solve",
+    "mutations": [
+      "delete_max_neintmap_singleton_ccc4283_2"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "DeleteMaxNeIntMapKeysShrink"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "DeleteMaxNeIntMapKeysShrink"
+      },
+      {
+        "strategy": "falsify",
+        "property": "DeleteMaxNeIntMapKeysShrink"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "DeleteMaxNeIntMapKeysShrink"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "nonempty-containers",
+    "mode": "Solve",
+    "mutations": [
+      "delete_max_neset_singleton_ccc4283_3"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "DeleteMaxNeSetShrink"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "DeleteMaxNeSetShrink"
+      },
+      {
+        "strategy": "falsify",
+        "property": "DeleteMaxNeSetShrink"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "DeleteMaxNeSetShrink"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "nonempty-containers",
+    "mode": "Solve",
+    "mutations": [
+      "delete_max_neintset_singleton_ccc4283_4"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "DeleteMaxNeIntSetShrink"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "DeleteMaxNeIntSetShrink"
+      },
+      {
+        "strategy": "falsify",
+        "property": "DeleteMaxNeIntSetShrink"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "DeleteMaxNeIntSetShrink"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "nonempty-containers",
+    "mode": "Solve",
+    "mutations": [
+      "neseq_intersperse_singleton_90ad8f2_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "IntersperseLengthInvariant"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "IntersperseLengthInvariant"
+      },
+      {
+        "strategy": "falsify",
+        "property": "IntersperseLengthInvariant"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "IntersperseLengthInvariant"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "nonempty-containers",
+    "mode": "Solve",
+    "mutations": [
+      "nemap_split_gt_9d516da_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "SplitLeftPartitionAtUpperBound"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "SplitLeftPartitionAtUpperBound"
+      },
+      {
+        "strategy": "falsify",
+        "property": "SplitLeftPartitionAtUpperBound"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "SplitLeftPartitionAtUpperBound"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "nonempty-containers",
+    "mode": "Solve",
+    "mutations": [
+      "nemap_issubmap_swap_967de8b_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "IsSubmapOfReflexiveAndKeyExists"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "IsSubmapOfReflexiveAndKeyExists"
+      },
+      {
+        "strategy": "falsify",
+        "property": "IsSubmapOfReflexiveAndKeyExists"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "IsSubmapOfReflexiveAndKeyExists"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "nonempty-containers",
+    "mode": "Solve",
+    "mutations": [
+      "neintmap_updlookup_return_23a26d6_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "UpdateLookupReturnsOriginal"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "UpdateLookupReturnsOriginal"
+      },
+      {
+        "strategy": "falsify",
+        "property": "UpdateLookupReturnsOriginal"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "UpdateLookupReturnsOriginal"
+      }
+    ]
+  }
+]

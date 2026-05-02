@@ -1,0 +1,86 @@
+[
+  {
+    "language": "Haskell",
+    "workload": "pqueue",
+    "mode": "Solve",
+    "mutations": [
+      "mapmaybe_buggy_8fd23ba6_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "MapMaybeMinMatchesList"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "MapMaybeMinMatchesList"
+      },
+      {
+        "strategy": "falsify",
+        "property": "MapMaybeMinMatchesList"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "MapMaybeMinMatchesList"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "pqueue",
+    "mode": "Solve",
+    "mutations": [
+      "mapmaybe_buggy_8fd23ba6_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "MapEitherMinPartitions"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "MapEitherMinPartitions"
+      },
+      {
+        "strategy": "falsify",
+        "property": "MapEitherMinPartitions"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "MapEitherMinPartitions"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "pqueue",
+    "mode": "Solve",
+    "mutations": [
+      "mapmaybe_buggy_8fd23ba6_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "PrioMapMaybeWithKey"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "PrioMapMaybeWithKey"
+      },
+      {
+        "strategy": "falsify",
+        "property": "PrioMapMaybeWithKey"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "PrioMapMaybeWithKey"
+      }
+    ]
+  }
+]

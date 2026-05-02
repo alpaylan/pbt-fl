@@ -1,0 +1,58 @@
+[
+  {
+    "language": "Haskell",
+    "workload": "chimera",
+    "mode": "Solve",
+    "mutations": [
+      "wheel210_table_non_monotone_73b5020a_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "ToWheel210Monotonic"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "ToWheel210Monotonic"
+      },
+      {
+        "strategy": "falsify",
+        "property": "ToWheel210Monotonic"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "ToWheel210Monotonic"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "chimera",
+    "mode": "Solve",
+    "mutations": [
+      "from_infinite_off_by_one_ecacbd14_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "FromInfiniteIndexEqualsHead"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "FromInfiniteIndexEqualsHead"
+      },
+      {
+        "strategy": "falsify",
+        "property": "FromInfiniteIndexEqualsHead"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "FromInfiniteIndexEqualsHead"
+      }
+    ]
+  }
+]

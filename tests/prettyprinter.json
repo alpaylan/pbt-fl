@@ -1,0 +1,114 @@
+[
+  {
+    "language": "Haskell",
+    "workload": "prettyprinter",
+    "mode": "Solve",
+    "mutations": [
+      "ribbon_width_round_d4cd9e1f_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "RibbonWidthFloor"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "RibbonWidthFloor"
+      },
+      {
+        "strategy": "falsify",
+        "property": "RibbonWidthFloor"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "RibbonWidthFloor"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "prettyprinter",
+    "mode": "Solve",
+    "mutations": [
+      "fuse_annotated_drops_content_b2c0a91e_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "FuseAnnotatedDocs"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "FuseAnnotatedDocs"
+      },
+      {
+        "strategy": "falsify",
+        "property": "FuseAnnotatedDocs"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "FuseAnnotatedDocs"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "prettyprinter",
+    "mode": "Solve",
+    "mutations": [
+      "alter_annotations_unbalanced_a3fc77b1_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "AlterAnnotationsBalanced"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "AlterAnnotationsBalanced"
+      },
+      {
+        "strategy": "falsify",
+        "property": "AlterAnnotationsBalanced"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "AlterAnnotationsBalanced"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "prettyprinter",
+    "mode": "Solve",
+    "mutations": [
+      "rtw_indent_carries_to_blank_e7d52f8a_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "RtwIndentBlankLines"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "RtwIndentBlankLines"
+      },
+      {
+        "strategy": "falsify",
+        "property": "RtwIndentBlankLines"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "RtwIndentBlankLines"
+      }
+    ]
+  }
+]

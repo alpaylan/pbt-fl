@@ -1,0 +1,86 @@
+[
+  {
+    "language": "Haskell",
+    "workload": "psqueues",
+    "mode": "Solve",
+    "mutations": [
+      "ord_psq_from_list_37c12f5_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "OrdPsqFromListLastOccurrenceWins"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "OrdPsqFromListLastOccurrenceWins"
+      },
+      {
+        "strategy": "falsify",
+        "property": "OrdPsqFromListLastOccurrenceWins"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "OrdPsqFromListLastOccurrenceWins"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "psqueues",
+    "mode": "Solve",
+    "mutations": [
+      "hash_psq_insert_equal_priority_c107f38_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "HashPsqInsertEqualPriorityKeyTieBreak"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "HashPsqInsertEqualPriorityKeyTieBreak"
+      },
+      {
+        "strategy": "falsify",
+        "property": "HashPsqInsertEqualPriorityKeyTieBreak"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "HashPsqInsertEqualPriorityKeyTieBreak"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "psqueues",
+    "mode": "Solve",
+    "mutations": [
+      "ord_psq_balance_6a4a2b7_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "OrdPsqBalanceAfterOperations"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "OrdPsqBalanceAfterOperations"
+      },
+      {
+        "strategy": "falsify",
+        "property": "OrdPsqBalanceAfterOperations"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "OrdPsqBalanceAfterOperations"
+      }
+    ]
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "language": "Haskell",
+    "workload": "bitvec",
+    "mode": "Solve",
+    "mutations": [
+      "read_instance_returns_false_779e7d55_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "ReadBitRoundTrip"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "ReadBitRoundTrip"
+      },
+      {
+        "strategy": "falsify",
+        "property": "ReadBitRoundTrip"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "ReadBitRoundTrip"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "bitvec",
+    "mode": "Solve",
+    "mutations": [
+      "f2poly_signum_id_aba8a62f_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "F2PolySignumOne"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "F2PolySignumOne"
+      },
+      {
+        "strategy": "falsify",
+        "property": "F2PolySignumOne"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "F2PolySignumOne"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "bitvec",
+    "mode": "Solve",
+    "mutations": [
+      "bit_index_misses_word_offset_4ce4b318_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "BitIndexWordOffset"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "BitIndexWordOffset"
+      },
+      {
+        "strategy": "falsify",
+        "property": "BitIndexWordOffset"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "BitIndexWordOffset"
+      }
+    ]
+  }
+]

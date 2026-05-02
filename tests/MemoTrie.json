@@ -1,0 +1,30 @@
+[
+  {
+    "language": "Haskell",
+    "workload": "MemoTrie",
+    "mode": "Solve",
+    "mutations": [
+      "integer_instance_word_overflow_1d65a86_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "IntegerTrieRoundTrip"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "IntegerTrieRoundTrip"
+      },
+      {
+        "strategy": "falsify",
+        "property": "IntegerTrieRoundTrip"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "IntegerTrieRoundTrip"
+      }
+    ]
+  }
+]

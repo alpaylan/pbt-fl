@@ -1,0 +1,170 @@
+[
+  {
+    "language": "Haskell",
+    "workload": "uri-bytestring",
+    "mode": "Solve",
+    "mutations": [
+      "userinfo_missing_at_749eda6_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "RoundTripUri"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "RoundTripUri"
+      },
+      {
+        "strategy": "falsify",
+        "property": "RoundTripUri"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "RoundTripUri"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "uri-bytestring",
+    "mode": "Solve",
+    "mutations": [
+      "authority_missing_double_slash_ac784c3_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "RelRefRoundTrip"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "RelRefRoundTrip"
+      },
+      {
+        "strategy": "falsify",
+        "property": "RelRefRoundTrip"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "RelRefRoundTrip"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "uri-bytestring",
+    "mode": "Solve",
+    "mutations": [
+      "relative_ref_drops_port_83adbc7_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "RelRefRoundTrip"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "RelRefRoundTrip"
+      },
+      {
+        "strategy": "falsify",
+        "property": "RelRefRoundTrip"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "RelRefRoundTrip"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "uri-bytestring",
+    "mode": "Solve",
+    "mutations": [
+      "fragment_serialize_no_encode_8e7ef60_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "RoundTripUri"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "RoundTripUri"
+      },
+      {
+        "strategy": "falsify",
+        "property": "RoundTripUri"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "RoundTripUri"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "uri-bytestring",
+    "mode": "Solve",
+    "mutations": [
+      "trailing_ampersand_afc9302_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "QueryNoEmptyPair"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "QueryNoEmptyPair"
+      },
+      {
+        "strategy": "falsify",
+        "property": "QueryNoEmptyPair"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "QueryNoEmptyPair"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "uri-bytestring",
+    "mode": "Solve",
+    "mutations": [
+      "normalization_segs_empty_slash_f52a33f_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "NormalizeRootPathKept"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "NormalizeRootPathKept"
+      },
+      {
+        "strategy": "falsify",
+        "property": "NormalizeRootPathKept"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "NormalizeRootPathKept"
+      }
+    ]
+  }
+]

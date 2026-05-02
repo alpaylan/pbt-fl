@@ -1,0 +1,114 @@
+[
+  {
+    "language": "Haskell",
+    "workload": "algebraic-graphs",
+    "mode": "Solve",
+    "mutations": [
+      "de_bruijn_dim_zero_8e1591a1_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "DeBruijnZeroSelfLoop"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "DeBruijnZeroSelfLoop"
+      },
+      {
+        "strategy": "falsify",
+        "property": "DeBruijnZeroSelfLoop"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "DeBruijnZeroSelfLoop"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "algebraic-graphs",
+    "mode": "Solve",
+    "mutations": [
+      "show_no_parens_f2a9683f_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "ShowWithParens"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "ShowWithParens"
+      },
+      {
+        "strategy": "falsify",
+        "property": "ShowWithParens"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "ShowWithParens"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "algebraic-graphs",
+    "mode": "Solve",
+    "mutations": [
+      "minimum_mempty_pure_e0aa4bee_1"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "MinimumMonoidIdentity"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "MinimumMonoidIdentity"
+      },
+      {
+        "strategy": "falsify",
+        "property": "MinimumMonoidIdentity"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "MinimumMonoidIdentity"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "algebraic-graphs",
+    "mode": "Solve",
+    "mutations": [
+      "extended_zero_times_infinity_e0aa4bee_2"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "ExtendedZeroTimesInfinity"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "ExtendedZeroTimesInfinity"
+      },
+      {
+        "strategy": "falsify",
+        "property": "ExtendedZeroTimesInfinity"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "ExtendedZeroTimesInfinity"
+      }
+    ]
+  }
+]

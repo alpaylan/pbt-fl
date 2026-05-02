@@ -1,0 +1,114 @@
+[
+  {
+    "language": "Haskell",
+    "workload": "cassava",
+    "mode": "Solve",
+    "mutations": [
+      "escaped_trailing_quote"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "EscapedFieldHandlesLoneQuote"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "EscapedFieldHandlesLoneQuote"
+      },
+      {
+        "strategy": "falsify",
+        "property": "EscapedFieldHandlesLoneQuote"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "EscapedFieldHandlesLoneQuote"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "cassava",
+    "mode": "Solve",
+    "mutations": [
+      "foldr_skips_errors"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "FoldrSkipsConversionErrors"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "FoldrSkipsConversionErrors"
+      },
+      {
+        "strategy": "falsify",
+        "property": "FoldrSkipsConversionErrors"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "FoldrSkipsConversionErrors"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "cassava",
+    "mode": "Solve",
+    "mutations": [
+      "foldl_skips_errors"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "FoldlSkipsConversionErrors"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "FoldlSkipsConversionErrors"
+      },
+      {
+        "strategy": "falsify",
+        "property": "FoldlSkipsConversionErrors"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "FoldlSkipsConversionErrors"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "cassava",
+    "mode": "Solve",
+    "mutations": [
+      "custom_delim_unescaped"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "CustomDelimEscaped"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "CustomDelimEscaped"
+      },
+      {
+        "strategy": "falsify",
+        "property": "CustomDelimEscaped"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "CustomDelimEscaped"
+      }
+    ]
+  }
+]

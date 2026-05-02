@@ -1,0 +1,114 @@
+[
+  {
+    "language": "Haskell",
+    "workload": "scientific",
+    "mode": "Solve",
+    "mutations": [
+      "floor_dangerously_small_negative_7d02b9d"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "FloorDangerouslySmallNegative"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "FloorDangerouslySmallNegative"
+      },
+      {
+        "strategy": "falsify",
+        "property": "FloorDangerouslySmallNegative"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "FloorDangerouslySmallNegative"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "scientific",
+    "mode": "Solve",
+    "mutations": [
+      "parse_empty_digit_string_b3af22f"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "ParseEmptyDigitStringRejected"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "ParseEmptyDigitStringRejected"
+      },
+      {
+        "strategy": "falsify",
+        "property": "ParseEmptyDigitStringRejected"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "ParseEmptyDigitStringRejected"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "scientific",
+    "mode": "Solve",
+    "mutations": [
+      "reads_unambiguous_8990216"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "ReadsUnambiguous"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "ReadsUnambiguous"
+      },
+      {
+        "strategy": "falsify",
+        "property": "ReadsUnambiguous"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "ReadsUnambiguous"
+      }
+    ]
+  },
+  {
+    "language": "Haskell",
+    "workload": "scientific",
+    "mode": "Solve",
+    "mutations": [
+      "from_float_digits_zero_0f28347"
+    ],
+    "trials": 10,
+    "timeout": 600,
+    "tasks": [
+      {
+        "strategy": "quickcheck",
+        "property": "FromFloatDigitsRoundTrip"
+      },
+      {
+        "strategy": "hedgehog",
+        "property": "FromFloatDigitsRoundTrip"
+      },
+      {
+        "strategy": "falsify",
+        "property": "FromFloatDigitsRoundTrip"
+      },
+      {
+        "strategy": "smallcheck",
+        "property": "FromFloatDigitsRoundTrip"
+      }
+    ]
+  }
+]

@@ -130,15 +130,21 @@ def run_test(cargo_dir: Path, test_name: str, extra_features: str, log_path: Pat
     env = os.environ.copy()
     env["CARGO_INCREMENTAL"] = "0"
     env["RUSTFLAGS"] = RUSTFLAGS
-    env.setdefault("CRABCHECK_PROFILING_MUTATIONS", "200")
-    env.setdefault("CRABCHECK_PROFILING_INITIAL_PASSES", "20")
-    env.setdefault("CRABCHECK_PROFILING_RANDOM_ITERS", "100")
+    # Match the v2 matrix budget so the rank-with-prior calibration holds.
+    # Lower budgets cause most regions to tie at ochiai=delta=0 and the
+    # rank-1 rules trivially fire HIGH on whichever region sorts first.
+    env.setdefault("CRABCHECK_PROFILING_MUTATIONS", "1000")
+    env.setdefault("CRABCHECK_PROFILING_INITIAL_PASSES", "100")
+    env.setdefault("CRABCHECK_PROFILING_RANDOM_ITERS", "20000")
 
     with open(log_path, "wb") as lf:
         try:
-            subprocess.run(cmd, cwd=cargo_dir, env=env, stdout=lf, stderr=lf, timeout=900)
+            # Cargo test triggers a full instrument-coverage rebuild per variant
+            # (mutation invalidates the cache). With v2-budget iter counts the
+            # combined build+run+analyze can run 15-25 minutes on larger crates.
+            subprocess.run(cmd, cwd=cargo_dir, env=env, stdout=lf, stderr=lf, timeout=2400)
         except subprocess.TimeoutExpired:
-            lf.write(b"\n[driver: TIMEOUT after 900s]\n")
+            lf.write(b"\n[driver: TIMEOUT after 2400s]\n")
             return None
 
     output = log_path.read_text(errors="replace")
