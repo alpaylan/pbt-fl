@@ -15,7 +15,7 @@
 #      etna-ify run).
 set -eu
 
-EXPECTED_ETNA_VERSION="etna 0.1.7"
+EXPECTED_ETNA_VERSION="etna 0.1.14"
 FAULTLOC_ROOT="/Users/akeles/Programming/projects/PbtBenchmark/faultloc"
 
 # 1. etna workload check (manifest + docs).

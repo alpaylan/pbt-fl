@@ -22,6 +22,16 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 WORKLOAD_DIR="${1:-$(dirname "$SCRIPT_DIR")}"
 
+# Some witnesses route through CVC5 (the broad SymCC pipeline property).
+# Auto-detect a cvc5 binary on PATH and export CVC5= for them; without it,
+# those witnesses discard and the buggy-state contract step would falsely
+# pass. Skip silently if CVC5 isn't installed; CI provisions it explicitly.
+if [ -z "${CVC5:-}" ]; then
+  if command -v cvc5 >/dev/null 2>&1; then
+    export CVC5="$(command -v cvc5)"
+  fi
+fi
+
 # Two supported layouts:
 #   Local dev tree:  $WORKLOAD_DIR/.cedar-spec/cedar-lean/  (etnaify_cedar.sh bootstrap)
 #   Forked repo:     $WORKLOAD_DIR/cedar-lean/             (alpaylan/cedar-etna fork)
